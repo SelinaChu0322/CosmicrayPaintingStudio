@@ -45,7 +45,6 @@
             --font-serif: 'Noto Serif TC', serif;
             --font-sans: 'Noto Sans TC', sans-serif;
             --container-width: 1000px; 
-            /* 3. 導覽列高度縮小 */
             --header-height: 70px;    
         }
 
@@ -69,12 +68,16 @@
             font-family: var(--font-serif); 
             font-weight: 600; 
             color: var(--text-heading); 
+            text-align: center; /* 標題預設置中 */
         }
         
-        p { margin-bottom: 1.5rem; text-align: justify; }
+        /* 3. 頁面內容置中：將 justify 改為 center */
+        p { 
+            margin-bottom: 1.5rem; 
+            text-align: center; 
+        }
 
         /* --- UI 元件 --- */
-        /* Container 只負責寬度置中，不再負責背景色 */
         .container {
             max-width: var(--container-width);
             margin: 0 auto;
@@ -139,6 +142,7 @@
             line-height: 1.8;
             scroll-margin-top: 130px;
             border-radius: 0 8px 8px 0;
+            text-align: center; /* 內容置中 */
         }
 
         /* --- Back to Top Button --- */
@@ -186,24 +190,22 @@
 
         .nav-container {
             display: flex;
-            /* 2. 導覽列靠左排列 */
-            justify-content: flex-start;
+            /* 2. 電腦版：Logo與按鈕整體置中 */
+            justify-content: center;
             align-items: center;
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
             height: 100%;
-            /* 2. 統一間距：讓 Logo 與按鈕間距一致 */
             gap: 1.5rem; 
         }
 
         .logo-img {
-            /* 3. Logo 隨導覽列高度縮小 */
             max-height: 50px; 
             width: auto;
             display: block;
-            padding: 0; /* 移除多餘 padding */
+            padding: 0; 
         }
 
         /* 導覽列 */
@@ -214,14 +216,14 @@
 
         nav ul {
             display: flex;
-            gap: 1.5rem; /* 與 nav-container 的 gap 保持一致 */
+            gap: 1.5rem;
             list-style: none;
             margin: 0;
             padding: 0;
         }
 
         nav a {
-            font-size: 1rem; /* 字體稍微縮小配合較矮的導覽列 */
+            font-size: 1rem;
             color: var(--text-primary);
             position: relative;
             font-weight: 500;
@@ -234,7 +236,7 @@
             content: '';
             position: absolute;
             width: 0;
-            height: 2px; /* 線條變細一點 */
+            height: 2px;
             bottom: -5px;
             left: 0;
             background-color: var(--btn-color);
@@ -251,8 +253,7 @@
             cursor: pointer;
             flex-direction: column;
             gap: 5px;
-            /* RWD 時推到最右邊 */
-            margin-left: auto; 
+            margin-left: auto; /* 在手機版推到最右邊 */
         }
         .bar {
             width: 25px;
@@ -263,12 +264,17 @@
 
         /* 響應式導覽列 (Mobile/Tablet) */
         @media (max-width: 1150px) {
+            /* 2. 手機版：Logo靠左，漢堡靠右 (space-between) */
+            .nav-container {
+                justify-content: space-between;
+            }
+
             .hamburger {
                 display: flex;
             }
 
             nav {
-                width: 100%; /* 讓nav佔滿寬度以便定位絕對位置 */
+                width: 100%;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -276,7 +282,7 @@
 
             nav ul {
                 display: none;
-                position: fixed; /* 使用 fixed 避免受父元素影響 */
+                position: fixed;
                 top: var(--header-height);
                 left: 0;
                 width: 100%;
@@ -310,7 +316,7 @@
 
         /* --- Section: Common --- */
         section {
-            width: 100%; /* 1. 滿版寬度 */
+            width: 100%; 
             padding-top: 6rem;
             padding-bottom: 4rem;
             scroll-margin-top: var(--header-height); 
@@ -325,10 +331,9 @@
             position: relative;
         }
 
-        /* 4. 變色區塊：背景色延伸至全寬 */
         #qhht, #charity, #about {
             background-color: var(--bg-section-dark);
-            padding-bottom: 6rem; /* 視覺調整 */
+            padding-bottom: 6rem; 
         }
 
         /* --- Section: Hero --- */
@@ -365,21 +370,55 @@
             font-family: var(--font-serif);
         }
 
+        /* 4. 關鍵字標籤樣式優化 */
         .hero-keywords {
             font-size: 1rem;
             color: var(--text-secondary);
             margin-bottom: 2rem;
             max-width: 800px;
-            line-height: 1.8;
+            line-height: 2;
             background: rgba(255,255,255,0.5);
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px; /* 控制組與組之間的間距 */
         }
-        
-        .hero-keywords span {
+
+        .kw-group {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .kw-sep {
             margin: 0 6px;
             color: var(--btn-color);
             font-weight: bold;
+        }
+
+        .group-sep {
+            margin: 0 6px;
+            color: var(--btn-color);
+            font-weight: bold;
+        }
+
+        /* 4. 響應式標籤：手機版強制換行 */
+        @media (max-width: 768px) {
+            .hero-keywords {
+                flex-direction: column; /* 垂直排列 */
+                gap: 0.5rem;
+            }
+            
+            .group-sep {
+                display: none; /* 隱藏組之間的分隔線 */
+            }
+
+            .kw-group {
+                display: block; /* 讓每一組佔滿一行 */
+                width: 100%;
+                text-align: center;
+            }
         }
 
         .hero-qhht-link {
@@ -480,6 +519,7 @@
             font-size: 1.4rem;
             margin-bottom: 1.5rem;
             color: var(--text-heading);
+            text-align: center;
         }
 
         /* --- Process Grid --- */
@@ -502,6 +542,7 @@
             font-size: 1.4rem;
             margin-bottom: 1.5rem;
             color: var(--text-heading);
+            text-align: center;
         }
 
         .process-step {
@@ -512,12 +553,15 @@
             margin-bottom: 0.5rem;
             color: var(--btn-color);
             font-size: 1.1rem;
+            text-align: center;
         }
         .sub-list {
             list-style-type: decimal;
             margin-left: 1.5rem;
             color: var(--text-primary);
             font-size: 0.95rem;
+            /* 列表項目通常靠左較易閱讀，但若需強制置中可加 text-align:center */
+            /* 這裡保持預設或 justify */
         }
 
         .notice-list {
@@ -526,16 +570,15 @@
         .notice-list li {
             margin-bottom: 1.2rem;
             position: relative;
-            padding-left: 2rem;
+            padding-left: 0; /* 移除縮排以配合置中 */
             color: var(--text-primary);
             font-size: 0.95rem;
-            text-align: justify;
+            text-align: center; /* 內容置中 */
         }
         .notice-list li::before {
             content: '★★';
-            position: absolute;
-            left: 0;
-            top: 0;
+            display: block; /* 變為區塊元素以便置中 */
+            margin-bottom: 5px;
             color: var(--highlight-red);
             font-size: 0.8rem;
             letter-spacing: -2px;
@@ -547,14 +590,15 @@
         ul.list-check li {
             margin-bottom: 0.8rem;
             position: relative;
-            padding-left: 1.8rem;
+            padding-left: 0;
             color: var(--text-primary);
             font-weight: 500;
+            text-align: center;
         }
         ul.list-check li::before {
             content: '✓';
-            position: absolute;
-            left: 0;
+            display: inline-block;
+            margin-right: 5px;
             color: var(--btn-color);
             font-size: 1.1rem;
             font-weight: bold;
@@ -574,12 +618,14 @@
             font-family: var(--font-serif);
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
+            text-align: center;
         }
         
         .charity-text {
             line-height: 2.2;
             color: var(--text-primary);
             margin-bottom: 2rem;
+            text-align: center;
         }
         
         .standard-pricing {
@@ -660,7 +706,7 @@
             line-height: 1.6;
         }
 
-        /* --- Footer --- */
+        /* --- Footer (1. 頁尾置中) --- */
         footer {
             background-color: #333;
             color: #F0F0ED;
@@ -712,12 +758,21 @@
         }
         .social-row-bottom a:hover { opacity: 1; color: var(--btn-color); transform: scale(1.1); }
         
+        /* 1. 確保頁尾文字置中 */
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
         .footer-info p {
             font-size: 0.85rem;
             opacity: 0.5;
             margin-bottom: 0.5rem;
             letter-spacing: 0.1em;
-            margin-top: 1rem;
+            text-align: center;
         }
 
     </style>
@@ -757,17 +812,31 @@
 
     <!-- 首頁 Hero -->
     <section id="home">
-        <!-- 注意：Hero 內容需要 container 讓文字置中 -->
+        <!-- Hero 內容區塊本身需設定 flex column 以確保垂直排列且置中 -->
         <div class="container" style="display:flex; flex-direction:column; align-items:center;">
             <img src="Logo1.png" alt="光織舞繪 Logo" class="hero-logo-large">
 
             <h1 class="hero-title">光織舞繪</h1>
             <h2 class="hero-subtitle">Selina Chu｜QHHT 量子催眠師</h2>
             
+            <!-- 4. 關鍵字標籤改寫 (分組結構) -->
             <div class="hero-keywords">
-                量子催眠 <span>|</span> QHHT <span>|</span> 身心體探索 <span>|</span> 前世回溯 <br> 
-                童年回溯 <span>|</span> 星際回溯 <span>|</span> 星際種子 <span>|</span> 朵洛莉絲‧侃南 <br>
-                雙生火焰 <span>|</span> 瑪雅印記解讀師 <span>|</span> 水晶手鍊設計 <span>|</span> 藝術創作
+                <span class="kw-group">量子催眠 <span class="kw-sep">|</span> QHHT</span>
+                <span class="group-sep">|</span>
+                
+                <span class="kw-group">身心體探索 <span class="kw-sep">|</span> 前世回溯</span>
+                <span class="group-sep">|</span>
+                
+                <span class="kw-group">童年回溯 <span class="kw-sep">|</span> 星際回溯</span>
+                <span class="group-sep">|</span>
+                
+                <span class="kw-group">星際種子 <span class="kw-sep">|</span> 朵洛莉絲‧侃南</span>
+                <span class="group-sep">|</span>
+                
+                <span class="kw-group">雙生火焰 <span class="kw-sep">|</span> 瑪雅印記解讀師</span>
+                <span class="group-sep">|</span>
+                
+                <span class="kw-group">水晶手鍊設計 <span class="kw-sep">|</span> 藝術創作</span>
             </div>
             
             <a href="https://members.qhhtofficial.com/members/selinachu0322/" target="_blank" class="hero-qhht-link" title="前往美國QHHT官網頁面">
@@ -783,7 +852,7 @@
         </div>
     </section>
 
-    <!-- 何謂量子催眠 (滿版背景加深) -->
+    <!-- 何謂量子催眠 -->
     <section id="qhht">
         <div class="container">
             <h2 class="section-title">何謂量子催眠療法 (QHHT)</h2>
@@ -798,7 +867,7 @@
                 <h3>量子催眠起源</h3>
                 <p>朵洛莉絲‧侃南與其先生為美國海軍基地工作，以傳統簡單的催眠方式，幫助同袍放鬆或改掉成隱習慣，一次的因緣際會之下，在1968年由醫生轉介一位需要協助的個案，她因緊張性飲食性疾病，造成肥胖、高血壓和遭受腎臟問題，需藉由傳統催眠達到放鬆與改掉不良習慣，卻意外的回溯到個案的前世( 書籍:五世回憶 )。從此在朵洛莉絲‧侃南心中種下想再繼續深入研究前世回溯的種子。</p>
                 <p>朵洛莉絲‧侃南從1979年開始投入前世回溯催眠的領域，經過她近五十年來不斷的精進技術、不同方法的嘗試以及豐富經驗的累積，自創了一套有安全保護且又有效達到療癒的「量子催眠療瘉技術」，全世界只有美國官方的量子催眠具有唯一教授及發予證照的資格。</p>
-                <div class="note-block" style="margin-top: 1rem; padding: 1rem;">
+                <div class="note-block">
                     註：朵洛莉絲‧侃南為「量子催眠療癒」的創始人，專注前世回溯的催眠治療師。撰有19本著作，被翻譯成20多種語言，其中包括：《迴旋宇宙》（三冊）、《地球守護者》、《三波志願者與新地球》等，主題涵蓋生與死、輪迴、人類起源、不明飛行物和外星人、諾斯特拉達穆斯預言等。<a href="https://zh.wikipedia.org/zh-tw/%E6%9C%B5%E6%B4%9B%E8%8E%89%E7%B5%B2%C2%B7%E4%BE%83%E5%8D%97" target="_blank" style="color:var(--btn-color); font-weight:bold; margin-left:5px;">維基百科</a>
                 </div>
             </div>
@@ -808,7 +877,7 @@
                 <p>量子催眠是與每個個案自己的「潛意識」合作，這裡提到的潛意識，與心理學家或傳統醫學專業人士所談到的「潛意識」是不同的，量子催眠提到的潛意識是指個案的高我Higher self，又可稱靈魂、超靈、宇宙意識。</p>
                 <p>量子催眠並不是透過「通靈」、「靈媒」，或是肉身連結任何第三方存在體，它只是讓個案會進入到類似夢遊的狀態(進入Theta腦波)，由個案自己的潛意識安排下，看到「今世過往」、亦或是「前世」或「其他次元/星球」的經歷，進而讓個案了解並療癒今(累)世創傷、病痛以及課題，潛意識(高我)是最熟悉也最了解個案，也是最保護並以無條件的愛給予個案的，祂們(潛意識)也會通過這次催眠態的過程中，給予個案提出問題的答案、課題、人生目的等訊息…以及協助個案在身心靈上的療癒。</p>
                 <p>而催眠師只是協助個案進入夢遊狀態(進入Theta腦波)，與個案的潛意識合作，並進行溝通及提問的角色，且催眠師是無法控制或左右潛意識要給予個案的畫面及答案，完全由個案本身的潛意識(高我)安排，所以不需要擔心被操控，量子催眠不是一種精神控制或者下暗示形式運行的。</p>
-                <div class="note-block" style="margin-top: 1rem; padding: 1rem;">
+                <div class="note-block">
                     註：我們因為受小我(表層意識)保護與蒙蔽、限制性信念以及直覺、感應等能力被遺忘，造成無法直接與潛意識溝通，這也是為了體驗人類(地球)生活所設置的關卡(帷幕)，所以透過量子催眠讓個案達到進入更深層次的意識，祂可以協助我們找到關鍵問題的答案，並即時的得到時心理、身體上的療癒。
                 </div>
             </div>
@@ -821,7 +890,7 @@
             <div class="content-card">
                 <h3>量子催眠中個案是否有意識</h3>
                 <p>量子催眠中，個案就像晚上睡覺在做夢的狀態中，有些人會完全記得，就像旁觀者聽到自己說話，有些人則是可能清醒後只會記得部份，這就像每個人做夢後醒來，記憶會零碎、片段，這需要看每個人的體質不同而論。所以催眠過程中會錄音，可以讓個案回去能反覆聆聽。(因為每次聆聽都會得到不同的見解與訊息，所以每多聆聽一次就等於再療癒一次)</p>
-                <div class="note-block" style="margin-top: 1rem; padding: 1rem;">
+                <div class="note-block">
                     註：2024迎接冥王水瓶的到來，我們與靈魂之間的那層帷幕(面紗)已經越來越薄，很多人在催眠時，表意識都完全清醒，可以直接看到畫面、接收訊息或感受等...資訊的傳遞，當下只要心靈敞開，全然的接受第一個接收到的訊號即可，愈是敞開，得到的資訊愈完整跟清晰。
                 </div>
             </div>
@@ -895,7 +964,7 @@
         </div>
     </section>
 
-    <!-- 公益名額區塊 (滿版背景加深) -->
+    <!-- 公益名額區塊 -->
     <section id="charity">
         <div class="container">
             <h2 class="section-title">目前有限量公益名額 (額滿為止)</h2>
@@ -946,7 +1015,7 @@
         </div>
     </section>
 
-    <!-- ABOUT ME 區塊 (滿版背景加深) -->
+    <!-- ABOUT ME 區塊 -->
     <section id="about">
         <div class="container">
             
