@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>【光織舞繪】量子催眠服務 | Selina Chu</title>
+    <title>【光織舞繪】量子催眠療癒服務 | Selina Chu</title>
     
     <!-- 頁籤圖 -->
     <link rel="icon" href="Logo1.png" type="image/png">
 
     <meta name="keywords" content="量子催眠,QHHT,身心體探索,前世回溯,童年回溯,星際回溯,星際種子,朵洛莉絲‧侃南,雙生火焰,瑪雅印記,水晶手鍊">
-    <meta name="description" content="量子催眠師 - Selina Chu">
+    <meta name="description" content="量子催眠治療師 - Selina Chu">
 
     <!-- 引入字體 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,7 +78,6 @@
 
         .text-center { text-align: center !important; }
         
-        /* 橘紅色粗體樣式 */
         .text-highlight {
             color: var(--btn-color);
             font-weight: 700;
@@ -258,9 +257,9 @@
             position: relative;
         }
 
-        #qhht, #charity, #about {
+        #qhht, #charity, #about, #resources {
             background-color: var(--bg-section-dark);
-            padding-bottom: 10rem; 
+            padding-bottom: 6rem; 
         }
 
         /* --- Hero --- */
@@ -310,6 +309,34 @@
         /* --- About Me --- */
         .about-intro { font-weight: 500; font-size: 1.25rem; margin-bottom: 2.5rem; text-align: center; font-family: var(--font-serif); color: var(--text-heading); line-height: 1.6; }
         .about-collage { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 3rem; display: block; border: 4px solid #fff; }
+
+        /* --- Starseeds Section --- */
+        .starseed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .starseed-link {
+            display: block;
+            background-color: var(--bg-white);
+            border: 1px solid var(--accent-sage);
+            color: var(--text-primary);
+            padding: 1.2rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        
+        .starseed-link:hover {
+            background-color: var(--accent-sage);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
 
         /* --- Process Grid --- */
         .qhht-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 4rem; flex-wrap: wrap; }
@@ -402,6 +429,8 @@
                     <li><a href="#charity">公益名額預約</a></li>
                     <li><a href="#pricing">收費與預約</a></li>
                     <li><a href="#about">ABOUT ME</a></li>
+                    <!-- 1. 新增按鈕 -->
+                    <li><a href="#starseeds">星際靈魂分析</a></li>
                     <li><a href="#resources">更多分享</a></li>
                 </ul>
             </nav>
@@ -648,52 +677,84 @@
         </div>
     </section>
 
-    <!-- 更多資源 -->
-    <section id="resources" class="container">
-        <h2 class="section-title">相關作品與連結</h2>
-        <div class="resource-grid">
+    <!-- 3. 新增區塊：十大星際種子靈魂分析報告 (淺色背景) -->
+    <section id="starseeds">
+        <div class="container">
+            <h2 class="section-title">十大星際種子(Starseed)星際靈魂分析</h2>
             
-            <a href="https://vocus.cc/article/67feada8fd897800017112b8" target="_blank" class="resource-card">
-                <i class="fas fa-sun"></i>
-                <div class="resource-title">瑪雅印記個人解盤</div>
-                <p class="resource-desc">瑪雅圖騰解讀報告</p>
-            </a>
+            <!-- 1. 新增文字敘述 -->
+            <p style="text-align: center; margin-bottom: 2rem;">
+                星際靈魂分析系列報告，聚焦於不同主要星系靈魂的特質與地球使命，<br>
+                包含天狼星、昴宿星團、大角星、獵戶座、天龍座等…星系，<br>
+                協助星際種子辨識自身來源、靈魂天賦與轉化課題。
+            </p>
 
-            <a href="https://vocus.cc/article/67fea929fd8978000170898d" target="_blank" class="resource-card">
-                <i class="fas fa-user-friends"></i>
-                <div class="resource-title">瑪雅印記雙生火焰解盤</div>
-                <p class="resource-desc">瑪雅圖騰解讀報告<br><span class="highlight-note">★只需雙方生日日期(年月日)</span></p>
-            </a>
+            <div class="starseed-grid">
+                <a href="https://vocus.cc/article/68c910cffd89780001a8707a" target="_blank" class="starseed-link">亞特蘭提斯 (Atlantis)</a>
+                <a href="https://vocus.cc/article/6892efeffd89780001bb742c" target="_blank" class="starseed-link">雷姆利亞 (Lemuria)</a>
+                <a href="https://vocus.cc/article/680b832dfd897800011e1c2a" target="_blank" class="starseed-link">天龍座 (Draco) / 龍族</a>
+                <a href="https://vocus.cc/article/6809fc2afd897800018a9bee" target="_blank" class="starseed-link">織女星 (Vega)</a>
+                <a href="https://vocus.cc/article/6800f7b5fd897800010489de" target="_blank" class="starseed-link">天琴星 (Lyra)</a>
+                <a href="https://vocus.cc/article/67fe4f72fd897800015b1468" target="_blank" class="starseed-link">獵戶座 (Orion)</a>
+                <a href="https://vocus.cc/article/67f9091efd897800017d309d" target="_blank" class="starseed-link">大角星 (Arcturus)</a>
+                <a href="https://vocus.cc/article/67f7c07efd8978000132fd8c" target="_blank" class="starseed-link">仙女座 (Andromeda)</a>
+                <a href="https://vocus.cc/article/67f67adefd89780001883708" target="_blank" class="starseed-link">昴宿星團 (Pleiades)</a>
+                <a href="https://vocus.cc/article/67f4a85cfd8978000113a00f" target="_blank" class="starseed-link">天狼星 (Sirius)</a>
+                <a href="https://vocus.cc/article/67c84c0cfd89780001f3dbd7" target="_blank" class="starseed-link">利拉星後裔 (Lyra)</a>
+                <!-- 2. 修改按鈕文字 -->
+                <a href="https://vocus.cc/salon/TwinFlame-Richi/room/Starseed" target="_blank" class="starseed-link">其他Starseed相關內容</a>
+            </div>
+        </div>
+    </section>
 
-            <a href="https://vocus.cc/article/67fea436fd897800016fef6b" target="_blank" class="resource-card">
-                <i class="fas fa-star-and-crescent"></i>
-                <div class="resource-title">星座合盤相位</div>
-                <p class="resource-desc">看雙生火焰關係<br><span class="highlight-note">★必須有雙方出生日、時間、地點</span></p>
-            </a>
+    <!-- 更多資源 (深色背景) -->
+    <section id="resources">
+        <div class="container">
+            <h2 class="section-title">相關工作與作品</h2>
+            <div class="resource-grid">
+                
+                <a href="https://vocus.cc/article/67feada8fd897800017112b8" target="_blank" class="resource-card">
+                    <i class="fas fa-sun"></i>
+                    <div class="resource-title">瑪雅印記個人解盤</div>
+                    <p class="resource-desc">瑪雅圖騰解讀報告</p>
+                </a>
 
-            <a href="https://www.youtube.com/playlist?list=PLoDJTyy-oDfYqKk_jnKrE3_K16XdxcFQ6" target="_blank" class="resource-card">
-                <i class="fab fa-youtube"></i>
-                <div class="resource-title">催眠案例分享影片</div>
-                <p class="resource-desc">觀看真實催眠案例</p>
-            </a>
-            
-            <a href="https://vocus.cc/salon/TwinFlame-Richi" target="_blank" class="resource-card">
-                <i class="fas fa-book-open"></i>
-                <div class="resource-title">VOCUS 宇宙文章</div>
-                <p class="resource-desc">宇宙法則．雙生火焰．星際種子</p>
-            </a>
+                <a href="https://vocus.cc/article/67fea929fd8978000170898d" target="_blank" class="resource-card">
+                    <i class="fas fa-user-friends"></i>
+                    <div class="resource-title">瑪雅印記雙生火焰解盤</div>
+                    <p class="resource-desc">瑪雅圖騰解讀報告<br><span class="highlight-note">★只需雙方生日日期(年月日)</span></p>
+                </a>
 
-            <a href="https://shopee.tw/selinachu0322?categoryId=100009&entryPoint=ShopByPDP&itemId=27458165163" target="_blank" class="resource-card">
-                <i class="fas fa-gem"></i>
-                <div class="resource-title">天然水晶手鍊</div>
-                <p class="resource-desc">款式設計與販售</p>
-            </a>
+                <a href="https://vocus.cc/article/67fea436fd897800016fef6b" target="_blank" class="resource-card">
+                    <i class="fas fa-star-and-crescent"></i>
+                    <div class="resource-title">星座合盤相位</div>
+                    <p class="resource-desc">看雙生火焰關係<br><span class="highlight-note">★必須有雙方出生日、時間、地點</span></p>
+                </a>
 
-            <a href="https://store.line.me/stickershop/author/4179143/zh-Hant" target="_blank" class="resource-card">
-                <i class="far fa-smile"></i>
-                <div class="resource-title">LINE 原創貼圖</div>
-                <p class="resource-desc">Selina 個人創作</p>
-            </a>
+                <a href="https://www.youtube.com/playlist?list=PLoDJTyy-oDfYqKk_jnKrE3_K16XdxcFQ6" target="_blank" class="resource-card">
+                    <i class="fab fa-youtube"></i>
+                    <div class="resource-title">催眠案例分享影片</div>
+                    <p class="resource-desc">觀看真實催眠案例</p>
+                </a>
+                
+                <a href="https://vocus.cc/salon/TwinFlame-Richi" target="_blank" class="resource-card">
+                    <i class="fas fa-book-open"></i>
+                    <div class="resource-title">VOCUS 宇宙文章</div>
+                    <p class="resource-desc">宇宙法則．雙生火焰．星際種子</p>
+                </a>
+
+                <a href="https://shopee.tw/selinachu0322?categoryId=100009&entryPoint=ShopByPDP&itemId=27458165163" target="_blank" class="resource-card">
+                    <i class="fas fa-gem"></i>
+                    <div class="resource-title">天然水晶手鍊</div>
+                    <p class="resource-desc">款式設計與販售</p>
+                </a>
+
+                <a href="https://store.line.me/stickershop/author/4179143/zh-Hant" target="_blank" class="resource-card">
+                    <i class="far fa-smile"></i>
+                    <div class="resource-title">LINE 原創貼圖</div>
+                    <p class="resource-desc">Selina 個人創作</p>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -724,7 +785,7 @@
             
             <div class="footer-info">
                 <p>Copyright © 2025 Selina Chu. All Rights Reserved.</p>
-                <p>量子催眠服務 | 台北/新北</p>
+                <p>量子催眠療癒服務 | 台北/新北</p>
             </div>
         </div>
     </footer>
