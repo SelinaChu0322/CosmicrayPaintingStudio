@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>【光織舞繪】量子催眠服務 | Selina Chu</title>
+    <title>【光織舞繪】量子催眠療癒服務 | Selina Chu</title>
     
     <!-- 頁籤圖 -->
     <link rel="icon" href="Logo1.png" type="image/png">
 
     <meta name="keywords" content="量子催眠,QHHT,身心體探索,前世回溯,童年回溯,星際回溯,星際種子,朵洛莉絲‧侃南,雙生火焰,瑪雅印記,水晶手鍊">
-    <meta name="description" content="量子催眠師 - Selina Chu">
+    <meta name="description" content="量子催眠治療師 - Selina Chu">
 
     <!-- 引入字體 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -232,6 +232,8 @@
                 display: none; position: fixed; top: var(--header-height); left: 0; width: 100%;
                 background-color: var(--bg-color); flex-direction: column; align-items: center;
                 gap: 0; border-top: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                max-height: calc(100vh - var(--header-height));
+                overflow-y: auto;
             }
             nav ul.active { display: flex; }
             nav li { width: 100%; text-align: center; }
@@ -313,29 +315,50 @@
         /* --- Starseeds Section --- */
         .starseed-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
         
         .starseed-link {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
             background-color: var(--bg-white);
             border: 1px solid var(--accent-sage);
             color: var(--text-primary);
-            padding: 1.2rem;
+            padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
-            font-weight: 500;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
         
+        .starseed-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            color: var(--text-heading);
+        }
+
+        .starseed-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: normal;
+            line-height: 1.6;
+        }
+
         .starseed-link:hover {
             background-color: var(--accent-sage);
-            color: white;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .starseed-link:hover .starseed-title,
+        .starseed-link:hover .starseed-desc {
+            color: white;
         }
 
         /* --- Process Grid --- */
@@ -682,29 +705,80 @@
         <div class="container">
             <h2 class="section-title">十大星際種子(Starseed)星際靈魂分析</h2>
             
-            <!-- 1. 新增文字敘述 -->
-            <p style="text-align: center; margin-bottom: 2rem;">
-                星際靈魂分析系列報告，聚焦於不同主要星系靈魂的特質與地球使命，<br>
-                包含天狼星、昴宿星團、大角星、獵戶座、天龍座等…星系，<br>
-                協助星際種子辨識自身來源、靈魂天賦與轉化課題。<br>
-                內容皆由量子催眠師Selina Chu整理與撰寫
-            </p>
+            <div style="text-align: center; margin-bottom: 2rem; line-height: 1.8;">
+                <p>星際靈魂分析（Starseed Analysis），是一種從靈性視角理解靈魂來源、<br>
+                星系記憶與地球使命的分析方式，常見於對星空有強烈熟悉感、<br>
+                對地球制度感到格格不入，或在覺醒歷程中出現星際共鳴的靈魂。</p>
+
+                <p>透過星際靈魂分析，可協助星際種子辨識自身的靈魂特質、<br>
+                原生星系能量、靈魂天賦與此生在地球的學習與服務方向。</p>
+
+                <p>本星際靈魂分析系列由 <strong>QHHT 量子催眠師 Selina Chu</strong> 撰寫與整理，<br>
+                結合量子催眠個案經驗、靈性回溯與星際意識探索，<br>
+                用於協助靈魂覺醒、自我理解與生命方向整合。</p>
+
+                <!-- New Sentence -->
+                <p style="margin-top: 1.5rem; font-weight: 500; color: var(--btn-color);">
+                    11 星系的星際靈魂特質與解析，請參閱下方完整報告：
+                </p>
+            </div>
 
             <div class="starseed-grid">
-                <a href="https://vocus.cc/article/68c910cffd89780001a8707a" target="_blank" class="starseed-link">亞特蘭提斯 (Atlantis)</a>
-                <a href="https://vocus.cc/article/6892efeffd89780001bb742c" target="_blank" class="starseed-link">雷姆利亞 (Lemuria)</a>
-                <a href="https://vocus.cc/article/680b832dfd897800011e1c2a" target="_blank" class="starseed-link">天龍座 (Draco) / 龍族</a>
-                <a href="https://vocus.cc/article/6809fc2afd897800018a9bee" target="_blank" class="starseed-link">織女星 (Vega)</a>
-                <a href="https://vocus.cc/article/6800f7b5fd897800010489de" target="_blank" class="starseed-link">天琴星 (Lyra)</a>
-                <a href="https://vocus.cc/article/67fe4f72fd897800015b1468" target="_blank" class="starseed-link">獵戶座 (Orion)</a>
-                <a href="https://vocus.cc/article/67f9091efd897800017d309d" target="_blank" class="starseed-link">大角星 (Arcturus)</a>
-                <a href="https://vocus.cc/article/67f7c07efd8978000132fd8c" target="_blank" class="starseed-link">仙女座 (Andromeda)</a>
-                <a href="https://vocus.cc/article/67f67adefd89780001883708" target="_blank" class="starseed-link">昴宿星團 (Pleiades)</a>
-                <a href="https://vocus.cc/article/67f4a85cfd8978000113a00f" target="_blank" class="starseed-link">天狼星 (Sirius)</a>
-                <a href="https://vocus.cc/article/67c84c0cfd89780001f3dbd7" target="_blank" class="starseed-link">利拉星後裔 (Lyra)</a>
-                <!-- 2. 修改按鈕文字 -->
-                <a href="https://vocus.cc/salon/TwinFlame-Richi/room/Starseed" target="_blank" class="starseed-link">其他Starseed相關內容</a>
+                <a href="https://vocus.cc/article/68c910cffd89780001a8707a" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🌊 亞特蘭提斯（Atlantis）</div>
+                    <div class="starseed-desc">與古老文明、能量科技、水晶意識與集體記憶甦醒有關，常出現在對失落文明有深刻共鳴的靈魂中。</div>
+                </a>
+                <a href="https://vocus.cc/article/6892efeffd89780001bb742c" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🌸 雷姆利亞（Lemuria）</div>
+                    <div class="starseed-desc">代表母性能量、地球連結與心的文明，常見於具有溫柔療癒特質與自然共感能力的靈魂。</div>
+                </a>
+                <a href="https://vocus.cc/article/680b832dfd897800011e1c2a" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🐉 天龍座（Draco）／龍族</div>
+                    <div class="starseed-desc">與原初力量、守護意識與能量邊界有關，常涉及力量整合、權威課題與深層轉化。</div>
+                </a>
+                <a href="https://vocus.cc/article/6809fc2afd897800018a9bee" target="_blank" class="starseed-link">
+                    <div class="starseed-title">✨ 織女星（Vega）</div>
+                    <div class="starseed-desc">象徵高頻智慧與心智清明，常見於具備洞察力、抽象思考與知識整合能力的靈魂。</div>
+                </a>
+                <a href="https://vocus.cc/article/6800f7b5fd897800010489de" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🎵 天琴星（Lyra）</div>
+                    <div class="starseed-desc">被視為多數星際文明的靈魂起源之一，與原初創傷、純粹意識與靈魂記憶喚醒有關。</div>
+                </a>
+                <a href="https://vocus.cc/article/67fe4f72fd897800015b1468" target="_blank" class="starseed-link">
+                    <div class="starseed-title">⚔ 獵戶座（Orion）</div>
+                    <div class="starseed-desc">涉及權力、衝突與控制議題，常出現在需要學習平衡力量與情感的轉化型靈魂中。</div>
+                </a>
+                <a href="https://vocus.cc/article/67f9091efd897800017d309d" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🌀 大角星（Arcturus）</div>
+                    <div class="starseed-desc">與高維幾何、意識科技與能量轉譯有關，常見於擅長系統化、結構理解與教導的靈魂。</div>
+                </a>
+                <a href="https://vocus.cc/article/67f7c07efd8978000132fd8c" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🌌 仙女座（Andromeda）</div>
+                    <div class="starseed-desc">象徵自由意志與突破限制，常見於不受制於既有框架、渴望新秩序的靈魂。</div>
+                </a>
+                <a href="https://vocus.cc/article/67f67adefd89780001883708" target="_blank" class="starseed-link">
+                    <div class="starseed-title">💗 昴宿星團（Pleiades）</div>
+                    <div class="starseed-desc">與愛、共感與群體意識有關，常見於高敏感、療癒型與支持他人的靈魂。</div>
+                </a>
+                <a href="https://vocus.cc/article/67f4a85cfd8978000113a00f" target="_blank" class="starseed-link">
+                    <div class="starseed-title">💧 天狼星（Sirius）</div>
+                    <div class="starseed-desc">與水元素、心輪覺醒與守護能量有關，常出現在具有穩定療癒與引導特質的靈魂中。</div>
+                </a>
+                <a href="https://vocus.cc/article/67c84c0cfd89780001f3dbd7" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🔔 利拉星後裔（Lyra lineage）</div>
+                    <div class="starseed-desc">指承載天琴星系記憶的靈魂脈絡，常涉及原初分裂、靈魂創傷與回歸整合的歷程。</div>
+                </a>
+                <a href="https://vocus.cc/salon/TwinFlame-Richi/room/Starseed" target="_blank" class="starseed-link">
+                    <div class="starseed-title">其他Starseed相關內容</div>
+                    <div class="starseed-desc">結合量子催眠與多維靈性實踐經驗，幫助星際靈魂整合過去經驗、潛能覺醒，並啟動自我療癒與成長。</div>
+                </a>
             </div>
+
+            <p style="text-align: center; margin-top: 3rem; font-size: 0.9rem; color: var(--text-secondary);">
+                本頁所列各項「星際靈魂分析」內容，<br>
+                由 QHHT 量子催眠師 Selina Chu 規劃與撰寫，<br>
+                並延伸發佈於 vocus 等不同平台，作為系列文章整理。
+            </p>
         </div>
     </section>
 
@@ -786,7 +860,7 @@
             
             <div class="footer-info">
                 <p>Copyright © 2025 Selina Chu. All Rights Reserved.</p>
-                <p>量子催眠服務 | 台北/新北</p>
+                <p>量子催眠療癒服務 | 台北/新北</p>
             </div>
         </div>
     </footer>
