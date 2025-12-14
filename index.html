@@ -113,14 +113,12 @@
             box-shadow: 0 6px 15px rgba(224, 122, 95, 0.4);
         }
         
-        /* 1. 優化後的分隔線：光之流動風格 (漸層線) */
         .divider, .section-title::after {
             content: '';
             display: block;
-            width: 120px; /* 適度加長 */
-            height: 2px;  /* 變細，更優雅 */
+            width: 120px;
+            height: 2px;
             margin: 20px auto 0;
-            /* 左右透明，中間金色的漸層，營造光束感 */
             background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
             opacity: 0.8;
             border-radius: 2px;
@@ -257,6 +255,7 @@
             position: relative;
         }
 
+        /* 背景顏色設定 */
         #qhht, #charity, #about, #resources {
             background-color: var(--bg-section-dark);
             padding-bottom: 6rem; 
@@ -284,17 +283,42 @@
         .mobile-sep { display: none; width: 100%; color: var(--accent-gold); font-weight: 300; margin: -5px 0; line-height: 1; font-size: 0.8em; }
         @media (max-width: 768px) { .desktop-sep { display: none; } .mobile-sep { display: block; } .hero-subtitle { gap: 0; line-height: 1.3; } }
 
+        /* --- Hero Keywords --- */
         .hero-keywords {
-            font-size: 1rem; color: var(--text-secondary); margin-bottom: 2rem; max-width: 800px; line-height: 2;
+            font-size: 1rem; color: var(--text-secondary); margin-bottom: 2rem; max-width: 900px;
             background: rgba(255,255,255,0.5); padding: 1.5rem; border-radius: 8px;
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 5px;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 0;
         }
-        .kw-group { display: inline-block; white-space: nowrap; }
-        .kw-sep, .group-sep { margin: 0 6px; color: var(--btn-color); font-weight: bold; }
+        
+        .kw-row {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            margin: 0 4px;
+        }
+        
+        .kw-mid { margin: 0 8px; color: var(--btn-color); font-weight: bold; }
+        .group-sep { margin: 0 8px; color: var(--text-heading); font-weight: 300; opacity: 0.4; } 
+
+        /* 手機版對齊與切換 */
         @media (max-width: 768px) {
-            .hero-keywords { flex-direction: column; gap: 0.5rem; }
-            .group-sep { display: none; }
-            .kw-group { display: block; width: 100%; text-align: center; }
+            .hero-keywords { 
+                flex-direction: column; 
+                gap: 8px; 
+                width: 100%;
+                padding: 1.2rem 1rem;
+            }
+            .group-sep { display: none; } 
+            .kw-row { 
+                display: grid; 
+                grid-template-columns: 1fr auto 1fr; 
+                width: 100%;
+                margin: 0;
+                gap: 10px;
+            }
+            .kw-left { text-align: right; }
+            .kw-right { text-align: left; }
+            .kw-mid { margin: 0; text-align: center; }
         }
 
         .hero-qhht-link { display: inline-block; text-decoration: none; margin-bottom: 1rem; width: 100%; max-width: 400px; }
@@ -421,8 +445,42 @@
         .footer-info { display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 1rem; }
         .footer-info p { font-size: 0.85rem; opacity: 0.5; margin-bottom: 0.5rem; letter-spacing: 0.1em; text-align: center; }
 
-        /* Back to Top */
-        .scroll-top { position: fixed; bottom: 30px; right: 30px; background-color: var(--btn-color); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 999; font-size: 1.2rem; }
+        /* [MODIFIED] Back to Top - 更新樣式以支援文字顯示 */
+        .scroll-top { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            background-color: var(--btn-color); 
+            color: white; 
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50%; 
+            display: flex; 
+            flex-direction: column; /* 垂直排列 */
+            justify-content: center; 
+            align-items: center; 
+            cursor: pointer; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+            opacity: 0; 
+            visibility: hidden; 
+            transition: all 0.3s ease; 
+            z-index: 999; 
+            font-size: 1rem; /* 稍微縮小預設字體以容納文字 */
+        }
+        
+        .scroll-top i {
+            margin-bottom: -2px; /* 微調 icon 位置 */
+            font-size: 0.9em;
+        }
+
+        .scroll-text {
+            font-size: 0.7rem; /* TOP 字樣大小 */
+            font-weight: 700;
+            line-height: 1;
+            margin-top: 2px;
+            font-family: var(--font-sans);
+        }
+
         .scroll-top.show { opacity: 1; visibility: visible; }
         .scroll-top:hover { background-color: var(--btn-hover); transform: translateY(-5px); }
 
@@ -450,7 +508,6 @@
                     <li><a href="#charity">公益名額預約</a></li>
                     <li><a href="#pricing">收費與預約</a></li>
                     <li><a href="#about">ABOUT ME</a></li>
-                    <!-- 1. 新增按鈕 -->
                     <li><a href="#starseeds">星際靈魂分析</a></li>
                     <li><a href="#resources">探索更多</a></li>
                 </ul>
@@ -458,8 +515,10 @@
         </div>
     </header>
 
+    <!-- [MODIFIED] Back to Top 按鈕 - 增加 "TOP" 字樣 -->
     <a onclick="window.scrollTo(0,0)" class="scroll-top" id="scrollTopBtn">
         <i class="fas fa-chevron-up"></i>
+        <span class="scroll-text">TOP</span>
     </a>
 
     <!-- 首頁 Hero -->
@@ -476,21 +535,60 @@
             </h2>
             
             <div class="hero-keywords">
-                <span class="kw-group">量子催眠 <span class="kw-sep">|</span> QHHT</span>
+                <div class="kw-row">
+                    <span class="kw-left">量子催眠</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">QHHT</span>
+                </div>
                 <span class="group-sep">|</span>
-                <span class="kw-group">身心體探索 <span class="kw-sep">|</span> 前世回溯</span>
+
+                <div class="kw-row">
+                    <span class="kw-left">身心體探索</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">前世回溯</span>
+                </div>
                 <span class="group-sep">|</span>
-                <span class="kw-group">童年回溯 <span class="kw-sep">|</span> 星際回溯</span>
+
+                <div class="kw-row">
+                    <span class="kw-left">童年回溯</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">星際回溯</span>
+                </div>
                 <span class="group-sep">|</span>
-                <span class="kw-group">星際種子 <span class="kw-sep">|</span> 朵洛莉絲‧侃南</span>
+
+                <div class="kw-row">
+                    <span class="kw-left">星際種子</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">朵洛莉絲‧侃南</span>
+                </div>
                 <span class="group-sep">|</span>
-                <span class="kw-group">雙生火焰 <span class="kw-sep">|</span> 雙生火焰合盤解讀師</span>
+                
+                <div class="kw-row">
+                    <span class="kw-left">雙生火焰</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">雙生火焰合盤解讀師</span>
+                </div>
                 <span class="group-sep">|</span>
-                <span class="kw-group">星際種子分析報告 <span class="kw-sep">|</span> 瑪雅印記解讀師</span>
+                
+                <div class="kw-row">
+                    <span class="kw-left">星際種子分析報告</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">瑪雅印記解讀師</span>
+                </div>
                 <span class="group-sep">|</span>
-                <span class="kw-group">宇宙知識報告 <span class="kw-sep">|</span> 直覺說書人</span>
+
+                <div class="kw-row">
+                    <span class="kw-left">宇宙知識報告</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">直覺說書人</span>
+                </div>
                 <span class="group-sep">|</span>
-                <span class="kw-group">藝術創作 <span class="kw-sep">|</span> 水晶手鍊設計</span>
+
+                <div class="kw-row">
+                    <span class="kw-left">藝術創作</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">水晶手鍊設計</span>
+                </div>
             </div>
             
             <a href="https://members.qhhtofficial.com/members/selinachu0322/" target="_blank" class="hero-qhht-link" title="前往美國QHHT官網頁面">
@@ -559,147 +657,154 @@
     </section>
 
     <!-- 催眠前須知 -->
-    <section id="process" class="container">
-        <h2 class="section-title">催眠前須知</h2>
-        
-        <div class="process-grid">
-            <div class="info-card">
-                <h3>療程時間與準備</h3>
-                <p>量子催眠療法(QHHT)創始人<U>朵洛莉絲‧侃南</U>的宗旨是希望個案僅在一次的療程中，回溯過往並完成今世需要被看見與轉化的創傷經驗，以及造成身體不平衡的根源，讓身心靈重新回到和諧狀態，並了解今世的課題與目的，所以必須花費<span class="text-highlight">約4~7個小時不等(10:30~17:30)</span>，進行深入的了解個案(請保持開放及坦誠)，以利於催眠師在過程中協助個案問對問題與正確的取得潛意識(高我)的幫助</p>
-                <p class="text-highlight">★請將預約當天的時間完全空下來並穿著舒適寬鬆的衣褲，也務必先吃飽再過來。</p>
-            </div>
-
-            <div class="info-card">
-                <h3>準備問題清單</h3>
-                <p class="problem-note">★問題清單無限制項目、類型</p>
-                <p class="problem-note">★請於催眠當天將您的問題清單帶來，於進行面談後，再一同檢視。</p>
-                <ul class="list-check">
-                    <li>身體的問題 (任何不適、狀態、不解的意外...)</li>
-                    <li>生命目的／使命／潛能</li>
-                    <li>其他任何想詢問的事 (工作、感情、關係、情緒...)</li>
-                </ul>
-            </div>
-
-            <div class="info-card">
-                <h3>催眠療程三階段</h3>
-                <div class="process-step">
-                    <strong>一、進行面談<br> (1~3小時)</strong>
-                    <p style="margin-bottom:0.5rem;">催眠師了解個案的生活、背景(含相關人物)、身(心)理問題</p>
-                    <ol class="sub-list">
-                        <li>請先回想自己的人生歷程(包含童年、工作、感情、家庭)，重要關係之間的互動等</li>
-                        <li>可攜帶小零食，在進行面談或催眠結束訪談時吃一點，以免第二階段長時間催眠療程中無法進食</li>
-                    </ol>
-                </div>
-                
-                <div class="process-step">
-                    <strong>二、進行催眠<br> (2小時左右)</strong>
-                    <p style="margin-bottom:0.5rem;">此環節會進行錄音，以利個案事後回去聆聽</p>
-                    <ol class="sub-list">
-                        <li>催眠結束後，會協助上傳至雲端提供下載。(僅開放提供個案帳號下載，不需擔心隱私問題)</li>
-                        <li>回去請反覆的聆聽，每次的聆聽可能會得到不同的訊息與見解，每多一次的聆聽也等於再進行療癒一次</li>
-                    </ol>
+    <section id="process">
+        <div class="container">
+            <h2 class="section-title">催眠前須知</h2>
+            
+            <div class="process-grid">
+                <div class="info-card">
+                    <h3>療程時間與準備</h3>
+                    <p>量子催眠療法(QHHT)創始人<U>朵洛莉絲‧侃南</U>的宗旨是希望個案僅在一次的療程中，回溯過往並完成今世需要被看見與轉化的創傷經驗，以及造成身體不平衡的根源，讓身心靈重新回到和諧狀態，並了解今世的課題與目的，所以必須花費<span class="text-highlight">約4~7個小時不等(10:30~17:30)</span>，進行深入的了解個案(請保持開放及坦誠)，以利於催眠師在過程中協助個案問對問題與正確的取得潛意識(高我)的幫助</p>
+                    <p class="text-highlight">★請將預約當天的時間完全空下來並穿著舒適寬鬆的衣褲，也務必先吃飽再過來。</p>
                 </div>
 
-                <div class="process-step">
-                    <strong>三、催眠結束後的訪談<br>(0.5~1小時)</strong>
-                    <p>催眠師會大略說明催眠過程與重點提醒。</p>
+                <div class="info-card">
+                    <h3>準備問題清單</h3>
+                    <p class="problem-note">★問題清單無限制項目、類型</p>
+                    <p class="problem-note">★請於催眠當天將您的問題清單帶來，於進行面談後，再一同檢視。</p>
+                    <ul class="list-check">
+                        <li>身體的問題 (任何不適、狀態、不解的意外...)</li>
+                        <li>生命目的／使命／潛能</li>
+                        <li>其他任何想詢問的事 (工作、感情、關係、情緒...)</li>
+                    </ul>
                 </div>
-            </div>
 
-            <div class="info-card">
-                <h3>其他催眠須知</h3>
-                <ul class="notice-list">
-                    <li>催眠的次數並沒有被限制，必要時，還是可以再次進行催眠，只是希望個案能不要過渡依賴，好好的體驗自己的生活。</li>
-                    <li class="text-highlight"><span class="text-highlight">過程中的訪談、催眠內容等資訊皆為個人隱私，絕對會保密，也絕不容許相關資訊與第三人談論</span></li>
-                    <li>此為催眠者最基本的道德操守，請放心並持開放且信任狀態，催眠中才能達到獲取真正的答案與療癒。</li>
-                    <li>若催眠師欲利用(分享)個案的前世故事、以及其前世故事背後的課題、影響疫病情緒的關聯性等訊息，<span class="text-highlight">發佈於任何公眾平台，必會針求個案同意，並確認公開的內容範圍。</span></li>
-                    <li>催眠過程中非常隱私且必須在無人干擾的狀態下進行，所以請單獨前來，無法有陪同者在場。</li>
-                </ul>
+                <div class="info-card">
+                    <h3>催眠療程三階段</h3>
+                    <div class="process-step">
+                        <strong>一、進行面談<br> (1~3小時)</strong>
+                        <p style="margin-bottom:0.5rem;">催眠師了解個案的生活、背景(含相關人物)、身(心)理問題</p>
+                        <ol class="sub-list">
+                            <li>請先回想自己的人生歷程(包含童年、工作、感情、家庭)，重要關係之間的互動等</li>
+                            <li>可攜帶小零食，在進行面談或催眠結束訪談時吃一點，以免第二階段長時間催眠療程中無法進食</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="process-step">
+                        <strong>二、進行催眠<br> (2小時左右)</strong>
+                        <p style="margin-bottom:0.5rem;">此環節會進行錄音，以利個案事後回去聆聽</p>
+                        <ol class="sub-list">
+                            <li>催眠結束後，會協助上傳至雲端提供下載。(僅開放提供個案帳號下載，不需擔心隱私問題)</li>
+                            <li>回去請反覆的聆聽，每次的聆聽可能會得到不同的訊息與見解，每多一次的聆聽也等於再進行療癒一次</li>
+                        </ol>
+                    </div>
+
+                    <div class="process-step">
+                        <strong>三、催眠結束後的訪談<br>(0.5~1小時)</strong>
+                        <p>催眠師會大略說明催眠過程與重點提醒。</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>其他催眠須知</h3>
+                    <ul class="notice-list">
+                        <li>催眠的次數並沒有被限制，必要時，還是可以再次進行催眠，只是希望個案能不要過渡依賴，好好的體驗自己的生活。</li>
+                        <li class="text-highlight"><span class="text-highlight">過程中的訪談、催眠內容等資訊皆為個人隱私，絕對會保密，也絕不容許相關資訊與第三人談論</span></li>
+                        <li>此為催眠者最基本的道德操守，請放心並持開放且信任狀態，催眠中才能達到獲取真正的答案與療癒。</li>
+                        <li>若催眠師欲利用(分享)個案的前世故事、以及其前世故事背後的課題、影響疫病情緒的關聯性等訊息，<span class="text-highlight">發佈於任何公眾平台，必會針求個案同意，並確認公開的內容範圍。</span></li>
+                        <li>催眠過程中非常隱私且必須在無人干擾的狀態下進行，所以請單獨前來，無法有陪同者在場。</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 公益名額區塊 -->
-    <section id="charity" class="container">
-        <h2 class="section-title">目前有限量公益名額<br>(額滿為止)</h2>
-        
-        <div class="charity-card">
-            <h3 class="charity-title">公益名額說明</h3>
-            <div class="charity-text text-center">
-                無須收費<br> (<span class="text-highlight">僅需負擔承租空間$3,100</span>)<br>
-                催眠地點：台北飯店客房<br><br>
-                請直接加入Line官方帳號進行預約<br>
-                與我確認實際可預約日期<br>
-                並完成預付訂金$2,100<br>
-                才算完成預約喔♥<br><br>
-                完成預約後，請務必詳細閱讀<a href="#process" style="color:var(--btn-color);">「催眠前須知」<i class="fas fa-link" style="font-size:0.8em;"></i></a><br>
-                若有任何問題請直接於Line官方帳號中提問。<br>
-                現正開放預約中！可隨時以LINE輕鬆預約。
-            </div>
+    <section id="charity">
+        <div class="container">
+            <h2 class="section-title">目前有限量公益名額<br>(額滿為止)</h2>
             
-            <a href="https://lin.ee/8sBm6wX" class="btn">
-                Line官方帳號<br>預約
-            </a>
+            <div class="charity-card">
+                <h3 class="charity-title">公益名額說明</h3>
+                <div class="charity-text text-center">
+                    無須收費<br> (<span class="text-highlight">僅需負擔承租空間$3,100</span>)<br>
+                    催眠地點：台北飯店客房<br><br>
+                    請直接加入Line官方帳號進行預約<br>
+                    與我確認實際可預約日期<br>
+                    並完成預付訂金$2,100<br>
+                    才算完成預約喔♥<br><br>
+                    完成預約後，請務必詳細閱讀<a href="#process" style="color:var(--btn-color);">「催眠前須知」<i class="fas fa-link" style="font-size:0.8em;"></i></a><br>
+                    若有任何問題請直接於Line官方帳號中提問。<br>
+                    現正開放預約中！可隨時以LINE輕鬆預約。
+                </div>
+                
+                <a href="https://lin.ee/8sBm6wX" class="btn">
+                    Line官方帳號<br>預約
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- 催眠收費與預約 (標準價格) -->
-    <section id="pricing" class="container">
-        <h2 class="section-title">催眠收費與預約</h2>
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title">催眠收費與預約</h2>
 
-        <div class="standard-pricing">
-            <h3>量子催眠收費 <span class="price-highlight">NT$8,800</span> /次</h3>
-            <h3 style="margin-top: 0.5rem;">第二次以上療程 <span class="price-highlight">NT$6,600</span> /次</h3>
-            <p style="margin-top: 0.2rem; margin-bottom: 2rem; color: var(--text-secondary); text-align: center;">(曾參與公益催眠者亦屬於第二次)</p>
-            
-            <div class="divider"></div>
-            
-            <div class="pricing-details-container">
-                <p>請於加入line官方預約時間之後，先支付<b>訂金4,400</b>，收到訂金後才算預約完成。<br>
-                會於三階段催眠療程完成後再收取<b>尾款$4,400。</b></p>
+            <div class="standard-pricing">
+                <h3>量子催眠收費 <span class="price-highlight">NT$8,800</span> /次</h3>
+                <h3 style="margin-top: 0.5rem;">第二次以上療程 <span class="price-highlight">NT$6,600</span> /次</h3>
+                <p style="margin-top: 0.2rem; margin-bottom: 2rem; color: var(--text-secondary); text-align: center;">(曾參與公益催眠者亦屬於第二次)</p>
                 
-                <div style="font-size: 0.95rem; color: var(--text-secondary); line-height: 2;">
-                    <p class="text-highlight" style="margin-bottom:0.5rem">★無故失約，不退還訂金</p>
-                    <p class="text-highlight" style="margin-bottom:0.5rem">★若真的有需要，有些問題沒有釐清或想再探尋者，可再預約療程</p>
-                    <p class="text-highlight" style="margin-bottom:0.5rem">★不建議長期依賴外部工具協助，療癒98%以上是來自於自己本身，請相信自己內在力量</p>
-                    <p class="text-highlight" style="margin-bottom:0.5rem">★基本上，量子催眠只需要一次的療程就能達到療癒的效果。</p>
+                <div class="divider"></div>
+                
+                <div class="pricing-details-container">
+                    <p>請於加入line官方預約時間之後，先支付<b>訂金4,400</b>，收到訂金後才算預約完成。<br>
+                    會於三階段催眠療程完成後再收取<b>尾款$4,400。</b></p>
+                    
+                    <div style="font-size: 0.95rem; color: var(--text-secondary); line-height: 2;">
+                        <p class="text-highlight" style="margin-bottom:0.5rem">★無故失約，不退還訂金</p>
+                        <p class="text-highlight" style="margin-bottom:0.5rem">★若真的有需要，有些問題沒有釐清或想再探尋者，可再預約療程</p>
+                        <p class="text-highlight" style="margin-bottom:0.5rem">★不建議長期依賴外部工具協助，療癒98%以上是來自於自己本身，請相信自己內在力量</p>
+                        <p class="text-highlight" style="margin-bottom:0.5rem">★基本上，量子催眠只需要一次的療程就能達到療癒的效果。</p>
+                    </div>
                 </div>
-            </div>
 
-            <a href="https://lin.ee/8sBm6wX" class="btn">
-                Line官方帳號<br>預約
-            </a>
+                <a href="https://lin.ee/8sBm6wX" class="btn">
+                    Line官方帳號<br>預約
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- ABOUT ME 區塊 -->
-    <section id="about" class="container">
-        
-        <h2 class="section-title">ABOUT ME</h2>
-        
-        <img src="Selina-Collage.png" alt="Selina Chu Life Photos" class="about-collage">
-
-        <div class="about-content">
-            <p class="about-intro text-center">
-                HI！I AM SELINA CHU <br>
-                原本身為靈性小白的我，是如何踏上靈性之路；成為量子催眠療法的催眠師的呢？
-            </p>
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">ABOUT ME</h2>
             
-            <p>在2021/11/11與我的雙生靈魂(雙生火焰)<a href="#note1" class="sup-note"><sup>[註1]</sup></a>相遇(此時的表層意識並不知道)，我們互相吐露傷痛、彼此吸引、相愛、交往，但卻在2023/06/04我們分離了，我們各自的身心靈、生活(三維世界)都發生了毀滅般的衝擊，我經歷了一個多月的靈魂暗夜(指無法理解自己存在這個世界的意義與價值；以及無法認同這個世界醜陋的部份)，這段期間，我開始接觸了靈性相關的影片，我選擇臣服於當下的狀態，也接受我深愛的他選擇離開，當我臣服時，2023/07/17宇宙讓我發現「高我」<a href="#note2" class="sup-note"><sup>[註2]</sup></a>的存在，以及知道我們是雙生靈魂(祂讓我發現一些共時性的證據)，而我才明白我們的靈魂其實從未分離過。</p>
+            <img src="Selina-Collage.png" alt="Selina Chu Life Photos" class="about-collage">
 
-            <p>自從覺醒後(察覺高我與雙生靈魂)，以前的輕微恐慌症、失眠、情執等恐懼、不安，還有原生家庭等業力，都得到了治癒與釋放，在這段期間，我也看見自己因為這些過往的情緒、創傷中，而產生出的病痛(輕微恐慌症、心悸、甲狀腺結節、巧克力囊腫…等)，還有看到家人、朋友及新聞報導，很多人都因為不同的生理和心理的疾病感到痛苦，而這些病痛一直深深困擾著人們，我很希望讓人們遠離這些痛苦。</p>
+            <div class="about-content">
+                <p class="about-intro text-center">
+                    HI！I AM SELINA CHU <br>
+                    原本身為靈性小白的我，是如何踏上靈性之路；成為量子催眠療法的催眠師的呢？
+                </p>
+                
+                <p>在2021/11/11與我的雙生靈魂(雙生火焰)<a href="#note1" class="sup-note"><sup>[註1]</sup></a>相遇(此時的表層意識並不知道)，我們互相吐露傷痛、彼此吸引、相愛、交往，但卻在2023/06/04我們分離了，我們各自的身心靈、生活(三維世界)都發生了毀滅般的衝擊，我經歷了一個多月的靈魂暗夜(指無法理解自己存在這個世界的意義與價值；以及無法認同這個世界醜陋的部份)，這段期間，我開始接觸了靈性相關的影片，我選擇臣服於當下的狀態，也接受我深愛的他選擇離開，當我臣服時，2023/07/17宇宙讓我發現「高我」<a href="#note2" class="sup-note"><sup>[註2]</sup></a>的存在，以及知道我們是雙生靈魂(祂讓我發現一些共時性的證據)，而我才明白我們的靈魂其實從未分離過。</p>
 
-            <p>原本我一直思考且詢問著高我和宇宙，自己的天賦與使命到底是什麼？然而就在某一天突然想起了「量子催眠」，這是我剛覺醒時接觸到的，因為曾經看到朵洛莉絲·侃南( 量子催眠的創始人 )在某次演講影片中提到「三波志願者與新地球」、「地球守護者」，當時非常吸引我，而且我也立馬火速的看完了這兩本書( 這是朵奶奶蒐集整理出她將近50年催眠案例的書籍 )，雖然有著濃厚的興趣，但是我還是不太確定自己是否適合「量子催眠師」？</p>
-            
-            <p>而就在我反覆思考、提問之後，又突然在某天，宇宙推播一則NHK電視台介紹京都 「不動明王」的影片給我，這尊神的名字其實在很久很久以前曾經自動浮現在我腦海中，那是我第一次也是唯一一次與這尊<a href="http://xhslink.com/o/8zMupt3KkWY" target="_blank" style="border-bottom: 1px dotted var(--text-secondary);">神明的接觸<i class="fas fa-link" style="font-size:0.8em;"></i></a>，而到現在才明白祂其實是我的指導靈，在看完介紹影本之後，更能理解我為什麼那麼想讓人們遠離痛苦了，因為這就是「不動明王」的神性特質，而高我突然給我「量子催眠」的這個訊息，我認為這些過往經歷都絕對不會只是個巧合而已，所以我下定決定成為「量子催眠師」， 讓人們都不再受病痛、情緖、創傷的困擾，能健康、開心的體驗人生！圓滿完成今世的課題！</p>
+                <p>自從覺醒後(察覺高我與雙生靈魂)，以前的輕微恐慌症、失眠、情執等恐懼、不安，還有原生家庭等業力，都得到了治癒與釋放，在這段期間，我也看見自己因為這些過往的情緒、創傷中，而產生出的病痛(輕微恐慌症、心悸、甲狀腺結節、巧克力囊腫…等)，還有看到家人、朋友及新聞報導，很多人都因為不同的生理和心理的疾病感到痛苦，而這些病痛一直深深困擾著人們，我很希望讓人們遠離這些痛苦。</p>
 
-            <div class="note-block">
-                <div id="note1" style="margin-bottom: 1rem;">
-                    <strong>註1：</strong>雙生靈魂(雙生火焰)是同一個靈魂再分裂成兩半，投生在兩個肉體中(但也有可能其中一個未投生的狀況)，靈魂DNA是一模一樣的。<br>
-                    (想了解我的雙生靈魂故事，可以到<a href="https://vocus.cc/salon/TwinFlame-Richi/room/TwinFlame-Richi" target="_blank" style="color:var(--btn-color);">方格子<i class="fas fa-link" style="font-size:0.8em;"></i></a>上觀看文章，但請勿追求與套用在任何戀愛關係中，雙生靈魂是開啟 覺醒、是涅槃重生之路，並非單純戀愛關係)
-                </div>
-                <div id="note2">
-                    <strong>註2：</strong>高我=自己的靈魂=最高意識的自己 =量子催眠中定義的「潛意識」(擁有宇宙意識)
+                <p>原本我一直思考且詢問著高我和宇宙，自己的天賦與使命到底是什麼？然而就在某一天突然想起了「量子催眠」，這是我剛覺醒時接觸到的，因為曾經看到朵洛莉絲·侃南( 量子催眠的創始人 )在某次演講影片中提到「三波志願者與新地球」、「地球守護者」，當時非常吸引我，而且我也立馬火速的看完了這兩本書( 這是朵奶奶蒐集整理出她將近50年催眠案例的書籍 )，雖然有著濃厚的興趣，但是我還是不太確定自己是否適合「量子催眠師」？</p>
+                
+                <p>而就在我反覆思考、提問之後，又突然在某天，宇宙推播一則NHK電視台介紹京都 「不動明王」的影片給我，這尊神的名字其實在很久很久以前曾經自動浮現在我腦海中，那是我第一次也是唯一一次與這尊<a href="http://xhslink.com/o/8zMupt3KkWY" target="_blank" style="border-bottom: 1px dotted var(--text-secondary);">神明的接觸<i class="fas fa-link" style="font-size:0.8em;"></i></a>，而到現在才明白祂其實是我的指導靈，在看完介紹影本之後，更能理解我為什麼那麼想讓人們遠離痛苦了，因為這就是「不動明王」的神性特質，而高我突然給我「量子催眠」的這個訊息，我認為這些過往經歷都絕對不會只是個巧合而已，所以我下定決定成為「量子催眠師」， 讓人們都不再受病痛、情緖、創傷的困擾，能健康、開心的體驗人生！圓滿完成今世的課題！</p>
+
+                <div class="note-block">
+                    <div id="note1" style="margin-bottom: 1rem;">
+                        <strong>註1：</strong>雙生靈魂(雙生火焰)是同一個靈魂再分裂成兩半，投生在兩個肉體中(但也有可能其中一個未投生的狀況)，靈魂DNA是一模一樣的。<br>
+                        (想了解我的雙生靈魂故事，可以到<a href="https://vocus.cc/salon/TwinFlame-Richi/room/TwinFlame-Richi" target="_blank" style="color:var(--btn-color);">方格子<i class="fas fa-link" style="font-size:0.8em;"></i></a>上觀看文章，但請勿追求與套用在任何戀愛關係中，雙生靈魂是開啟 覺醒、是涅槃重生之路，並非單純戀愛關係)
+                    </div>
+                    <div id="note2">
+                        <strong>註2：</strong>高我=自己的靈魂=最高意識的自己 =量子催眠中定義的「潛意識」(擁有宇宙意識)
+                    </div>
                 </div>
             </div>
         </div>
