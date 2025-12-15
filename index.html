@@ -255,11 +255,16 @@
             position: relative;
         }
 
-        /* 背景顏色設定 */
-        #qhht, #charity, #about, #resources {
+        /* 
+           [MODIFIED] 背景顏色設定 
+           根據需求：深色背景包含 QHHT, Process, Pricing, Starseeds
+        */
+        #qhht, #process, #pricing, #starseeds {
             background-color: var(--bg-section-dark);
             padding-bottom: 6rem; 
         }
+
+        /* 其他區塊 (#qa, #charity, #about, #resources) 預設為 body 背景色 (淺色) */
 
         /* --- Hero --- */
         #home {
@@ -504,6 +509,8 @@
             <nav>
                 <ul id="nav-list">
                     <li><a href="#qhht">何謂量子催眠</a></li>
+                    <!-- [MODIFIED] 新增按鈕 -->
+                    <li><a href="#qa">催眠FQA</a></li>
                     <li><a href="#process">催眠前須知</a></li>
                     <li><a href="#charity">公益名額預約</a></li>
                     <li><a href="#pricing">收費與預約</a></li>
@@ -533,6 +540,12 @@
                 <span class="mobile-sep">——</span>
                 <span>QHHT 量子催眠師</span>
             </h2>
+            
+            <p class="text-center" style="margin-top: 1rem; max-width: 800px; line-height: 1.8;">
+                量子催眠是一種透過深度放鬆狀態(希塔/Theta θ 腦波)<br>
+                由催眠師引導個體探索潛意識記憶與內在訊息的方式<br>
+                著重於理解、覺察與整合，而非控制或暗示
+            </p>
             
             <div class="hero-keywords">
                 <div class="kw-row">
@@ -605,7 +618,7 @@
         </div>
     </section>
 
-    <!-- 何謂量子催眠 -->
+    <!-- 何謂量子催眠 (深色背景) -->
     <section id="qhht">
         <div class="container">
             <h2 class="section-title">何謂量子催眠療法 (QHHT)</h2>
@@ -614,6 +627,26 @@
                 <a href="https://youtube.com/playlist?list=PLoDJTyy-oDfZ6P_VQoW07qJSdAh6MgKXj&si=cBYULQ-scYNo_aGP" target="_blank" class="qhht-link-item">量子催眠介紹影片</a>
                 <a href="https://vocus.cc/salon/TwinFlame-Richi/room/QHHT-SelinaChu" target="_blank" class="qhht-link-item">量子催眠案例(文字版)</a>
                 <a href="https://youtube.com/playlist?list=PLoDJTyy-oDfYqKk_jnKrE3_K16XdxcFQ6&si=mOmPclU17rL3fogf" target="_blank" class="qhht-link-item">量子催眠案例影片</a>
+            </div>
+
+            <div class="content-card">
+                <h3>量子催眠與一般催眠的差異（概念層）</h3>
+                <p>在不同的催眠應用方式中，<br>
+                量子催眠並不以「改變行為」或「下達指令」為主要目的，<br>
+                而是著重於個體與自身內在意識的連結與理解。</p>
+                
+                <p>量子催眠通常強調以下核心理念：</p>
+                
+                <p><strong>1. 個體意識的主動參與</strong><br>
+                在量子催眠過程中，個案並非被動接受引導，而是以清醒且覺察的狀態，主動參與內在經驗的探索與回應。透過真實體驗與感受，個體能與自身潛意識建立直接連結。</p>
+
+                <p><strong>2. 潛意識訊息的象徵性表達</strong><br>
+                潛意識的內容不一定以具體畫面呈現，會依每個人的體質與內在模式而不同，可能透過象徵、情緒、感受或直覺浮現。重要的是，個案透過自我理解去感受訊息的意義，而非單純將外在呈現解讀為真實。</p>
+
+                <p><strong>3. 對內在經驗的尊重與詮釋空間</strong><br>
+                量子催眠重視每位個案獨特的內在語言，不預設標準答案，也不強加外在或既定框架於其內在經驗之上。這種方式提供個體自由探索與理解自我的空間。</p>
+
+                <p>相較於以指令、暗示或行為修正為導向的傳統催眠，量子催眠更像是一段「回到內在、理解自己」的歷程。它協助個體看見潛意識中反覆出現的主題與訊息，並在理解中自然產生轉化。</p>
             </div>
 
             <div class="content-card">
@@ -638,7 +671,7 @@
             
             <div class="content-card">
                 <h3>量子催眠為何要回溯前世</h3>
-                <p>前世(今世過往)經歷的重複模式、創傷、業力等，往往都與今世有一定的關聯性，而造成今世情緒、身體、關係等不適的狀況，了解過往相關的訊息後，讓這些不屬於今世(現在)的都留在過去，在整個催眠過程中，最重要的部份是個案身體、心靈上的不適，進而得到改善。</p>
+                <p>前世(今世過往)經歷的重複模式、創傷、業力等，往往都與今世有一定的關聯性，而造成今世情緒、身體、關係等不適的狀況，了解過往相關的訊息後，讓這些不屬於今世(現在)的都留在過去，在整個催眠過程中，最重要的部份是個案身體、心靈上的不適，進而讓身體得到改善。</p>
             </div>
 
             <div class="content-card">
@@ -656,7 +689,57 @@
         </div>
     </section>
 
-    <!-- 催眠前須知 -->
+    <!-- [MODIFIED] 量子催眠常見問題(QHHT QA) (淺色背景) -->
+    <section id="qa">
+        <div class="container">
+            <!-- [MODIFIED] 標題改為兩行 -->
+            <h2 class="section-title">量子催眠常見問題<br>(QHHT FQA)</h2>
+            <div class="content-card">
+                <div class="qa-item" style="margin-bottom: 2rem;">
+                    <p><strong>Q：量子催眠會不會失去意識或被控制？</strong><br>
+                    A：不會。整個過程中，個案仍保有自我意識與感知，<br>
+                    只是進入較為放鬆且專注的狀態。(希塔/Theta θ 腦波)</p>
+                </div>
+
+                <div class="qa-item" style="margin-bottom: 2rem;">
+                    <p><strong>Q：一定會看到星際畫面嗎？</strong><br>
+                    A：不一定。潛意識(高我)著重在協助個案跳脫重覆模式與卡點，<br>
+                    有些人會看見，是因主題與星際前世有關。<br>
+                    沒看見，並不代表沒有。</p>
+                </div>
+
+                <div class="qa-item" style="margin-bottom: 2rem;">
+                    <p><strong>Q：如果很難放鬆，還可以進行量子催眠嗎？</strong><br>
+                    A：可以。量子催眠並不要求完全放空，<br>
+                    而是由催眠師會協助引導個體進入適合自己的內在狀態。</p>
+                </div>
+
+                <div class="qa-item" style="margin-bottom: 2rem;">
+                    <p><strong>Q：量子催眠與宗教或信仰會衝突嗎？</strong><br>
+                    A：量子催眠本身不屬於任何宗教體系，<br>
+                    經驗內容會依個人的信念結構自然呈現。</p>
+                </div>
+
+                <div class="qa-item" style="margin-bottom: 2rem;">
+                    <p><strong>Q：星際靈魂分析一定要搭配量子催眠嗎？</strong><br>
+                    A：不一定。星際靈魂分析可作為理解架構，<br>
+                    量子催眠則提供更深入的內在探索體驗，<br>
+                    是否結合可依個人需求選擇。</p>
+                </div>
+
+                <div class="qa-item">
+                    <p><strong>Q：畫面感很弱，能被催眠嗎？</strong><br>
+                    A：可以的。潛意識的內容不一定以具體畫面呈現，<br>
+                    會依每個人的體質與內在模式而不同，<br>
+                    可能透過象徵、情緒、感受或直覺浮現。<br>
+                    重要的是，個案透過自我理解去感受訊息的意義，<br>
+                    而非單純將外在呈現解讀為真實。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 催眠前須知 (深色背景) -->
     <section id="process">
         <div class="container">
             <h2 class="section-title">催眠前須知</h2>
@@ -719,7 +802,7 @@
         </div>
     </section>
 
-    <!-- 公益名額區塊 -->
+    <!-- 公益名額區塊 (淺色背景) -->
     <section id="charity">
         <div class="container">
             <h2 class="section-title">限量公益名額<br>(額滿為止)</h2>
@@ -745,7 +828,7 @@
         </div>
     </section>
 
-    <!-- 催眠收費與預約 (標準價格) -->
+    <!-- 催眠收費與預約 (標準價格) (深色背景) -->
     <section id="pricing">
         <div class="container">
             <h2 class="section-title">催眠收費與預約</h2>
@@ -776,7 +859,7 @@
         </div>
     </section>
 
-    <!-- ABOUT ME 區塊 -->
+    <!-- ABOUT ME 區塊 (淺色背景) -->
     <section id="about">
         <div class="container">
             <h2 class="section-title">ABOUT ME</h2>
@@ -810,23 +893,28 @@
         </div>
     </section>
 
-    <!-- 3. 新增區塊：十大星際種子靈魂分析報告 (淺色背景) -->
+    <!-- [MODIFIED] 十大星際種子(Starseed)星際靈魂分析 (深色背景) -->
     <section id="starseeds">
         <div class="container">
             <h2 class="section-title">十大星際種子(Starseed)星際靈魂分析</h2>
             
+            <!-- [MODIFIED] 文案與排版更新 -->
             <div style="text-align: center; margin-bottom: 2rem; line-height: 1.8;">
-                <p>星際靈魂分析（Starseed Analysis），是一種從靈性視角理解靈魂來源、<br>
-                星系記憶與地球使命的分析方式，常見於對星空有強烈熟悉感、<br>
-                對地球制度感到格格不入，或在覺醒歷程中出現星際共鳴的靈魂。</p>
-
-                <p>透過星際靈魂分析，可協助<span class="text-highlight">星際種子(Starseeds)</span>辨識自身的靈魂特質、<br>
-                原生星系能量、靈魂天賦與此生在地球的學習與服務方向。</p>
-
-                <p>本星際靈魂分析系列由 <strong>QHHT 量子催眠師 Selina Chu</strong> 撰寫與整理，<br>
-                結合量子催眠個案經驗、靈性回溯與星際意識探索，<br>
-                用於協助靈魂覺醒、自我理解與生命方向整合。</p>
-
+                <p>星際靈魂分析（Starseed Analysis），是一種從靈性視角理解靈魂來源、星系記憶與地球使命的分析方式，常見於對星空有強烈熟悉感、對地球制度感到格格不入，或在覺醒歷程中出現星際共鳴的靈魂。</p>
+                <p>透過星際靈魂分析，可協助星際種子(Starseeds)辨識自身的靈魂特質、原生星系能量、靈魂天賦與此生在地球的學習與服務方向。</p>
+                <p>本星際靈魂分析系列由 QHHT 量子催眠師 Selina Chu 撰寫與整理，結合量子催眠個案經驗、靈性回溯與星際意識探索，用於協助靈魂覺醒、自我理解與生命方向整合。</p>
+                <br>
+                <p style="text-align: left; max-width: 800px; margin: 0 auto;">在此架構中，「星際種子（Starseed）」並非身份標籤，而是一種象徵性的語言，用來描述靈魂在意識層面與不同星系文明、原型能量或集體記憶產生共鳴的經驗。</p>
+                <br>
+                <p>進行星際靈魂分析的目的，不在於確認靈魂「來自哪裡」， 而在於：</p>
+                <div style="display:inline-block; text-align:left;">
+                ★理解自身的能量傾向<br>
+                ★看見重複出現的生命課題<br>
+                ★整合內在矛盾與靈魂記憶<br>
+                ★找回此生較為貼近本質的行動方向
+                </div>
+                <br><br>
+                <p>星際靈魂分析提供的是「理解的視角」，而<b>量子催眠</b>則是一段讓靈魂親自走進內在經驗的旅程，兩者位於不同層次，並非彼此取代。</p>
                 <p style="margin-top: 1.5rem; font-weight: 500; color: var(--btn-color);">
                     11 星系的星際靈魂特質與解析，請參閱下方完整報告：
                 </p>
@@ -892,7 +980,7 @@
         </div>
     </section>
 
-    <!-- 更多資源 (深色背景) -->
+    <!-- 更多資源 (淺色背景) -->
     <section id="resources">
         <div class="container">
             <h2 class="section-title">探索 Selina Chu 的其他靈性創作</h2>
