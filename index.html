@@ -238,12 +238,30 @@
             left: auto; 
             transform: none; 
             color: var(--btn-color);
-            font-size: 1.5rem;
+            /* 修改：設定 Flex 讓箭頭與文字垂直排列 */
+            flex-direction: column;
+            align-items: center;
             z-index: 1001;
             animation: bounce 2s infinite;
             pointer-events: none;
             opacity: 0.4; 
+            transition: opacity 0.3s ease;
         }
+
+        /* 提示文字樣式 */
+        .scroll-hint {
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 5px;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+        }
+
+        /* 當 JS 偵測到底部時隱藏 */
+        .nav-scroll-indicator.hidden {
+            display: none !important;
+        }
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
             40% {transform: translateY(-10px);}
@@ -263,7 +281,9 @@
                 padding-bottom: 50px; 
             }
             nav ul.active { display: flex; }
-            nav ul.active + .nav-scroll-indicator { display: block; }
+            
+            /* 修改：當選單開啟且 JS 沒有加 hidden 時顯示 */
+            nav ul.active + .nav-scroll-indicator:not(.hidden) { display: flex; }
 
             nav li { width: 100%; text-align: center; }
             nav a { padding: 1.5rem; display: block; width: 100%; border-bottom: 1px solid rgba(0,0,0,0.03); text-align: center; }
@@ -375,7 +395,7 @@
             white-space: nowrap; 
         }
         
-        /* --- Hero Keywords (Deskstop) --- */
+        /* --- Hero Keywords --- */
         .hero-keywords {
             font-size: 1rem; color: var(--text-secondary); margin-bottom: 2rem; max-width: 900px;
             background: rgba(255,255,255,0.5); padding: 1.5rem; border-radius: 8px;
@@ -392,15 +412,13 @@
         .kw-mid { margin: 0 8px; color: var(--btn-color); font-weight: bold; }
         .group-sep { margin: 0 8px; color: var(--text-heading); font-weight: 300; opacity: 0.4; } 
 
-        /* --- Hero Keywords (Mobile / Responsive) --- */
         @media (max-width: 768px) {
             .hero-keywords { 
                 display: flex;
                 flex-direction: column; 
-                align-items: center; /* 整個區塊置中 */
+                align-items: center;
                 gap: 6px; 
                 width: 100%;
-                /* 縮減左右內距，讓文字有更多空間 */
                 padding: 1.2rem 0.5rem;
             }
             
@@ -408,33 +426,27 @@
             
             .kw-row { 
                 display: grid; 
-                /* [左] [中] [右] - 使用 Grid 來強制對齊中軸 */
                 grid-template-columns: 1fr auto 1fr; 
                 width: 100%;
                 margin: 0;
-                gap: 5px; /* 縮小文字與分隔線的間距 */
-                white-space: nowrap; /* 強制不折行 */
+                gap: 5px;
+                white-space: nowrap;
             }
 
-            /* 左側文字：靠右對齊 */
             .kw-left { 
                 text-align: right; 
-                /* 使用 clamp 搭配 vw 讓文字隨螢幕寬度自動縮放，確保不折行 */
                 font-size: clamp(0.7rem, 3.8vw, 1rem); 
             }
 
-            /* 右側文字：靠左對齊 */
             .kw-right { 
                 text-align: left; 
-                /* 使用 clamp 搭配 vw 讓文字隨螢幕寬度自動縮放，確保不折行 */
                 font-size: clamp(0.7rem, 3.8vw, 1rem); 
             }
 
-            /* 中間分隔線：置中對齊 */
             .kw-mid { 
                 margin: 0; 
                 text-align: center; 
-                width: 15px; /* 固定寬度，確保所有行垂直對齊 */
+                width: 15px;
                 font-size: 1rem;
             }
         }
@@ -629,8 +641,9 @@
                     <li><a href="#starseeds">星際靈魂分析</a></li>
                     <li><a href="#resources">探索更多</a></li>
                 </ul>
-                <div class="nav-scroll-indicator">
+                <div class="nav-scroll-indicator" id="navScrollIndicator">
                     <i class="fas fa-chevron-down"></i>
+                    <span class="scroll-hint">往下滑</span>
                 </div>
             </nav>
         </div>
@@ -1200,10 +1213,35 @@
         const hamburger = document.getElementById('hamburger');
         const navList = document.getElementById('nav-list');
         const scrollTopBtn = document.getElementById('scrollTopBtn');
+        const navScrollIndicator = document.getElementById('navScrollIndicator');
 
         // Toggle Mobile Menu
         hamburger.addEventListener('click', () => {
             navList.classList.toggle('active');
+
+            // 檢查選單開啟時，是否需要顯示捲動提示
+            // 如果選單總高度 > 可視高度，表示有捲軸，則顯示提示
+            if (navList.classList.contains('active')) {
+                // 給一點緩衝，確保樣式已應用
+                setTimeout(() => {
+                    if (navList.scrollHeight > navList.clientHeight) {
+                        navScrollIndicator.classList.remove('hidden');
+                    } else {
+                        navScrollIndicator.classList.add('hidden');
+                    }
+                }, 50);
+            }
+        });
+
+        // 監聽選單捲動事件
+        navList.addEventListener('scroll', () => {
+            // 判斷是否捲動到底部 (scrollTop + clientHeight 與 scrollHeight 的差值)
+            // 給予 10px 的緩衝區間
+            if (navList.scrollTop + navList.clientHeight >= navList.scrollHeight - 10) {
+                navScrollIndicator.classList.add('hidden');
+            } else {
+                navScrollIndicator.classList.remove('hidden');
+            }
         });
 
         // Close menu when clicking a link
