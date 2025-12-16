@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>【光織舞繪】量子催眠服務 | Selina Chu</title>
+    
+    <!-- 頁籤圖 -->
+    <link rel="icon" href="Logo1.png" type="image/png">
+
+    <meta name="keywords" content="量子催眠,QHHT,身心靈探索,前世回溯,童年回溯,星際回溯,星際種子,朵洛莉絲‧侃南,雙生火焰,瑪雅印記,水晶手鍊">
+    <meta name="description" content="量子催眠師 - Selina Chu">
+
+    <!-- 引入字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* --- 全域變數定義 --- */
+        :root {
+            --bg-color: #FDFCF8;      
+            --bg-section-dark: #F2F2EB; 
+            --bg-white: #FFFFFF;      
+            
+            --text-primary: #4A4A4A;  
+            --text-heading: #2C6E6E;  
+            --text-secondary: #7A7A7A;
+            
+            --accent-gold: #D4A373;   
+            --accent-sage: #88B0AD;   
+            
+            --btn-color: #E07A5F;     
+            --btn-hover: #D06346;     
+            
+            --qhht-bg: #E0F2F1;       
+            --qhht-border: #4DB6AC;   
+
+            --highlight-red: #C1666B; 
+            
+            --font-serif: 'Noto Serif TC', serif;
+            --font-sans: 'Noto Sans TC', sans-serif;
+            --container-width: 1000px; 
+            --header-height: 70px;    
+        }
+
+        /* --- 基礎 Reset --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        html, body {
+            overflow-x: hidden; 
+            width: 100%;
+            position: relative;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.9;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            padding-top: var(--header-height);
+        }
+
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        a:hover { opacity: 0.8; color: var(--btn-color); }
+
+        h1, h2, h3, h4 { 
+            font-family: var(--font-serif); 
+            font-weight: 600; 
+            color: var(--text-heading); 
+            text-align: center;
+        }
+        
+        p { 
+            margin-bottom: 1.5rem; 
+            text-align: justify; 
+        }
+
+        .text-center { text-align: center !important; }
+        
+        .text-highlight {
+            color: var(--btn-color);
+            font-weight: 700;
+        }
+
+        /* --- UI 元件 --- */
+        .container {
+            max-width: var(--container-width);
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: var(--btn-color);
+            color: white !important;
+            border: none;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            margin-top: 1.5rem;
+            cursor: pointer;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(224, 122, 95, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: var(--btn-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(224, 122, 95, 0.4);
+        }
+        
+        .divider, .section-title::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 2px;
+            margin: 20px auto 0;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            opacity: 0.8;
+            border-radius: 2px;
+        }
+        
+        .divider { margin: 2rem auto; }
+
+        .sup-note {
+            font-size: 0.75em;
+            vertical-align: super;
+            color: var(--btn-color);
+            font-weight: bold;
+            margin: 0 2px;
+            cursor: pointer;
+        }
+        
+        .note-block {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-left: 4px solid var(--accent-sage);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 2rem 0;
+            line-height: 1.8;
+            border-radius: 0 8px 8px 0;
+            text-align: justify;
+        }
+
+        #note1, #note2 { scroll-margin-top: 150px; }
+
+        .highlight-note {
+            color: var(--highlight-red);
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .problem-note {
+            text-align: left !important;
+            color: var(--btn-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-highlight {
+            color: var(--btn-color);
+            font-weight: 700;
+        }
+
+        /* --- Header / Navigation --- */
+        header {
+            height: var(--header-height);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(253, 252, 248, 0.98);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            gap: 1.5rem; 
+        }
+
+        .logo-img {
+            max-height: 60px; 
+            width: auto;
+            display: block;
+            padding: 0; 
+        }
+
+        nav { display: flex; align-items: center; }
+        nav ul { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+        nav a {
+            font-size: 1rem;
+            color: var(--text-primary);
+            position: relative;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+        nav a::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
+            background-color: var(--btn-color); transition: width 0.3s;
+        }
+        nav a:hover::after { width: 100%; }
+
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; margin-left: auto; }
+        .bar { width: 25px; height: 3px; background-color: var(--text-heading); transition: 0.3s; }
+
+        .nav-scroll-indicator {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            left: auto; 
+            transform: none; 
+            color: var(--btn-color);
+            /* 修改：設定 Flex 讓箭頭與文字垂直排列 */
+            flex-direction: column;
+            align-items: center;
+            z-index: 1001;
+            animation: bounce 2s infinite;
+            pointer-events: none;
+            opacity: 0.4; 
+            transition: opacity 0.3s ease;
+        }
+
+        /* 提示文字樣式 */
+        .scroll-hint {
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 5px;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+        }
+
+        /* 當 JS 偵測到底部時隱藏 */
+        .nav-scroll-indicator.hidden {
+            display: none !important;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        @media (max-width: 1150px) {
+            .nav-container { justify-content: space-between; }
+            .hamburger { display: flex; }
+            nav { width: 100%; position: absolute; top: 0; left: 0; }
+            nav ul {
+                display: none; position: fixed; top: var(--header-height); left: 0; width: 100%;
+                background-color: var(--bg-color); flex-direction: column; align-items: center;
+                gap: 0; border-top: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                max-height: calc(100vh - var(--header-height));
+                overflow-y: auto;
+                padding-bottom: 50px; 
+            }
+            nav ul.active { display: flex; }
+            
+            /* 修改：當選單開啟且 JS 沒有加 hidden 時顯示 */
+            nav ul.active + .nav-scroll-indicator:not(.hidden) { display: flex; }
+
+            nav li { width: 100%; text-align: center; }
+            nav a { padding: 1.5rem; display: block; width: 100%; border-bottom: 1px solid rgba(0,0,0,0.03); text-align: center; }
+            nav a::after { display: none; }
+            nav a:hover { background-color: rgba(0,0,0,0.02); color: var(--btn-color); }
+        }
+
+        /* --- Section: Common --- */
+        section {
+            width: 100%; 
+            padding-top: 6rem;
+            padding-bottom: 4rem;
+            scroll-margin-top: var(--header-height); 
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 4rem; 
+            color: var(--text-heading);
+            letter-spacing: 0.2em;
+            position: relative;
+        }
+
+        /* 一般標題斷行與自適應樣式 */
+        .title-segment {
+            display: inline-block;
+        }
+
+        /* --- Hero Subtitle 專用樣式 --- */
+        .hero-subtitle {
+            color: var(--text-heading); 
+            font-family: var(--font-serif);
+            margin-bottom: 1.5rem; 
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            font-size: 1.8rem; 
+            white-space: nowrap; 
+        }
+
+        .hero-subtitle .title-segment {
+            display: inline;
+        }
+        
+        .desktop-sep {
+            display: inline;
+            margin: 0 8px; 
+        }
+
+        @media (max-width: 768px) {
+            .title-segment {
+                display: block; 
+                width: 100%;
+                white-space: nowrap; 
+            }
+            
+            .hero-subtitle {
+                white-space: normal; 
+            }
+
+            .hero-subtitle .title-segment {
+                display: block; 
+                font-size: 1.6rem; 
+                line-height: 1.5;
+            }
+            
+            .desktop-sep { 
+                display: none !important; 
+            }
+
+            .section-title .title-segment {
+                font-size: clamp(1.2rem, 6.5vw, 2rem);
+                line-height: 1.3;
+            }
+            
+            #starseeds .section-title .title-segment {
+                font-size: 1.8rem; 
+            }
+
+            #pricing .section-title {
+                white-space: nowrap;
+            }
+        }
+
+        #qhht, #process, #pricing, #starseeds {
+            background-color: var(--bg-section-dark);
+            padding-bottom: 6rem; 
+        }
+
+        /* --- Hero --- */
+        #home {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 2rem 4rem 2rem; 
+        }
+
+        .hero-logo-large { max-width: 250px; width: 100%; height: auto; margin-bottom: 1.5rem; display: block; }
+        
+        .hero-title { 
+            font-size: 3rem; 
+            margin-bottom: 0.5rem; 
+            letter-spacing: 0.15em; 
+            color: var(--text-heading); 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05); 
+            white-space: nowrap; 
+        }
+        
+        /* --- Hero Keywords (Deskstop) --- */
+        .hero-keywords {
+            font-size: 1rem; color: var(--text-secondary); margin-bottom: 2rem; max-width: 900px;
+            background: rgba(255,255,255,0.5); padding: 1.5rem; border-radius: 8px;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 0;
+        }
+        
+        .kw-row {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            margin: 0 4px;
+        }
+        
+        .kw-mid { margin: 0 8px; color: var(--btn-color); font-weight: bold; }
+        .group-sep { margin: 0 8px; color: var(--text-heading); font-weight: 300; opacity: 0.4; } 
+
+        /* --- Hero Keywords (Mobile / Responsive) --- */
+        /* 修改：針對手機版重新定義 Grid 與字體，確保垂直中軸對齊 */
+        @media (max-width: 768px) {
+            .hero-keywords { 
+                display: flex;
+                flex-direction: column; 
+                align-items: center;
+                gap: 10px; /* 增加一點行距 */
+                width: 100%;
+                padding: 1.5rem 0; /* 移除左右內距以最大化空間 */
+            }
+            
+            .group-sep { display: none; } 
+            
+            .kw-row { 
+                display: grid; 
+                /* 關鍵修改：1fr (左) + 24px (中) + 1fr (右) */
+                grid-template-columns: 1fr 24px 1fr; 
+                align-items: center;
+                width: 100%;
+                margin: 0;
+            }
+
+            .kw-left { 
+                text-align: right; 
+                white-space: nowrap;
+                /* 加大字體並自動縮放 */
+                font-size: clamp(0.9rem, 4.2vw, 1.15rem); 
+                letter-spacing: 0; /* 減少間距以容納更長文字 */
+            }
+
+            .kw-right { 
+                text-align: left; 
+                white-space: nowrap;
+                /* 加大字體並自動縮放 */
+                font-size: clamp(0.9rem, 4.2vw, 1.15rem); 
+                letter-spacing: 0;
+            }
+
+            .kw-mid { 
+                text-align: center;
+                margin: 0; 
+                width: 100%; /* 填滿 Grid 的 24px 空間 */
+                font-size: 1rem;
+                font-weight: bold;
+            }
+        }
+
+        .hero-qhht-link { display: inline-block; text-decoration: none; margin-bottom: 1rem; width: 100%; max-width: 400px; }
+        .hero-qhht-container {
+            display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem;
+            border-radius: 12px; background-color: var(--qhht-bg); border: 2px solid var(--qhht-border); transition: all 0.3s ease;
+        }
+        .hero-qhht-container:hover { transform: translateY(-4px); background-color: #fff; box-shadow: 0 8px 20px rgba(77, 182, 172, 0.2); }
+        .hero-qhht-logo { max-width: 180px; margin-bottom: 0.8rem; }
+        .hero-qhht-text { font-family: var(--font-serif); color: var(--text-heading); font-size: 1rem; font-weight: bold; }
+
+        /* --- About Me --- */
+        .about-intro { font-weight: 500; font-size: 1.25rem; margin-bottom: 2.5rem; text-align: center; font-family: var(--font-serif); color: var(--text-heading); line-height: 1.6; }
+        .about-collage { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 3rem; display: block; border: 4px solid #fff; }
+
+        /* --- Starseeds Section --- */
+        .starseed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .starseed-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            background-color: var(--bg-white);
+            border: 1px solid var(--accent-sage);
+            color: var(--text-primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        
+        .starseed-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            color: var(--text-heading);
+        }
+
+        .starseed-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: normal;
+            line-height: 1.6;
+        }
+
+        .starseed-link:hover {
+            background-color: var(--accent-sage);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .starseed-link:hover .starseed-title,
+        .starseed-link:hover .starseed-desc {
+            color: white;
+        }
+
+        /* --- Process Grid --- */
+        .qhht-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 4rem; flex-wrap: wrap; }
+        .qhht-link-item { font-size: 1rem; border: 2px solid var(--accent-sage); padding: 10px 25px; border-radius: 50px; color: var(--accent-sage); transition: all 0.3s; font-weight: 500; }
+        .qhht-link-item:hover { background-color: var(--accent-sage); color: white; border-color: var(--accent-sage); transform: translateY(-2px); }
+
+        .content-card { background-color: #fff; padding: 3rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); margin-bottom: 2.5rem; border-top: 4px solid var(--accent-gold); }
+        .content-card h3 { font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text-heading); text-align: center; }
+
+        .process-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem; }
+        .info-card { background: var(--bg-white); padding: 2.5rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border-left: 4px solid var(--accent-sage); }
+        .info-card h3 { font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text-heading); text-align: center; }
+
+        .process-step { margin-bottom: 1.5rem; }
+        .process-step strong { display: block; margin-bottom: 0.5rem; color: var(--btn-color); font-size: 1.1rem; text-align: left; }
+        .sub-list { list-style-type: decimal; margin-left: 1.5rem; color: var(--text-primary); font-size: 0.95rem; }
+
+        .notice-list { list-style: none; }
+        .notice-list li { margin-bottom: 1.2rem; position: relative; padding-left: 2rem; color: var(--text-primary); font-size: 0.95rem; text-align: justify; }
+        .notice-list li::before { content: '★★'; position: absolute; left: 0; top: 0; color: var(--highlight-red); font-size: 0.8rem; letter-spacing: -2px; }
+
+        ul.list-check { list-style: none; }
+        ul.list-check li { margin-bottom: 0.8rem; position: relative; padding-left: 1.8rem; color: var(--text-primary); font-weight: 500; }
+        ul.list-check li::before { content: '✓'; position: absolute; left: 0; color: var(--btn-color); font-size: 1.1rem; font-weight: bold; }
+
+        /* --- Booking & Pricing --- */
+        .charity-card { background-color: #FDF2E9; padding: 3.5rem 2rem; border-radius: 12px; border: 2px dashed var(--btn-color); text-align: center; }
+        .charity-title { color: var(--btn-color); font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center; }
+        .charity-text { line-height: 2.2; color: var(--text-primary); margin-bottom: 2rem; text-align: center; }
+        
+        .standard-pricing { text-align: center; padding: 4rem 2rem; background-color: #fff; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+        .standard-pricing::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--accent-sage), var(--btn-color)); }
+        
+        .pricing-details-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        /* --- Resources --- */
+        #resources { padding-bottom: 10rem; }
+        .resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
+        @media (max-width: 900px) { .resource-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .resource-grid { grid-template-columns: 1fr; } }
+
+        .resource-card { background: var(--bg-white); padding: 2.5rem 1.5rem; text-align: center; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border-radius: 12px; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; border-bottom: 4px solid transparent; }
+        .resource-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); border-bottom-color: var(--btn-color); }
+        .resource-card i { font-size: 2.2rem; margin-bottom: 1.2rem; color: var(--accent-gold); }
+        .resource-title { font-family: var(--font-serif); margin-bottom: 0.5rem; font-size: 1.2rem; color: var(--text-heading); }
+        .resource-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; text-align: center; }
+
+        /* --- Footer --- */
+        footer { background-color: #333; color: #F0F0ED; padding: 3rem 2rem; text-align: center; }
+        .social-row-top { display: flex; justify-content: center; gap: 30px; margin-bottom: 1.5rem; }
+        .social-row-top a { opacity: 0.9; transition: all 0.3s; display: inline-block; }
+        .social-row-top a:hover { opacity: 1; transform: scale(1.1); }
+        .custom-icon-large { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; vertical-align: middle; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .social-row-bottom { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .social-row-bottom a { color: #bbb; font-size: 1.5rem; opacity: 0.8; transition: all 0.3s; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; }
+        .social-row-bottom a:hover { opacity: 1; color: var(--btn-color); transform: scale(1.1); }
+        .footer-info { display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 1rem; }
+        .footer-info p { font-size: 0.85rem; opacity: 0.5; margin-bottom: 0.5rem; letter-spacing: 0.1em; text-align: center; }
+
+        /* Back to Top */
+        .scroll-top { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            background-color: var(--btn-color); 
+            color: white; 
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50%; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            cursor: pointer; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+            opacity: 0; 
+            visibility: hidden; 
+            transition: all 0.3s ease; 
+            z-index: 999; 
+            font-size: 1rem;
+        }
+        
+        .scroll-top i {
+            margin-bottom: -2px; 
+            font-size: 0.9em;
+        }
+
+        .scroll-text {
+            font-size: 0.7rem; 
+            font-weight: 700;
+            line-height: 1;
+            margin-top: 2px;
+            font-family: var(--font-sans);
+        }
+
+        .scroll-top.show { opacity: 1; visibility: visible; }
+        .scroll-top:hover { background-color: var(--btn-hover); transform: translateY(-5px); }
+
+    </style>
+</head>
+<body>
+    <!-- 導覽列 -->
+    <header>
+        <div class="nav-container">
+            <a href="#home">
+                <img src="Logo.png" alt="光織舞繪 Logo" class="logo-img">
+            </a>
+            
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#qhht">何謂量子催眠</a></li>
+                    <li><a href="#qa">催眠FQA</a></li>
+                    <li><a href="#process">催眠前須知</a></li>
+                    <li><a href="#charity">公益名額預約</a></li>
+                    <li><a href="#pricing">收費與預約</a></li>
+                    <li><a href="#about">ABOUT ME</a></li>
+                    <li><a href="#starseeds">星際靈魂分析</a></li>
+                    <li><a href="#resources">探索更多</a></li>
+                </ul>
+                <div class="nav-scroll-indicator" id="navScrollIndicator">
+                    <i class="fas fa-chevron-down"></i>
+                    <span class="scroll-hint">往下滑</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Back to Top 按鈕 -->
+    <a onclick="window.scrollTo(0,0)" class="scroll-top" id="scrollTopBtn">
+        <i class="fas fa-chevron-up"></i>
+        <span class="scroll-text">TOP</span>
+    </a>
+
+    <!-- 首頁 Hero -->
+    <section id="home">
+        <div class="container" style="display:flex; flex-direction:column; align-items:center;">
+            <img src="Logo1.png" alt="光織舞繪 Logo" class="hero-logo-large">
+
+            <h1 class="hero-title">光織舞繪</h1>
+            
+            <h2 class="section-title hero-subtitle" style="margin-bottom: 0.5rem;">
+                <span class="title-segment">Selina Chu</span>
+                <span class="desktop-sep">｜</span>
+                <span class="title-segment">QHHT量子催眠師</span>
+            </h2> 
+            
+            <span class="text-highlight" style="margin-top: 1rem; max-width: 800px; line-height: 1.8; text-align: left;">
+                量子催眠是一種透過深度放鬆狀態(希塔/Theta θ 腦波)，由催眠師引導個體探索潛意識記憶與內在訊息的方式，著重於理解、覺察與整合，而非控制或暗示。
+            </span><br>
+            
+            <div class="hero-keywords">
+                <div class="kw-row">
+                    <span class="kw-left">量子催眠</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">QHHT</span>
+                </div>
+                <span class="group-sep">|</span>
+
+                <div class="kw-row">
+                    <span class="kw-left">身心體探索</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">前世回溯</span>
+                </div>
+                <span class="group-sep">|</span>
+
+                <div class="kw-row">
+                    <span class="kw-left">童年回溯</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">星際回溯</span>
+                </div>
+                <span class="group-sep">|</span>
+
+                <div class="kw-row">
+                    <span class="kw-left">星際種子</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">朵洛莉絲‧侃南</span>
+                </div>
+                <span class="group-sep">|</span>
+                
+                <div class="kw-row">
+                    <span class="kw-left">雙生火焰</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">雙生火焰合盤解讀師</span>
+                </div>
+                <span class="group-sep">|</span>
+                
+                <div class="kw-row">
+                    <span class="kw-left">星際種子分析報告</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">瑪雅印記解讀師</span>
+                </div>
+                <span class="group-sep">|</span>
+
+                <div class="kw-row">
+                    <span class="kw-left">宇宙知識報告</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">直覺說書人</span>
+                </div>
+                <span class="group-sep">|</span>
+
+                <div class="kw-row">
+                    <span class="kw-left">藝術創作</span>
+                    <span class="kw-mid">|</span>
+                    <span class="kw-right">水晶手鍊設計</span>
+                </div>
+            </div>
+            
+            <a href="https://members.qhhtofficial.com/members/selinachu0322/" target="_blank" class="hero-qhht-link" title="前往美國QHHT官網頁面">
+                <div class="hero-qhht-container">
+                    <img src="QHHT-LOGO.png" alt="QHHT Official Logo" class="hero-qhht-logo">
+                    <span class="hero-qhht-text">
+                美國QHHT官網<br>催眠師Selina Chu個人頁面</span>
+                </div>
+            </a>
+
+            <a href="https://lin.ee/8sBm6wX" target="_blank" class="btn">
+                LINE官方帳號<br>預約/諮詢
+            </a>
+        </div>
+    </section>
+
+    <!-- 何謂量子催眠 (深色背景) -->
+    <section id="qhht">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-segment">何謂量子催眠療法</span>
+                <span class="title-segment">(QHHT)</span>
+            </h2>
+
+            <div class="qhht-links">
+                <a href="https://youtube.com/playlist?list=PLoDJTyy-oDfZ6P_VQoW07qJSdAh6MgKXj&si=cBYULQ-scYNo_aGP" target="_blank" class="qhht-link-item">量子催眠介紹影片</a>
+                <a href="https://vocus.cc/salon/TwinFlame-Richi/room/QHHT-SelinaChu" target="_blank" class="qhht-link-item">量子催眠案例(文字版)</a>
+                <a href="https://youtube.com/playlist?list=PLoDJTyy-oDfYqKk_jnKrE3_K16XdxcFQ6&si=mOmPclU17rL3fogf" target="_blank" class="qhht-link-item">量子催眠案例影片</a>
+            </div>
+
+            <div class="content-card">
+                <h3>量子催眠與一般催眠的差異（概念層）</h3>
+                <p>在不同的催眠應用方式中，量子催眠並不以「改變行為」或「下達指令」為主要目的，而是著重於個體與自身內在意識的連結與理解。</p>
+                
+                <p>量子催眠通常強調以下核心理念：</p>
+                
+                <p><strong>1. 個體意識的主動參與</strong><br>
+                在量子催眠過程中，個案並非被動接受引導，而是以清醒且覺察的狀態，主動參與內在經驗的探索與回應。透過真實體驗與感受，個體能與自身潛意識建立直接連結。</p>
+
+                <p><strong>2. 潛意識訊息的象徵性表達</strong><br>
+                潛意識的內容不一定以具體畫面呈現，會依每個人的體質與內在模式而不同，可能透過象徵、情緒、感受或直覺浮現。重要的是，個案透過自我理解去感受訊息的意義，而非單純將外在呈現作為解讀依據。</p>
+
+                <p><strong>3. 對內在經驗的尊重與詮釋空間</strong><br>
+                量子催眠重視每位個案獨特的內在語言，不預設標準答案，也不強加外在或既定框架於其內在經驗之上。這種方式提供個體自由探索與理解自我的空間。</p>
+
+                <p>相較於以指令、暗示或行為修正為導向的傳統催眠，量子催眠更像是一段「回到內在、理解自己」的歷程。它協助個體看見潛意識中反覆出現的主題與訊息，並在理解中自然產生轉化。</p>
+            </div>
+
+            <div class="content-card">
+                <h3>量子催眠起源</h3>
+                <p>朵洛莉絲‧侃南與其先生為美國海軍基地工作，以傳統簡單的催眠方式，幫助同袍放鬆或改掉成隱習慣，一次的因緣際會之下，在1968年由醫生轉介一位需要協助的個案，她因緊張性飲食性疾病，造成肥胖、高血壓和遭受腎臟問題，需藉由傳統催眠達到放鬆與改掉不良習慣，卻意外的回溯到個案的前世( 書籍:五世回憶 )。從此在朵洛莉絲‧侃南心中種下想再繼續深入研究前世回溯的種子。</p>
+                <p>朵洛莉絲‧侃南從1979年開始投入前世回溯催眠的領域，經過她近五十年來不斷的精進技術、不同方法的嘗試以及豐富經驗的累積，自創了一套有安全保護且又有效達到療癒的「量子催眠療瘉技術」，全世界只有美國官方的量子催眠具有唯一教授及發予證照的資格。</p>
+                <div class="note-block" style="margin-top: 1rem; padding: 1rem;">
+                    註：朵洛莉絲‧侃南為「量子催眠療癒」的創始人，專注前世回溯的催眠治療師。撰有19本著作，被翻譯成20多種語言，其中包括：《迴旋宇宙》（三冊）、《地球守護者》、《三波志願者與新地球》等，主題涵蓋生與死、輪迴、人類起源、不明飛行物和外星人、諾斯特拉達穆斯預言等。<br>
+<a href="https://zh.wikipedia.org/zh-tw/%E6%9C%B5%E6%B4%9B%E8%8E%89%E7%B5%B2%C2%B7%E4%BE%83%E5%8D%97" target="_blank" style="color:var(--btn-color); font-weight:normal; margin-left:5px;">維基百科 <i class="fas fa-link" style="font-size:0.8em;"></i></a>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>量子催眠療法的運作方式</h3>
+                <p>量子催眠是與每個個案自己的「潛意識」合作，這裡提到的潛意識，與心理學家或傳統醫學專業人士所談到的「潛意識」是不同的，量子催眠提到的潛意識是指個案的高我Higher self，又可稱靈魂、超靈、宇宙意識。</p>
+                <p>量子催眠並不是透過「通靈」、「靈媒」，或是肉身連結任何第三方存在體，它只是讓個案會進入到類似夢遊的狀態(進入Theta腦波)，由個案自己的潛意識安排下，看到「今世過往」、亦或是「前世」或「其他次元/星球」的經歷，進而讓個案了解並療癒今(累)世創傷、病痛以及課題，潛意識(高我)是最熟悉也最了解個案，也是最保護並以無條件的愛給予個案的，祂們(潛意識)也會通過這次催眠態的過程中，給予個案提出問題的答案、課題、人生目的等訊息…以及協助個案在身心靈上的療癒。</p>
+                <p>而催眠師只是協助個案進入夢遊狀態(進入Theta腦波)，與個案的潛意識合作，並進行溝通及提問的角色，且催眠師是無法控制或左右潛意識要給予個案的畫面及答案，完全由個案本身的潛意識(高我)安排，所以不需要擔心被操控，量子催眠不是一種精神控制或者下暗示形式運行的。</p>
+                <div class="note-block" style="margin-top: 1rem; padding: 1rem;">
+                    註：我們因為受小我(表層意識)保護與蒙蔽、限制性信念以及直覺、感應等能力被遺忘，造成無法直接與潛意識溝通，這也是為了體驗人類(地球)生活所設置的關卡(帷幕)，所以透過量子催眠讓個案達到進入更深層次的意識，祂可以協助我們找到關鍵問題的答案，並即時的得到時身心靈上的療癒。
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <h3>量子催眠為何要回溯前世</h3>
+                <p>前世(今世過往)經歷的重複模式、創傷、業力等，往往都與今世有一定的關聯性，而造成今世情緒、身體、關係等不適的狀況，了解過往相關的訊息後，讓這些不屬於今世(現在)的都留在過去，在整個催眠過程中，最重要的部份是個案身體、心靈上的不適，進而讓身體得到改善。</p>
+            </div>
+
+            <div class="content-card">
+                <h3>量子催眠中個案是否有意識</h3>
+                <p>量子催眠中，個案就像晚上睡覺在做夢的狀態中，有些人會完全記得，就像旁觀者聽到自己說話，有些人則是可能清醒後只會記得部份，這就像每個人做夢後醒來，記憶會零碎、片段，這需要看每個人的體質不同而論。所以催眠過程中會錄音，可以讓個案回去能反覆聆聽。(因為每次聆聽都會得到不同的見解與訊息，所以每多聆聽一次就等於再療癒一次)</p>
+                <div class="note-block" style="margin-top: 1rem; padding: 1rem;">
+                    註：2024迎接冥王水瓶的到來，我們與靈魂之間的那層帷幕(面紗)已經越來越薄，很多人在催眠時，表意識都完全清醒，可以直接看到畫面、接收訊息或感受等...資訊的傳遞，當下只要心靈敞開，全然的接受第一個接收到的訊號即可，愈是敞開，得到的資訊愈完整跟清晰。
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h3>每個人都可以做量子催眠療癒嗎？是否有限制呢？</h3>
+                <p>幾乎沒有限制，只有能與催眠師正常的溝通、交流，都是可以進行量子催眠療法的( 部份精神/身體因素無法集中意識或進行溝通者除外，可私訊確認 )，但<span class="text-highlight">18歲以下禁止進行量子催眠</span>，主因是心智還在發展中，而且有很多必須由他們自行體驗經歷，不能過多的干預孩童自我成長過程。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 量子催眠常見問題(QHHT FQA) (淺色背景) -->
+    <section id="qa">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-segment">量子催眠常見問題</span>
+                <span class="title-segment">(FQA)</span>
+            </h2>
+
+            <div class="content-card">
+                <div class="qa-item" style="margin-bottom: 2rem;">
+                    <p><strong>Q：量子催眠會不會失去意識或被控制？</strong><br>
+                    A：不會。整個過程中，個案仍保有自我意識與感知，<br>
+                    只是進入較為放鬆且專注的狀態。(希塔/Theta θ 腦波)</p>
+                </div>
+
+                <div class="qa-item" style="margin-bottom: 2rem;">
+                    <p><strong>Q：一定會看到星際畫面嗎？</strong><br>
+                    A：不一定。潛意識(高我)著重在協助個案跳脫重覆模式與卡點，<br>
+                    有些人會看見，是因主題與星際前世有關。<br>
+                    沒看見，並不代表沒有。</p>
+                </div>
+
+                <div class="qa-item" style="margin-bottom: 2rem;">
+                    <p><strong>Q：如果很難放鬆，還可以進行量子催眠嗎？</strong><br>
+                    A：可以。量子催眠並不要求完全放空，<br>
+                    而是由催眠師會協助引導個體進入適合自己的內在狀態。</p>
+                </div>
+
+                <div class="qa-item" style="margin-bottom: 2rem;">
+                    <p><strong>Q：量子催眠與宗教或信仰會衝突嗎？</strong><br>
+                    A：量子催眠本身不屬於任何宗教體系，<br>
+                    經驗內容會依個人的信念結構自然呈現。</p>
+                </div>
+
+                <div class="qa-item" style="margin-bottom: 2rem;">
+                    <p><strong>Q：星際靈魂分析一定要搭配量子催眠嗎？</strong><br>
+                    A：不一定。星際靈魂分析可作為理解架構，<br>
+                    量子催眠則提供更深入的內在探索體驗，<br>
+                    是否結合可依個人需求選擇。</p>
+                </div>
+
+                <div class="qa-item">
+                    <p><strong>Q：畫面感很弱，能被催眠嗎？</strong><br>
+                    A：可以的。潛意識的內容不一定以具體畫面呈現，<br>
+                    會依每個人的體質與內在模式而不同，<br>
+                    可能透過象徵、情緒、感受或直覺浮現。<br>
+                    重要的是，個案透過自我理解去感受訊息的意義，<br>
+                    而非單純將外在呈現作為解讀依據。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 催眠前須知 (深色背景) -->
+    <section id="process">
+        <div class="container">
+            <h2 class="section-title">催眠前須知</h2>
+            
+            <div class="process-grid">
+                <div class="info-card">
+                    <h3>療程時間與準備</h3>
+                    <p>量子催眠療法(QHHT)創始人<U>朵洛莉絲‧侃南</U>的宗旨是希望個案僅在一次的療程中，回溯過往並完成今世需要被看見與轉化的創傷經驗，以及造成身體不平衡的根源，讓身心靈重新回到和諧狀態，並了解今世的課題與目的，所以必須花費<span class="text-highlight">約4~7個小時不等(10:30~17:30)</span>，進行深入的了解個案(請保持開放及坦誠)，以利於催眠師在過程中協助個案問對問題與正確的取得潛意識(高我)的幫助</p>
+                    <p class="text-highlight">★請將預約當天的時間完全空下來並穿著舒適寬鬆的衣褲，也務必先吃飽再過來。</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>準備問題清單</h3>
+                    <p class="problem-note">★問題清單無限制項目、類型</p>
+                    <p class="problem-note">★請於催眠當天將您的問題清單帶來，於進行面談後，再一同檢視。</p>
+                    <ul class="list-check">
+                        <li>身體的問題 (任何不適、狀態、不解的意外...)</li>
+                        <li>生命目的／使命／潛能</li>
+                        <li>其他任何想詢問的事 (工作、感情、關係、情緒...)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>催眠療程三階段</h3>
+                    <div class="process-step">
+                        <strong>一、進行面談<br> (1~3小時)</strong>
+                        <p style="margin-bottom:0.5rem;">催眠師了解個案的生活、背景(含相關人物)、身(心)理問題</p>
+                        <ol class="sub-list">
+                            <li>請先回想自己的人生歷程(包含童年、工作、感情、家庭)，重要關係之間的互動等</li>
+                            <li>可攜帶小零食，在進行面談或催眠結束訪談時吃一點，以免第二階段長時間催眠療程中無法進食</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="process-step">
+                        <strong>二、進行催眠<br> (2小時左右)</strong>
+                        <p style="margin-bottom:0.5rem;">此環節會進行錄音，以利個案事後回去聆聽</p>
+                        <ol class="sub-list">
+                            <li>催眠結束後，會協助上傳至雲端提供下載。(僅開放提供個案帳號下載，不需擔心隱私問題)</li>
+                            <li>回去請反覆的聆聽，每次的聆聽可能會得到不同的訊息與見解，每多一次的聆聽也等於再進行療癒一次</li>
+                        </ol>
+                    </div>
+
+                    <div class="process-step">
+                        <strong>三、催眠結束後訪談<br>(0.5~1小時)</strong>
+                        <p>催眠師會大略說明催眠過程與重點提醒。</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>其他催眠須知</h3>
+                    <ul class="notice-list">
+                        <li>催眠的次數並沒有被限制，必要時，還是可以再次進行催眠，只是希望個案能不要過渡依賴，好好的體驗自己的生活。</li>
+                        <li class="text-highlight"><span class="text-highlight">過程中的訪談、催眠內容等資訊皆為個人隱私，絕對會保密，也絕不容許相關資訊與第三人談論</span></li>
+                        <li>此為催眠者最基本的道德操守，請放心並持開放且信任狀態，催眠中才能達到獲取真正的答案與療癒。</li>
+                        <li>若催眠師欲利用(分享)個案的前世故事、以及其前世故事背後的課題、影響疫病情緒的關聯性等訊息，<span class="text-highlight">發佈於任何公眾平台，必會針求個案同意，並確認公開的內容範圍。</span></li>
+                        <li>催眠過程中非常隱私且必須在無人干擾的狀態下進行，所以請單獨前來，無法有陪同者在場。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公益名額區塊 (淺色背景) -->
+    <section id="charity">
+        <div class="container">
+            <h2 class="section-title">限量公益名額<br>(額滿為止)</h2>
+            
+            <div class="charity-card">
+                <h3 class="charity-title">公益名額說明</h3>
+                <div class="charity-text text-center">
+                    無須收費<br> (<span class="text-highlight">僅需負擔承租空間$3,100</span>)<br>
+                    催眠地點：台北飯店客房<br><br>
+                    請直接加入Line官方帳號進行預約<br>
+                    與我確認實際可預約日期<br>
+                    並完成預付訂金$2,100<br>
+                    才算完成預約喔♥<br><br>
+                    完成預約後，請務必詳細閱讀<a href="#process" style="color:var(--btn-color);">「催眠前須知」<i class="fas fa-link" style="font-size:0.8em;"></i></a><br>
+                    若有任何問題請直接於Line官方帳號中提問。<br>
+                    現正開放預約中！可隨時以LINE輕鬆預約。
+                </div>
+                
+                <a href="https://lin.ee/8sBm6wX" class="btn">
+                    Line官方帳號<br>預約
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 催眠收費與預約 (標準價格) (深色背景) -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title">催眠收費與預約</h2>
+
+            <div class="standard-pricing">
+                <h3>量子催眠收費 <span class="price-highlight">NT$8,800</span> /次</h3>
+                <h3 style="margin-top: 0.5rem;">第二次以上療程 <span class="price-highlight">NT$6,600</span> /次</h3>
+                <p style="margin-top: 0.2rem; margin-bottom: 2rem; color: var(--text-secondary); text-align: center;">(曾參與公益催眠者亦屬於第二次)</p>
+                
+                <div class="divider"></div>
+                
+                <div class="pricing-details-container">
+                    <p>請於加入line官方預約時間之後，先支付<b>訂金4,400</b>，收到訂金後才算預約完成。<br>
+                    會於三階段催眠療程完成後再收取<b>尾款$4,400。</b></p>
+                    
+                    <div style="font-size: 0.95rem; color: var(--text-secondary); line-height: 2;">
+                        <p class="text-highlight" style="margin-bottom:0.5rem">★無故失約，不退還訂金</p>
+                        <p class="text-highlight" style="margin-bottom:0.5rem">★若真的有需要，有些問題沒有釐清或想再探尋者，可再預約療程</p>
+                        <p class="text-highlight" style="margin-bottom:0.5rem">★不建議長期依賴外部工具協助，療癒98%以上是來自於自己本身，請相信自己內在力量</p>
+                        <p class="text-highlight" style="margin-bottom:0.5rem">★基本上，量子催眠只需要一次的療程就能達到療癒的效果。</p>
+                    </div>
+                </div>
+
+                <a href="https://lin.ee/8sBm6wX" class="btn">
+                    Line官方帳號<br>預約
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME 區塊 (淺色背景) -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">ABOUT ME</h2>
+            
+            <img src="Selina-Collage.png" alt="Selina Chu Life Photos" class="about-collage">
+
+            <div class="about-content">
+                <p class="about-intro text-center">
+                    HI！I AM SELINA CHU <br>
+                    原本身為靈性小白的我，是如何踏上靈性之路；成為量子催眠療法的催眠師的呢？
+                </p>
+                
+                <p>在2021/11/11與我的雙生靈魂(雙生火焰)<a href="#note1" class="sup-note"><sup>[註1]</sup></a>相遇(此時的表層意識並不知道)，我們互相吐露傷痛、彼此吸引、相愛、交往，但卻在2023/06/04我們分離了，我們各自的身心靈、生活(三維世界)都發生了毀滅般的衝擊，我經歷了一個多月的靈魂暗夜(指無法理解自己存在這個世界的意義與價值；以及無法認同這個世界醜陋的部份)，這段期間，我開始接觸了靈性相關的影片，我選擇臣服於當下的狀態，也接受我深愛的他選擇離開，當我臣服時，2023/07/17宇宙讓我發現「高我」<a href="#note2" class="sup-note"><sup>[註2]</sup></a>的存在，以及知道我們是雙生靈魂(祂讓我發現一些共時性的證據)，而我才明白我們的靈魂其實從未分離過。</p>
+
+                <p>自從覺醒後(察覺高我與雙生靈魂)，以前的輕微恐慌症、失眠、情執等恐懼、不安，還有原生家庭等業力，都得到了治癒與釋放，在這段期間，我也看見自己因為這些過往的情緒、創傷中，而產生出的病痛(輕微恐慌症、心悸、甲狀腺結節、巧克力囊腫…等)，還有看到家人、朋友及新聞報導，很多人都因為不同的生理和心理的疾病感到痛苦，而這些病痛一直深深困擾著人們，我很希望讓人們遠離這些痛苦。</p>
+
+                <p>原本我一直思考且詢問著高我和宇宙，自己的天賦與使命到底是什麼？然而就在某一天突然想起了「量子催眠」，這是我剛覺醒時接觸到的，因為曾經看到朵洛莉絲·侃南( 量子催眠的創始人 )在某次演講影片中提到「三波志願者與新地球」、「地球守護者」，當時非常吸引我，而且我也立馬火速的看完了這兩本書( 這是朵奶奶蒐集整理出她將近50年催眠案例的書籍 )，雖然有著濃厚的興趣，但是我還是不太確定自己是否適合「量子催眠師」？</p>
+                
+                <p>而就在我反覆思考、提問之後，又突然在某天，宇宙推播一則NHK電視台介紹京都 「不動明王」的影片給我，這尊神的名字其實在很久很久以前曾經自動浮現在我腦海中，那是我第一次也是唯一一次與這尊<a href="http://xhslink.com/o/8zMupt3KkWY" target="_blank" style="color:var(--btn-color);">神明的接觸<i class="fas fa-link" style="font-size:0.8em;"></i></a>，而到現在才明白祂其實是我的指導靈，在看完介紹影本之後，更能理解我為什麼那麼想讓人們遠離痛苦了，因為這就是「不動明王」的神性特質，而高我突然給我「量子催眠」的這個訊息，我認為這些過往經歷都絕對不會只是個巧合而已，所以我下定決定成為「量子催眠師」， 讓人們都不再受病痛、情緖、創傷的困擾，能健康、開心的體驗人生！圓滿完成今世的課題！</p>
+
+                <div class="note-block">
+                    <div id="note1" style="margin-bottom: 1rem;">
+                        <strong>註1：</strong>雙生靈魂(雙生火焰)是同一個靈魂再分裂成兩半，投生在兩個肉體中(但也有可能其中一個未投生的狀況)，靈魂DNA是一模一樣的。<br>
+                        (想了解我的雙生靈魂故事，可以到<a href="https://vocus.cc/salon/TwinFlame-Richi/room/TwinFlame-Richi" target="_blank" style="color:var(--btn-color);">方格子<i class="fas fa-link" style="font-size:0.8em;"></i></a>上觀看文章，但請勿追求與套用在任何戀愛關係中，雙生靈魂是開啟 覺醒、是涅槃重生之路，並非單純戀愛關係)
+                    </div>
+                    <div id="note2">
+                        <strong>註2：</strong>高我=自己的靈魂=最高意識的自己 =量子催眠中定義的「潛意識」(擁有宇宙意識)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 十大星際種子(Starseed)星際靈魂分析 (深色背景) -->
+    <section id="starseeds">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-segment">十大星際種子</span>
+                <span class="title-segment">(Starseed)</span>
+                <span class="title-segment">星際靈魂分析</span>
+            </h2>
+            
+            <div style="text-align: center; margin-bottom: 2rem; line-height: 1.8;">
+                <p>星際靈魂分析（Starseed Analysis），是一種從靈性視角理解靈魂來源、星系記憶與地球使命的分析方式，常見於對星空有強烈熟悉感、對地球制度感到格格不入，或在覺醒歷程中出現星際共鳴的靈魂。</p>
+                <p>透過星際靈魂分析，可協助星際種子(Starseeds)辨識自身的靈魂特質、原生星系能量、靈魂天賦與此生在地球的學習與服務方向。</p>
+                <p>本星際靈魂分析系列由 QHHT 量子催眠師 Selina Chu 撰寫與整理，結合量子催眠個案經驗、靈性回溯與星際意識探索，用於協助靈魂覺醒、自我理解與生命方向整合。</p>
+                <br>
+                <p>在此架構中，「星際種子（Starseed）」並非身份標籤，而是一種象徵性的語言，用來描述靈魂在意識層面與不同星系文明、原型能量或集體記憶產生共鳴的經驗。</p>
+                <br>
+                <p>進行星際靈魂分析的目的，不在於確認靈魂「來自哪裡」， 而在於：</p>
+                <p style="margin-top: 1.5rem; font-weight: 500; color: var(--btn-color);">
+                ★理解自身的能量傾向<br>
+                ★看見重複出現的生命課題<br>
+                ★整合內在矛盾與靈魂記憶<br>
+                ★找回此生較貼近本質的行動方向
+                </p>
+                 <p>★星際靈魂分析提供的是「理解的視角」，而<b>量子催眠</b>則是一段讓靈魂親自走進內在經驗的旅程，兩者位於不同層次，並非彼此取代。</p>
+                <p style="margin-top: 1.5rem; font-weight: 500; color: var(--btn-color);">
+                    11 星系的星際靈魂特質與解析，請參閱下方完整報告：
+                </p>
+            </div>
+
+            <div class="starseed-grid">
+                <a href="https://vocus.cc/article/68c910cffd89780001a8707a" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🌊 亞特蘭提斯（Atlantis）</div>
+                    <div class="starseed-desc">與古老文明、能量科技、水晶意識與集體記憶甦醒有關，常出現在對失落文明有深刻共鳴的靈魂中。</div>
+                </a>
+                <a href="https://vocus.cc/article/6892efeffd89780001bb742c" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🌸 雷姆利亞（Lemuria）</div>
+                    <div class="starseed-desc">代表母性能量、地球連結與心的文明，常見於具有溫柔療癒特質與自然共感能力的靈魂。</div>
+                </a>
+                <a href="https://vocus.cc/article/680b832dfd897800011e1c2a" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🐉 天龍座（Draco）／龍族</div>
+                    <div class="starseed-desc">與原初力量、守護意識與能量邊界有關，常涉及力量整合、權威課題與深層轉化。</div>
+                </a>
+                <a href="https://vocus.cc/article/6809fc2afd897800018a9bee" target="_blank" class="starseed-link">
+                    <div class="starseed-title">✨ 織女星（Vega）</div>
+                    <div class="starseed-desc">象徵高頻智慧與心智清明，常見於具備洞察力、抽象思考與知識整合能力的靈魂。</div>
+                </a>
+                <a href="https://vocus.cc/article/6800f7b5fd897800010489de" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🎵 天琴星（Lyra）</div>
+                    <div class="starseed-desc">被視為多數星際文明的靈魂起源之一，與原初創傷、純粹意識與靈魂記憶喚醒有關。</div>
+                </a>
+                <a href="https://vocus.cc/article/67fe4f72fd897800015b1468" target="_blank" class="starseed-link">
+                    <div class="starseed-title">⚔ 獵戶座（Orion）</div>
+                    <div class="starseed-desc">涉及權力、衝突與控制議題，常出現在需要學習平衡力量與情感的轉化型靈魂中。</div>
+                </a>
+                <a href="https://vocus.cc/article/67f9091efd897800017d309d" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🌀 大角星（Arcturus）</div>
+                    <div class="starseed-desc">與高維幾何、意識科技與能量轉譯有關，常見於擅長系統化、結構理解與教導的靈魂。</div>
+                </a>
+                <a href="https://vocus.cc/article/67f7c07efd8978000132fd8c" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🌌 仙女座（Andromeda）</div>
+                    <div class="starseed-desc">象徵自由意志與突破限制，常見於不受制於既有框架、渴望新秩序的靈魂。</div>
+                </a>
+                <a href="https://vocus.cc/article/67f67adefd89780001883708" target="_blank" class="starseed-link">
+                    <div class="starseed-title">💗 昴宿星團（Pleiades）</div>
+                    <div class="starseed-desc">與愛、共感與群體意識有關，常見於高敏感、療癒型與支持他人的靈魂。</div>
+                </a>
+                <a href="https://vocus.cc/article/67f4a85cfd8978000113a00f" target="_blank" class="starseed-link">
+                    <div class="starseed-title">💧 天狼星（Sirius）</div>
+                    <div class="starseed-desc">與水元素、心輪覺醒與守護能量有關，常出現在具有穩定療癒與引導特質的靈魂中。</div>
+                </a>
+                <a href="https://vocus.cc/article/67c84c0cfd89780001f3dbd7" target="_blank" class="starseed-link">
+                    <div class="starseed-title">🔔 利拉星後裔（Lyra lineage）</div>
+                    <div class="starseed-desc">指承載天琴星系記憶的靈魂脈絡，常涉及原初分裂、靈魂創傷與回歸整合的歷程。</div>
+                </a>
+                <a href="https://vocus.cc/salon/TwinFlame-Richi/room/Starseed" target="_blank" class="starseed-link">
+                    <div class="starseed-title">其他Starseed相關內容</div>
+                    <div class="starseed-desc">結合量子催眠與多維靈性實踐經驗，幫助星際靈魂整合過去經驗、潛能覺醒，並啟動自我療癒與成長。</div>
+                </a>
+            </div>
+
+            <p style="text-align: center; margin-top: 3rem; font-size: 0.9rem; color: var(--text-secondary);">
+                本頁所列各項「星際靈魂分析」內容<br>
+                由量子催眠師 Selina Chu規劃與撰寫<br>
+                並延伸發佈於vocus等不同平台<br>
+                作為系列文章整理
+            </p>
+        </div>
+    </section>
+
+    <!-- 更多資源 (淺色背景) -->
+    <section id="resources">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-segment">探索 Selina Chu 的</span>
+                <span class="title-segment">其他靈性創作</span>
+            </h2>
+            <div class="resource-grid">
+                
+                <a href="https://vocus.cc/article/67feada8fd897800017112b8" target="_blank" class="resource-card">
+                    <i class="fas fa-sun"></i>
+                    <div class="resource-title">瑪雅印記個人解盤</div>
+                    <p class="resource-desc">瑪雅圖騰解讀報告</p>
+                </a>
+
+                <a href="https://vocus.cc/article/67fea929fd8978000170898d" target="_blank" class="resource-card">
+                    <i class="fas fa-user-friends"></i>
+                    <div class="resource-title">瑪雅印記雙生火焰解盤</div>
+                    <p class="resource-desc">瑪雅圖騰解讀報告<br><span class="highlight-note">★只需雙方生日日期(年月日)</span></p>
+                </a>
+
+                <a href="https://vocus.cc/article/67fea436fd897800016fef6b" target="_blank" class="resource-card">
+                    <i class="fas fa-star-and-crescent"></i>
+                    <div class="resource-title">星座合盤相位</div>
+                    <p class="resource-desc">看雙生火焰關係<br><span class="highlight-note">★須有雙方出生日、時間、地點</span></p>
+                </a>
+
+                <a href="https://www.youtube.com/playlist?list=PLoDJTyy-oDfYqKk_jnKrE3_K16XdxcFQ6" target="_blank" class="resource-card">
+                    <i class="fab fa-youtube"></i>
+                    <div class="resource-title">催眠案例分享影片</div>
+                    <p class="resource-desc">觀看真實催眠案例</p>
+                </a>
+                
+                <a href="https://vocus.cc/salon/TwinFlame-Richi" target="_blank" class="resource-card">
+                    <i class="fas fa-book-open"></i>
+                    <div class="resource-title">VOCUS 宇宙文章</div>
+                    <p class="resource-desc">宇宙法則．星象能量報告．Starseed</p>
+                </a>
+<a href="https://vocus.cc/salon/TwinFlame-Richi/room/TwinFlame-Richi" target="_blank" class="resource-card">
+                    <i class="fa-solid fa-fire"><i class="fa-solid fa-fire"></i></i>
+                    <div class="resource-title">VOCUS 雙生火焰文章</div>
+                    <p class="resource-desc">雙生火焰故事、研析等分享</p>
+                </a>
+
+<a href="https://youtube.com/playlist?list=PLoDJTyy-oDfb4SzfS55TPQQLaLq_C5T0N&si=Tcx78tJxVFdv1Tvx" target="_blank" class="resource-card">
+                    <i class="fa-brands fa-square-youtube"></i>
+                    <div class="resource-title">雙生火焰影片</div>
+                    <p class="resource-desc">雙生火焰故事、感悟與研究分析</p>
+                </a>
+
+                <a href="https://shopee.tw/selinachu0322?categoryId=100009&entryPoint=ShopByPDP&itemId=27458165163" target="_blank" class="resource-card">
+                    <i class="fas fa-gem"></i>
+                    <div class="resource-title">天然水晶手鍊</div>
+                    <p class="resource-desc">款式設計與販售</p>
+                </a>
+
+                <a href="https://store.line.me/stickershop/author/4179143/zh-Hant" target="_blank" class="resource-card">
+                    <i class="far fa-smile"></i>
+                    <div class="resource-title">LINE 原創貼圖</div>
+                    <p class="resource-desc">Selina 個人創作</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            
+            <div class="social-row-top">
+                <a href="https://vocus.cc/salon/TwinFlame-Richi" target="_blank" title="Vocus 方格子">
+                    <img src="vocus.png" alt="Vocus" class="custom-icon-large">
+                </a>
+                
+                <a href="https://www.xiaohongshu.com/user/profile/6570022200000000200362ff" target="_blank" title="小紅書">
+                    <img src="xiaohongshu.png" alt="XiaoHongShu" class="custom-icon-large">
+                </a>
+            </div>
+
+            <div class="social-row-bottom">
+                <a href="https://www.facebook.com/profile.php?id=61550715687761" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/cosmicray.painting.studio" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@gakki_chu" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.threads.com/@gakki_chu?hl=zh-tw" target="_blank" title="Threads"><i class="fab fa-threads"></i></a>
+                <a href="https://medium.com/@selinachu0322" target="_blank" title="Medium"><i class="fab fa-medium"></i></a>
+                <a href="https://www.youtube.com/@selinachu102" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://members.qhhtofficial.com/members/selinachu0322/" target="_blank" title="QHHT Official"><i class="fas fa-globe"></i></a>
+                <a href="mailto:selinachu0322@gmail.com" title="Email: selinachu0322@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            
+            <div class="footer-info">
+                <p>Copyright © 2025 Selina Chu. All Rights Reserved.</p>
+                <p>量子催眠療癒服務 | 台北/新北</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- RWD Menu & Scroll Top JS -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navList = document.getElementById('nav-list');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        const navScrollIndicator = document.getElementById('navScrollIndicator');
+
+        // Toggle Mobile Menu
+        hamburger.addEventListener('click', () => {
+            navList.classList.toggle('active');
+
+            // 檢查選單開啟時，是否需要顯示捲動提示
+            // 如果選單總高度 > 可視高度，表示有捲軸，則顯示提示
+            if (navList.classList.contains('active')) {
+                // 給一點緩衝，確保樣式已應用
+                setTimeout(() => {
+                    if (navList.scrollHeight > navList.clientHeight) {
+                        navScrollIndicator.classList.remove('hidden');
+                    } else {
+                        navScrollIndicator.classList.add('hidden');
+                    }
+                }, 50);
+            }
+        });
+
+        // 監聽選單捲動事件
+        navList.addEventListener('scroll', () => {
+            // 判斷是否捲動到底部 (scrollTop + clientHeight 與 scrollHeight 的差值)
+            // 給予 10px 的緩衝區間
+            if (navList.scrollTop + navList.clientHeight >= navList.scrollHeight - 10) {
+                navScrollIndicator.classList.add('hidden');
+            } else {
+                navScrollIndicator.classList.remove('hidden');
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+
+        // Show/Hide Top Button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+    </script>
+
+</body>
+</html>
