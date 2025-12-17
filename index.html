@@ -385,18 +385,6 @@
         }
 
         .hero-logo-large { max-width: 250px; width: 100%; height: auto; margin-bottom: 1.5rem; display: block; }
-<<<<<<< HEAD
-=======
-        
-        .hero-title { 
-            font-size: 3rem; 
-            margin-bottom: 0.5rem; 
-            letter-spacing: 0.15em; 
-            color: var(--text-heading); 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05); 
-            white-space: nowrap; 
-        }
->>>>>>> 92b132fc13b05658b0422972b800a9fd557af7d7
         
         .hero-title { 
             font-size: 3rem; 
@@ -431,15 +419,9 @@
                 display: flex;
                 flex-direction: column; 
                 align-items: center;
-<<<<<<< HEAD
                 gap: 10px; /* 增加一點行距 */
                 width: 100%;
                 padding: 1.5rem 0; /* 移除左右內距以最大化空間 */
-=======
-                gap: 6px; 
-                width: 100%;
-                padding: 1.2rem 0.5rem;
->>>>>>> 92b132fc13b05658b0422972b800a9fd557af7d7
             }
             
             .group-sep { display: none; } 
@@ -451,7 +433,6 @@
                 align-items: center;
                 width: 100%;
                 margin: 0;
-<<<<<<< HEAD
             }
 
             .kw-left { 
@@ -477,28 +458,6 @@
                 font-size: 1rem;
                 font-weight: bold;
             }
-=======
-                gap: 5px;
-                white-space: nowrap;
-            }
-
-            .kw-left { 
-                text-align: right; 
-                font-size: clamp(0.7rem, 3.8vw, 1rem); 
-            }
-
-            .kw-right { 
-                text-align: left; 
-                font-size: clamp(0.7rem, 3.8vw, 1rem); 
-            }
-
-            .kw-mid { 
-                margin: 0; 
-                text-align: center; 
-                width: 15px;
-                font-size: 1rem;
-            }
->>>>>>> 92b132fc13b05658b0422972b800a9fd557af7d7
         }
 
         .hero-qhht-link { display: inline-block; text-decoration: none; margin-bottom: 1rem; width: 100%; max-width: 400px; }
@@ -550,6 +509,9 @@
             color: var(--text-secondary);
             font-weight: normal;
             line-height: 1.6;
+            /* 修改：文字靠左對齊，並寬度100%以確保對齊容器邊緣 */
+            text-align: left;
+            width: 100%;
         }
 
         .starseed-link:hover {
@@ -562,6 +524,19 @@
         .starseed-link:hover .starseed-desc {
             color: white;
         }
+
+        /* --- 修改區塊：星際種子 Mobile RWD 設定 --- */
+        @media (max-width: 768px) {
+            .starseed-grid {
+                /* 強制改為單欄，避免因 minmax(300px) 導致超出螢幕 */
+                grid-template-columns: 1fr;
+                /* 調整間距 */
+                gap: 1rem;
+                /* 確保寬度不超過容器 */
+                width: 100%;
+            }
+        }
+        /* --- 結束修改 --- */
 
         /* --- Process Grid --- */
         .qhht-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 4rem; flex-wrap: wrap; }
