@@ -111,13 +111,50 @@
             z-index: 2;
         }
 
-        /* 按鈕 (LINE 官方帳號按鈕優化) */
-        .btn {
+        /* SVG Multiply Icon Style (Color Updated) */
+        .icon-multiply {
+            width: 0.9em;
+            height: 0.9em;
+            vertical-align: middle;
+            margin: 0 4px;
             display: inline-block;
-            padding: 12px 40px;
+            position: relative;
+            top: -2px;
+        }
+        .icon-multiply path {
+            stroke: var(--accent-purple);
+            filter: drop-shadow(0 0 2px rgba(199, 146, 234, 0.5));
+        }
+
+        /* Card Icons */
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 15px;
+            stroke: var(--accent-cyan);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 5px rgba(137, 221, 255, 0.3));
+            transition: all 0.3s ease;
+        }
+        .starseed-link:hover .card-icon {
+            stroke: var(--accent-gold);
+            transform: scale(1.1);
+        }
+
+        /* 按鈕 (LINE 官方帳號按鈕優化 - Moderate Height) */
+        .btn {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* Modified Padding: Reduces height while keeping width */
+            padding: 8px 40px; 
             background: var(--btn-gradient);
             color: #1a1a1a !important; 
-            font-weight: 700; /* 加粗 */
+            font-weight: 700;
             border: none;
             font-family: var(--font-sans);
             font-size: 1rem;
@@ -131,10 +168,10 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
-            
-            /* 確保兩行顯示 */
-            line-height: 1.5; 
-            white-space: pre-line; /* 尊重 HTML 中的換行符號 */
+            /* Modified Line-Height: Tighter for two lines */
+            line-height: 1.4; 
+            height: auto;
+            white-space: pre-line; 
         }
         
         .btn:hover {
@@ -283,18 +320,13 @@
         .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; margin-left: auto; }
         .bar { width: 26px; height: 2px; background-color: var(--text-primary); transition: 0.3s; border-radius: 2px; }
 
-        /* Scroll Indicator - Bottom Right */
+        /* Scroll Indicator (General) */
         .nav-scroll-indicator {
             display: none;
             position: fixed;
-            bottom: 30px;
-            right: 30px; /* Fixed to bottom right */
-            left: auto; 
-            transform: none; 
             color: var(--accent-cyan);
             flex-direction: column;
             align-items: center;
-            z-index: 1002;
             animation: bounce 2s infinite;
             pointer-events: none;
             opacity: 0.9; 
@@ -337,8 +369,16 @@
             }
             nav ul.active { display: flex; animation: slideDown 0.3s ease forwards; }
             
-            /* Show scroll indicator when menu is active on mobile */
-            nav ul.active + .nav-scroll-indicator:not(.hidden) { display: flex; }
+            /* Show scroll indicator when menu is active on mobile - Fixed to Bottom Right */
+            nav ul.active + .nav-scroll-indicator:not(.hidden) { 
+                display: flex; 
+                position: fixed;
+                bottom: 25px !important;
+                right: 25px !important;
+                left: auto !important;
+                transform: none !important;
+                z-index: 2000;
+            }
 
             nav li { width: 100%; text-align: center; }
             nav a { padding: 1.2rem; display: block; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; }
@@ -414,11 +454,13 @@
             #pricing .section-title { white-space: nowrap; }
         }
 
-        /* 深色區塊背景 */
-        #qhht, #process, #pricing, #starseeds {
+        /* 深色區塊背景設定 (一淺一深交錯) */
+        #qhht, #process, #pricing, #starseeds, #resources {
             background-color: rgba(0, 0, 0, 0.1); 
             padding-bottom: 7rem; 
         }
+        
+        /* #volunteers 默認為淺色（即原本背景），無需特別設定背景色 */
 
         /* --- Hero --- */
         #home {
@@ -456,10 +498,11 @@
         /* --- Hero Central UFO (Between Title and Subtitle) --- */
         .hero-center-ufo {
             position: relative;
-            width: 150px;
-            height: 120px;
-            margin: 10px auto -5px; /* Adjust spacing to bring text closer */
+            width: 160px;
+            height: 140px;
+            margin: 1.5rem auto; 
             z-index: 5;
+            display: block;
         }
         
         .hero-ship-body {
@@ -782,6 +825,7 @@
                     <li><a href="#pricing">收費與預約</a></li>
                     <li><a href="#about">ABOUT ME</a></li>
                     <li><a href="#starseeds">星際靈魂分析</a></li>
+                    <li><a href="#volunteers">星際<svg class="icon-multiply" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>志願者</a></li>
                     <li><a href="#resources">探索更多</a></li>
                 </ul>
                 <div class="nav-scroll-indicator" id="navScrollIndicator">
@@ -1363,50 +1407,62 @@
 
             <div class="starseed-grid">
                 <a href="https://vocus.cc/article/68c910cffd89780001a8707a" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>
                     <div class="starseed-title">🌊 亞特蘭提斯（Atlantis）</div>
                     <div class="starseed-desc">與古老文明、能量科技、水晶意識與集體記憶甦醒有關，常出現在對失落文明有深刻共鳴的靈魂中。</div>
                 </a>
                 <a href="https://vocus.cc/article/6892efeffd89780001bb742c" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                     <div class="starseed-title">🌸 雷姆利亞（Lemuria）</div>
                     <div class="starseed-desc">代表母性能量、地球連結與心的文明，常見於具有溫柔療癒特質與自然共感能力的靈魂。</div>
                 </a>
                 <a href="https://vocus.cc/article/680b832dfd897800011e1c2a" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
                     <div class="starseed-title">🐉 天龍座（Draco）／龍族</div>
                     <div class="starseed-desc">與原初力量、守護意識與能量邊界有關，常涉及力量整合、權威課題與深層轉化。</div>
                 </a>
                 <a href="https://vocus.cc/article/6809fc2afd897800018a9bee" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     <div class="starseed-title">✨ 織女星（Vega）</div>
                     <div class="starseed-desc">象徵高頻智慧與心智清明，常見於具備洞察力、抽象思考與知識整合能力的靈魂。</div>
                 </a>
                 <a href="https://vocus.cc/article/6800f7b5fd897800010489de" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                     <div class="starseed-title">🎵 天琴星（Lyra）</div>
                     <div class="starseed-desc">被視為多數星際文明的靈魂起源之一，與原初創傷、純粹意識與靈魂記憶喚醒有關。</div>
                 </a>
                 <a href="https://vocus.cc/article/67fe4f72fd897800015b1468" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"/><path d="M13 19l6-6 5 5-6 6z"/></svg>
                     <div class="starseed-title">⚔ 獵戶座（Orion）</div>
                     <div class="starseed-desc">涉及權力、衝突與控制議題，常出現在需要學習平衡力量與情感的轉化型靈魂中。</div>
                 </a>
                 <a href="https://vocus.cc/article/67f9091efd897800017d309d" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
                     <div class="starseed-title">🌀 大角星（Arcturus）</div>
                     <div class="starseed-desc">與高維幾何、意識科技與能量轉譯有關，常見於擅長系統化、結構理解與教導的靈魂。</div>
                 </a>
                 <a href="https://vocus.cc/article/67f7c07efd8978000132fd8c" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                     <div class="starseed-title">🌌 仙女座（Andromeda）</div>
                     <div class="starseed-desc">象徵自由意志與突破限制，常見於不受制於既有框架、渴望新秩序的靈魂。</div>
                 </a>
                 <a href="https://vocus.cc/article/67f67adefd89780001883708" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     <div class="starseed-title">💗 昴宿星團（Pleiades）</div>
                     <div class="starseed-desc">與愛、共感與群體意識有關，常見於高敏感、療癒型與支持他人的靈魂。</div>
                 </a>
                 <a href="https://vocus.cc/article/67f4a85cfd8978000113a00f" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
                     <div class="starseed-title">💧 天狼星（Sirius）</div>
                     <div class="starseed-desc">與水元素、心輪覺醒與守護能量有關，常出現在具有穩定療癒與引導特質的靈魂中。</div>
                 </a>
                 <a href="https://vocus.cc/article/67c84c0cfd89780001f3dbd7" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
                     <div class="starseed-title">🔔 利拉星後裔（Lyra lineage）</div>
                     <div class="starseed-desc">指承載天琴星系記憶的靈魂脈絡，常涉及原初分裂、靈魂創傷與回歸整合的歷程。</div>
                 </a>
                 <a href="https://vocus.cc/salon/TwinFlame-Richi/room/Starseed" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
                     <div class="starseed-title">其他Starseed相關內容</div>
                     <div class="starseed-desc">結合量子催眠與多維靈性實踐經驗，幫助星際靈魂整合過去經驗、潛能覺醒，並啟動自我療癒與成長。</div>
                 </a>
@@ -1421,7 +1477,112 @@
         </div>
     </section>
 
-    <!-- 更多資源 (淺色背景) -->
+    <!-- 星際種子✖三波志願者 (淺色背景 - 即無深色疊加) -->
+    <section id="volunteers">
+        <div class="container">
+            <!-- Alien Sending Signal/Love -->
+            <div class="title-icon-wrapper">
+                <svg class="title-svg" viewBox="0 0 100 100">
+                    <path d="M50 80 Q20 50 20 35 Q20 20 35 20 Q45 20 50 30 Q55 20 65 20 Q80 20 80 35 Q80 50 50 80 Z" fill="none" stroke="#FFAB91" stroke-width="2"/>
+                    <!-- Signal Waves -->
+                    <path d="M50 15 Q30 5 10 15" stroke="#89DDFF" stroke-width="2" fill="none" stroke-opacity="0.5"/>
+                    <path d="M50 10 Q20 -5 -10 10" stroke="#89DDFF" stroke-width="2" fill="none" stroke-opacity="0.3"/>
+                    <path d="M50 15 Q70 5 90 15" stroke="#89DDFF" stroke-width="2" fill="none" stroke-opacity="0.5"/>
+                    <path d="M50 10 Q80 -5 110 10" stroke="#89DDFF" stroke-width="2" fill="none" stroke-opacity="0.3"/>
+                    <!-- Alien Face inside Heart -->
+                    <circle cx="50" cy="40" r="8" fill="#2C3E50" stroke="#C792EA" stroke-width="2"/>
+                    <circle cx="47" cy="38" r="2" fill="#fff"/>
+                    <circle cx="53" cy="38" r="2" fill="#fff"/>
+                </svg>
+            </div>
+            <h2 class="section-title">
+                <span class="title-segment">星際種子<svg class="icon-multiply" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>三波志願者</span>
+            </h2>
+            
+            <div style="text-align: center; margin-bottom: 3rem; line-height: 2;">
+                <p>在這個專區中，我們不只談「你來自哪個星系」，<br>
+                而是更深入地探索——你為什麼選擇在這個時代來到地球？</p>
+
+                <p>所謂的「三波志願者」，並不是一個標籤，<br>
+                而是一段關於靈魂如何回應地球呼喚的歷程。</p>
+
+                <p>這裡整理了關於星際種子、星際寶寶、三波志願者的核心觀點，<br>
+                包含靈魂投身地球的時間線、不同外星種族特質、<br>
+                身體轉化的真實經驗、未啟動意識的狀態，<br>
+                以及——如何將星際靈魂真正「落地」於此生。</p>
+
+                <p style="margin-top: 1.5rem; font-weight: 500; color: var(--accent-cyan); text-shadow: 0 0 5px rgba(137, 221, 255, 0.2);">
+                如果你曾感到自己不屬於這個世界，<br>
+                或在覺醒的路上感到孤單、困惑、身體劇烈變化，<br>
+                這個專區，或許正是為你而存在。</p>
+            </div>
+
+            <div class="starseed-grid">
+                <a href="https://vocus.cc/article/67bc99fcfd89780001bc7af4" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    <div class="starseed-title">給三波志願者 (星際種子) 的話</div>
+                    <div class="starseed-desc">給正在覺醒路上的靈魂的一封信。</div>
+                </a>
+                <a href="https://vocus.cc/article/67bc9bc5fd89780001bcd875" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 2C6.5 2 3 6.5 3 12s4.5 10 9 10 9-5.5 9-10S17.5 2 12 2z" /><path d="M7 13c0-1.5 1-2.5 2.5-1.5S11 14 10 15c-1 1-3 1-3-2z" /><path d="M17 13c0-1.5-1-2.5-2.5-1.5S13 14 14 15c1 1 3 1 3-2z" /></svg>
+                    <div class="starseed-title">細談三波志願者、星際寶寶</div>
+                    <div class="starseed-desc">深入了解不同波段志願者的特質與任務。</div>
+                </a>
+                <a href="https://vocus.cc/article/67bc9deefd89780001bd3951" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+                    <div class="starseed-title">身體變化與調適建議</div>
+                    <div class="starseed-desc">三波志願者、星際寶寶常見的身體轉化症狀與應對。</div>
+                </a>
+                <a href="https://vocus.cc/article/67c849a4fd89780001f328c8" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6zm0 10a4 4 0 1 1 4-4 4 4 0 0 1-4 4z"/></svg>
+                    <div class="starseed-title">外星種族類型</div>
+                    <div class="starseed-desc">探索不同星際種族的能量特質與顯化形式。</div>
+                </a>
+                <a href="https://vocus.cc/article/67ca7250fd897800017e350d" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <div class="starseed-title">星際種子投身地球時間線整理</div>
+                    <div class="starseed-desc">梳理靈魂進入地球的時間節點與集體意識進程。</div>
+                </a>
+                <a href="https://vocus.cc/article/67cb032afd89780001a23452" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+                    <div class="starseed-title">144000星際種子到底是？</div>
+                    <div class="starseed-desc">解密關於144,000這個數字背後的靈性含義。</div>
+                </a>
+                <a href="https://vocus.cc/article/67cbfa12fd89780001cf59b2" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    <div class="starseed-title">星際種子如何落地</div>
+                    <div class="starseed-desc">如何在地球扎根，平衡靈性與物質生活。</div>
+                </a>
+                <a href="https://vocus.cc/article/67cd4c5bfd8978000119063c" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    <div class="starseed-title">如何整合靈魂碎片？</div>
+                    <div class="starseed-desc">找回失落的自己，邁向完整的靈魂整合之路。</div>
+                </a>
+                <a href="https://vocus.cc/article/67d2d285fd89780001f3c8eb" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                    <div class="starseed-title">人人都有雙生火焰/人人都是星際種子？</div>
+                    <div class="starseed-desc">探討靈性概念的普及與誤區。</div>
+                </a>
+                <a href="https://vocus.cc/article/67f38a59fd89780001cfa138" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <div class="starseed-title">宇宙十二星系× 靈魂起源特質 × 地球使命</div>
+                    <div class="starseed-desc">綜合解析各大星系的靈魂藍圖與任務。</div>
+                </a>
+                <a href="https://vocus.cc/article/696274a6fd897800019dbae" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <div class="starseed-title">三波志願者與「未啟動」意識的關聯</div>
+                    <div class="starseed-desc">探討意識覺醒前的狀態與啟動契機。</div>
+                </a>
+                <a href="https://vocus.cc/salon/TwinFlame-Richi/room/Starseed" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    <div class="starseed-title">其他相關內容</div>
+                    <div class="starseed-desc">更多關於星際靈魂的深度探討與分享。</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 更多資源 (深色背景 - 修改為深色以符合交錯) -->
     <section id="resources">
         <div class="container">
             <!-- Octopus Alien -->
