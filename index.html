@@ -111,13 +111,13 @@
             z-index: 2;
         }
 
-        /* 按鈕 */
+        /* 按鈕 (LINE 官方帳號按鈕優化) */
         .btn {
             display: inline-block;
-            padding: 14px 40px;
+            padding: 12px 40px;
             background: var(--btn-gradient);
             color: #1a1a1a !important; 
-            font-weight: 600;
+            font-weight: 700; /* 加粗 */
             border: none;
             font-family: var(--font-sans);
             font-size: 1rem;
@@ -131,6 +131,10 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            
+            /* 確保兩行顯示 */
+            line-height: 1.5; 
+            white-space: pre-line; /* 尊重 HTML 中的換行符號 */
         }
         
         .btn:hover {
@@ -279,20 +283,21 @@
         .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; margin-left: auto; }
         .bar { width: 26px; height: 2px; background-color: var(--text-primary); transition: 0.3s; border-radius: 2px; }
 
+        /* Scroll Indicator - Bottom Right */
         .nav-scroll-indicator {
             display: none;
             position: fixed;
             bottom: 30px;
-            right: 20px;
+            right: 30px; /* Fixed to bottom right */
             left: auto; 
             transform: none; 
             color: var(--accent-cyan);
             flex-direction: column;
             align-items: center;
-            z-index: 1001;
+            z-index: 1002;
             animation: bounce 2s infinite;
             pointer-events: none;
-            opacity: 0.7; 
+            opacity: 0.9; 
             transition: opacity 0.3s ease;
         }
 
@@ -302,11 +307,12 @@
             margin-top: 5px;
             letter-spacing: 0.1em;
             white-space: nowrap;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(137, 221, 255, 0.2);
+            background: rgba(21, 23, 37, 0.8);
+            border: 1px solid rgba(137, 221, 255, 0.4);
             color: var(--accent-cyan);
-            padding: 2px 8px;
+            padding: 4px 10px;
             border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         .nav-scroll-indicator.hidden { display: none !important; }
@@ -331,6 +337,7 @@
             }
             nav ul.active { display: flex; animation: slideDown 0.3s ease forwards; }
             
+            /* Show scroll indicator when menu is active on mobile */
             nav ul.active + .nav-scroll-indicator:not(.hidden) { display: flex; }
 
             nav li { width: 100%; text-align: center; }
@@ -435,10 +442,6 @@
             filter: drop-shadow(0 0 10px rgba(255,255,255,0.15)); 
         }
         
-        /* 
-           MODIFIED: Title and UFO positioning 
-           Making H1 inline-block ensures UFO stays attached to text width.
-        */
         .hero-title { 
             font-size: 3.5rem; 
             margin-bottom: 0.5rem; 
@@ -446,43 +449,124 @@
             color: var(--text-heading); 
             text-shadow: 0 0 15px rgba(255,255,255,0.2); 
             white-space: nowrap; 
-            position: relative; /* Anchor for absolute SVG */
-            display: inline-block; /* Wraps tightly around text */
+            position: relative;
             z-index: 2;
         }
         
-        /* 
-           MODIFIED: UFO Float Style 
-           Positioned absolutely to the right of the H1
-        */
-        .ufo-float { 
-            position: absolute;
-            width: 120px; /* Reduced size for side accessory */
-            left: 100%; /* Push to the right edge of text */
-            top: 50%;
-            transform: translateY(-60%) rotate(5deg); /* Center vertically and tilt */
-            margin-left: 15px; /* Gap between text and UFO */
-            animation: float 6s ease-in-out infinite; 
-            filter: drop-shadow(0 0 10px rgba(137, 221, 255, 0.3)); 
-            z-index: -1; 
-            opacity: 0.9;
-            pointer-events: none;
+        /* --- Hero Central UFO (Between Title and Subtitle) --- */
+        .hero-center-ufo {
+            position: relative;
+            width: 150px;
+            height: 120px;
+            margin: 10px auto -5px; /* Adjust spacing to bring text closer */
+            z-index: 5;
+        }
+        
+        .hero-ship-body {
+            animation: heroFloat 6s ease-in-out infinite;
         }
 
-        @keyframes float { 
-            0% { transform: translateY(-60%) rotate(5deg); } 
-            50% { transform: translateY(-75%) rotate(-5deg); } /* Floating up/down */
-            100% { transform: translateY(-60%) rotate(5deg); } 
+        .hero-beam {
+            transform-origin: top center;
+            animation: heroBeamCycle 6s infinite;
         }
         
-        @media (max-width: 768px) {
-            .ufo-float { 
-                width: 60px; /* Smaller on mobile */
-                margin-left: 5px;
-                transform: translateY(-50%) rotate(5deg);
+        .hero-alien {
+            animation: heroAlienDrop 6s infinite;
+        }
+
+        /* Animations */
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes heroBeamCycle {
+            0%, 15% { opacity: 0; transform: scaleY(0); }
+            25%, 75% { opacity: 0.6; transform: scaleY(1); } /* Beam On */
+            85%, 100% { opacity: 0; transform: scaleY(0); }
+        }
+        
+        @keyframes heroAlienDrop {
+            0%, 20% { transform: translateY(-40px); opacity: 0; } /* Hidden inside */
+            30% { transform: translateY(20px); opacity: 1; } /* Drop down */
+            70% { transform: translateY(20px); opacity: 1; } /* Stay */
+            80%, 100% { transform: translateY(-40px); opacity: 0; } /* Go back up */
+        }
+
+        /* --- Decorative SVG Icons (Hero) --- */
+        .deco-icon { position: absolute; z-index: 0; pointer-events: none; opacity: 0.6; }
+        .alien-peek { width: 80px; top: -40px; left: 5%; animation: peek 5s ease-in-out infinite alternate; opacity: 0.7; }
+        .rocket-fly { width: 60px; bottom: 10%; left: 5%; animation: fly 15s linear infinite; opacity: 0.5; }
+
+        @keyframes peek { 0% { transform: translateY(0); } 100% { transform: translateY(-15px); } }
+        @keyframes fly { 0% { transform: translate(0, 0) rotate(45deg); opacity: 0; } 20% { opacity: 0.6; } 80% { opacity: 0.6; } 100% { transform: translate(100px, -150px) rotate(45deg); opacity: 0; } }
+        @media (max-width: 768px) { .alien-peek { display: none; } }
+
+        /* SVG Colors & Common Styles */
+        .svg-stroke { stroke: var(--accent-cyan); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+        .svg-fill { fill: var(--bg-color); stroke: var(--accent-purple); stroke-width: 2; }
+        .svg-accent { fill: var(--accent-gold); }
+        /* Title SVGs specific styles */
+        .svg-title-fill { fill: rgba(137, 221, 255, 0.1); stroke: var(--accent-cyan); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+        .svg-title-stroke { stroke: var(--accent-cyan); stroke-width: 2; fill: none; stroke-linecap: round; }
+        .svg-title-accent { fill: var(--accent-purple); }
+        .svg-title-gold { fill: var(--accent-gold); }
+
+        /* --- FIXED FLOATING SHIP (Bottom Left) --- */
+        .fixed-ship-container {
+            position: fixed;
+            bottom: 100px;
+            left: 20px;
+            width: 120px;
+            height: 120px;
+            z-index: 9999; /* Top layer as requested */
+            animation: deepSpaceFloat 8s ease-in-out infinite;
+            pointer-events: none; /* Non-blocking */
+            opacity: 0.6; /* Semi-transparent as requested */
+        }
+
+        /* Beam Animation for fixed ship */
+        .ufo-beam {
+            animation: beamPulse 4s ease-in-out infinite;
+            transform-origin: top center;
+        }
+        @keyframes beamPulse {
+            0%, 100% { opacity: 0.2; transform: scaleY(0.9); }
+            50% { opacity: 0.7; transform: scaleY(1.1); }
+        }
+
+        @keyframes deepSpaceFloat {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Responsive behavior for the fixed ship */
+        @media (max-width: 1200px) {
+            .fixed-ship-container {
+                width: 80px;
+                height: 80px;
+                opacity: 0.4; /* More transparent on smaller screens */
+                bottom: 80px;
+                left: 10px;
             }
         }
-        
+
+        /* --- About Me --- */
+        .about-intro { font-weight: 500; font-size: 1.35rem; margin-bottom: 3rem; text-align: center; font-family: var(--font-serif); color: var(--text-heading); line-height: 1.8; letter-spacing: 0.1em; text-shadow: 0 0 5px rgba(0,0,0,0.5);}
+        .about-collage { width: 100%; height: auto; border-radius: 20px; box-shadow: var(--card-shadow); margin-bottom: 4rem; display: block; border: 1px solid rgba(255,255,255,0.1); }
+
+        /* --- Starseeds Section --- */
+        .starseed-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; position: relative; }
+        .starseed-link { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; height: 100%; background-color: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-primary); padding: 2rem; border-radius: 16px; text-align: center; transition: all 0.4s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.2); backdrop-filter: blur(5px); position: relative; overflow: hidden; }
+        .starseed-link::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent); opacity: 0.4; }
+        .starseed-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-heading); letter-spacing: 0.05em; text-shadow: 0 0 5px rgba(255,255,255,0.1); }
+        .starseed-desc { font-size: 0.95rem; color: var(--text-secondary); font-weight: normal; line-height: 1.7; text-align: justify; width: 100%; }
+        .starseed-link:hover { background-color: rgba(255, 255, 255, 0.06); border-color: var(--accent-cyan); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(137, 221, 255, 0.1); }
+        .starseed-link:hover .starseed-title { color: var(--accent-cyan); }
+        .starseed-link:hover .starseed-desc { color: var(--text-primary); }
+        @media (max-width: 768px) { .starseed-grid { grid-template-columns: 1fr; gap: 1.5rem; width: 100%; } .starseed-link { padding: 1.5rem; } }
+
         /* --- Hero Keywords --- */
         .hero-keywords {
             font-size: 0.95rem; 
@@ -524,95 +608,49 @@
             .kw-row { width: auto; margin: 0; padding: 6px 16px; font-size: 0.9rem; }
         }
 
-        .hero-qhht-link { display: inline-block; text-decoration: none; margin-bottom: 2rem; width: 100%; max-width: 420px; }
+        /* --- QHHT Button Box Style --- */
+        .hero-qhht-link { 
+            display: inline-block; 
+            text-decoration: none; 
+            margin-bottom: 2rem; 
+            width: 100%; 
+            max-width: 420px; 
+        }
         .hero-qhht-container {
-            display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 2rem;
             border-radius: 20px; 
+            /* Button Box look */
             background-color: rgba(230, 240, 250, 0.92); 
-            border: 1px solid var(--accent-cyan); 
-            box-shadow: 0 0 15px rgba(137, 221, 255, 0.1);
-            transition: all 0.3s ease; position: relative; overflow: hidden;
+            border: 2px solid var(--accent-cyan); /* Thicker border for button feel */
+            box-shadow: 0 0 15px rgba(137, 221, 255, 0.15);
+            transition: all 0.3s ease; 
+            position: relative; 
+            overflow: hidden;
+            cursor: pointer; /* Clickable cursor */
         }
         .hero-qhht-container:hover { 
             transform: translateY(-4px); 
             background-color: #fff; 
-            box-shadow: 0 0 25px rgba(137, 221, 255, 0.25); 
+            box-shadow: 0 0 25px rgba(137, 221, 255, 0.4); 
+            border-color: var(--accent-purple);
         }
-        .hero-qhht-logo { max-width: 180px; margin-bottom: 1rem; mix-blend-mode: multiply; }
-        .hero-qhht-text { font-family: var(--font-serif); color: #4A6E8C; font-size: 1.05rem; font-weight: 600; line-height: 1.6; }
-
-        /* --- Decorative SVG Icons (Hero) --- */
-        .deco-icon { position: absolute; z-index: 0; pointer-events: none; opacity: 0.6; }
-        .alien-peek { width: 80px; top: -40px; left: 5%; animation: peek 5s ease-in-out infinite alternate; opacity: 0.7; }
-        .rocket-fly { width: 60px; bottom: 10%; left: 5%; animation: fly 15s linear infinite; opacity: 0.5; }
-
-        @keyframes peek { 0% { transform: translateY(0); } 100% { transform: translateY(-15px); } }
-        @keyframes fly { 0% { transform: translate(0, 0) rotate(45deg); opacity: 0; } 20% { opacity: 0.6; } 80% { opacity: 0.6; } 100% { transform: translate(100px, -150px) rotate(45deg); opacity: 0; } }
-        @media (max-width: 768px) { .alien-peek { display: none; } }
-
-        /* SVG Colors & Common Styles */
-        .svg-stroke { stroke: var(--accent-cyan); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-        .svg-fill { fill: var(--bg-color); stroke: var(--accent-purple); stroke-width: 2; }
-        .svg-accent { fill: var(--accent-gold); }
-        /* Title SVGs specific styles */
-        .svg-title-fill { fill: rgba(137, 221, 255, 0.1); stroke: var(--accent-cyan); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-        .svg-title-stroke { stroke: var(--accent-cyan); stroke-width: 2; fill: none; stroke-linecap: round; }
-        .svg-title-accent { fill: var(--accent-purple); }
-        .svg-title-gold { fill: var(--accent-gold); }
-
-        /* --- FIXED FLOATING SHIP (Bottom Left) --- */
-        .fixed-ship-container {
-            position: fixed;
-            bottom: 100px;
-            left: 20px;
-            width: 120px;
-            height: 120px;
-            z-index: 9999; /* Top layer as requested */
-            animation: deepSpaceFloat 8s ease-in-out infinite;
-            pointer-events: none; /* Non-blocking */
-            opacity: 0.6; /* Semi-transparent as requested */
+        .hero-qhht-logo { 
+            max-width: 180px; 
+            margin-bottom: 1rem; 
+            mix-blend-mode: multiply; 
         }
-
-        /* Beam Animation */
-        .ufo-beam {
-            animation: beamPulse 4s ease-in-out infinite;
-            transform-origin: top center;
+        .hero-qhht-text { 
+            font-family: var(--font-serif); 
+            color: #4A6E8C; 
+            font-size: 1.05rem; 
+            font-weight: 700; 
+            line-height: 1.6; 
+            text-align: center;
         }
-        @keyframes beamPulse {
-            0%, 100% { opacity: 0.2; transform: scaleY(0.9); }
-            50% { opacity: 0.7; transform: scaleY(1.1); }
-        }
-
-        @keyframes deepSpaceFloat {
-            0%, 100% { transform: translateY(0) rotate(-5deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        /* Responsive behavior for the fixed ship */
-        @media (max-width: 1200px) {
-            .fixed-ship-container {
-                width: 80px;
-                height: 80px;
-                opacity: 0.4; /* More transparent on smaller screens */
-                bottom: 80px;
-                left: 10px;
-            }
-        }
-
-        /* --- About Me --- */
-        .about-intro { font-weight: 500; font-size: 1.35rem; margin-bottom: 3rem; text-align: center; font-family: var(--font-serif); color: var(--text-heading); line-height: 1.8; letter-spacing: 0.1em; text-shadow: 0 0 5px rgba(0,0,0,0.5);}
-        .about-collage { width: 100%; height: auto; border-radius: 20px; box-shadow: var(--card-shadow); margin-bottom: 4rem; display: block; border: 1px solid rgba(255,255,255,0.1); }
-
-        /* --- Starseeds Section --- */
-        .starseed-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; position: relative; }
-        .starseed-link { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; height: 100%; background-color: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.05); color: var(--text-primary); padding: 2rem; border-radius: 16px; text-align: center; transition: all 0.4s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.2); backdrop-filter: blur(5px); position: relative; overflow: hidden; }
-        .starseed-link::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent); opacity: 0.4; }
-        .starseed-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-heading); letter-spacing: 0.05em; text-shadow: 0 0 5px rgba(255,255,255,0.1); }
-        .starseed-desc { font-size: 0.95rem; color: var(--text-secondary); font-weight: normal; line-height: 1.7; text-align: justify; width: 100%; }
-        .starseed-link:hover { background-color: rgba(255, 255, 255, 0.06); border-color: var(--accent-cyan); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(137, 221, 255, 0.1); }
-        .starseed-link:hover .starseed-title { color: var(--accent-cyan); }
-        .starseed-link:hover .starseed-desc { color: var(--text-primary); }
-        @media (max-width: 768px) { .starseed-grid { grid-template-columns: 1fr; gap: 1.5rem; width: 100%; } .starseed-link { padding: 1.5rem; } }
 
         /* --- Process Grid --- */
         .qhht-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 4rem; flex-wrap: wrap; }
@@ -797,17 +835,51 @@
         <div class="container" style="display:flex; flex-direction:column; align-items:center;">
             <img src="Logo1.png" alt="光織舞繪 Logo" class="hero-logo-large">
 
-            <h1 class="hero-title">
-                光織舞繪
-                <!-- Cute SVG: UFO moved to right side inside H1 -->
-                <svg class="deco-icon ufo-float" viewBox="0 0 100 100">
-                    <ellipse cx="50" cy="50" rx="40" ry="12" class="svg-fill" fill="#2C3E50" stroke="#89DDFF" stroke-width="2"/>
-                    <path d="M30 45 Q50 20 70 45" fill="rgba(137, 221, 255, 0.3)" stroke="#89DDFF" stroke-width="2"/>
-                    <circle cx="20" cy="50" r="2" class="svg-accent" fill="#FFE082"/>
-                    <circle cx="50" cy="55" r="2" class="svg-accent" fill="#FFE082"/>
-                    <circle cx="80" cy="50" r="2" class="svg-accent" fill="#FFE082"/>
+            <h1 class="hero-title">光織舞繪</h1>
+            
+            <!-- New Central UFO Container (Positioned between H1 and H2) -->
+            <div class="hero-center-ufo">
+                <svg viewBox="0 0 200 150" style="overflow: visible;">
+                    <defs>
+                        <linearGradient id="beamGradHero" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFFFE0; stop-opacity:0.6" />
+                            <stop offset="100%" style="stop-color:#FFFFE0; stop-opacity:0" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Beam (Animated opacity/scale) -->
+                    <path class="hero-beam" d="M70 60 L40 130 L160 130 L130 60 Z" fill="url(#beamGradHero)" />
+                    
+                    <!-- Alien (Animated drop/rise) -->
+                    <g class="hero-alien">
+                        <circle cx="100" cy="100" r="12" fill="#2C3E50" stroke="#C792EA" stroke-width="2"/>
+                        <circle cx="95" cy="98" r="3" fill="#fff"/>
+                        <circle cx="105" cy="98" r="3" fill="#fff"/>
+                        <path d="M90 115 Q100 125 110 115" stroke="#C792EA" stroke-width="2" fill="none"/> <!-- Body/Arms hint -->
+                    </g>
+                    
+                    <!-- Ship (Static/Float, must cover top part of alien path) -->
+                    <g class="hero-ship-body">
+                        <!-- Glass Dome with better visibility -->
+                        <path d="M60 55 Q100 10 140 55" fill="rgba(137, 221, 255, 0.3)" stroke="#89DDFF" stroke-width="2"/>
+                        
+                        <!-- Alien inside dome (static, looking forward) -->
+                        <circle cx="100" cy="45" r="10" fill="#2C3E50" stroke="#C792EA" stroke-width="2"/>
+                        <circle cx="96" cy="43" r="2" fill="#fff"/>
+                        <circle cx="104" cy="43" r="2" fill="#fff"/>
+
+                        <!-- Ship Body -->
+                        <ellipse cx="100" cy="55" rx="80" ry="20" fill="#151725" stroke="#89DDFF" stroke-width="3"/>
+                        
+                        <!-- Lights -->
+                        <circle cx="40" cy="55" r="4" fill="#FFE082"/>
+                        <circle cx="70" cy="65" r="4" fill="#FFE082"/>
+                        <circle cx="100" cy="70" r="4" fill="#FFE082"/>
+                        <circle cx="130" cy="65" r="4" fill="#FFE082"/>
+                        <circle cx="160" cy="55" r="4" fill="#FFE082"/>
+                    </g>
                 </svg>
-            </h1>
+            </div>
             
             <h2 class="section-title hero-subtitle" style="margin-bottom: 0.5rem;">
                 <span class="title-segment">Selina Chu</span>
