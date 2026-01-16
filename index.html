@@ -171,7 +171,7 @@
             /* Modified Line-Height: Tighter for two lines */
             line-height: 1.4; 
             height: auto;
-            /* 修正: 強制不折行 (保留<br>的換行效果)，防止文字被擠壓換行 */
+            /* 修正: 強制不折行，配合下面的 media query 縮放字體 */
             white-space: nowrap; 
         }
         
@@ -181,7 +181,7 @@
             filter: brightness(1.1);
         }
 
-        /* 修正: RWD 按鈕字體自動縮放，確保不跑版 */
+        /* 修正: RWD 按鈕字體自動縮放，確保文字不跑版 */
         @media (max-width: 480px) {
             .btn {
                 padding: 8px 30px;
@@ -378,17 +378,21 @@
             }
             nav ul.active { display: flex; animation: slideDown 0.3s ease forwards; }
             
-            /* 修正1: 漢堡選單提示位置修正 - 強制定位於右下角 */
-            /* 使用 !important 覆蓋任何繼承的定位屬性，確保 top/left 被歸零，bottom/right 生效 */
+            /* 
+             * 修正重點: 漢堡選單提示位置修正 
+             * 強制將 position: fixed 的元素定位在「整個網頁視窗」的右下角
+             * top: auto 與 left: auto 是關鍵，用來清除預設的靜態定位(這就是為什麼之前會黏在漢堡選單的原因)
+             */
             nav ul.active ~ .nav-scroll-indicator:not(.hidden) { 
                 display: flex !important; 
                 position: fixed !important;
-                top: auto !important;     /* 關鍵：取消上方定位，避免黏在漢堡選單上 */
-                left: auto !important;    /* 關鍵：取消左側定位 */
-                bottom: 30px !important;  /* 設定底部距離 */
-                right: 30px !important;   /* 設定右側距離 */
-                transform: none !important;
-                z-index: 2002;            /* 提高層級，確保在選單背景之上 */
+                top: auto !important;     /* 清除上方定位 */
+                left: auto !important;    /* 清除左側定位 */
+                bottom: 25px !important;  /* 固定於視窗底部 25px */
+                right: 25px !important;   /* 固定於視窗右側 25px */
+                margin: 0 !important;     /* 清除可能的外邊距 */
+                z-index: 2005 !important; /* 確保層級最高 */
+                /* 保留動畫但不需要強制 transform: none，因為 bounce 動畫是 Y 軸 */
             }
 
             nav li { width: 100%; text-align: center; }
@@ -511,7 +515,8 @@
             position: relative;
             width: 160px;
             height: 140px;
-            margin: 1.5rem auto; 
+            /* 修改此處: 減少下方邊距 (bottom margin) 以拉近距離 */
+            margin: 1.5rem auto 0.2rem auto; 
             z-index: 5;
             display: block;
         }
