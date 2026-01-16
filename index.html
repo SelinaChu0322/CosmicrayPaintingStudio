@@ -171,13 +171,22 @@
             /* Modified Line-Height: Tighter for two lines */
             line-height: 1.4; 
             height: auto;
-            white-space: pre-line; 
+            /* 修正: 強制不折行 (保留<br>的換行效果)，防止文字被擠壓換行 */
+            white-space: nowrap; 
         }
         
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(137, 221, 255, 0.3);
             filter: brightness(1.1);
+        }
+
+        /* 修正: RWD 按鈕字體自動縮放，確保不跑版 */
+        @media (max-width: 480px) {
+            .btn {
+                padding: 8px 30px;
+                font-size: clamp(0.85rem, 4.5vw, 1rem); 
+            }
         }
         
         .divider, .section-title::after {
@@ -369,15 +378,17 @@
             }
             nav ul.active { display: flex; animation: slideDown 0.3s ease forwards; }
             
-            /* Show scroll indicator when menu is active on mobile - Fixed to Bottom Right */
-            nav ul.active + .nav-scroll-indicator:not(.hidden) { 
-                display: flex; 
-                position: fixed;
-                bottom: 25px !important;
-                right: 25px !important;
-                left: auto !important;
+            /* 修正1: 漢堡選單提示位置修正 - 強制定位於右下角 */
+            /* 使用 !important 覆蓋任何繼承的定位屬性，確保 top/left 被歸零，bottom/right 生效 */
+            nav ul.active ~ .nav-scroll-indicator:not(.hidden) { 
+                display: flex !important; 
+                position: fixed !important;
+                top: auto !important;     /* 關鍵：取消上方定位，避免黏在漢堡選單上 */
+                left: auto !important;    /* 關鍵：取消左側定位 */
+                bottom: 30px !important;  /* 設定底部距離 */
+                right: 30px !important;   /* 設定右側距離 */
                 transform: none !important;
-                z-index: 2000;
+                z-index: 2002;            /* 提高層級，確保在選單背景之上 */
             }
 
             nav li { width: 100%; text-align: center; }
@@ -693,6 +704,15 @@
             font-weight: 700; 
             line-height: 1.6; 
             text-align: center;
+            /* 修正: 強制不折行 (保留<br>的換行效果) */
+            white-space: nowrap;
+        }
+
+        /* 修正: RWD QHHT文字自動縮放 */
+        @media (max-width: 480px) {
+            .hero-qhht-text {
+                font-size: clamp(0.8rem, 4vw, 1.05rem); 
+            }
         }
 
         /* --- Process Grid --- */
