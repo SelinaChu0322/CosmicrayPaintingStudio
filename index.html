@@ -556,7 +556,9 @@
         /* --- Decorative SVG Icons (Hero) --- */
         .deco-icon { position: absolute; z-index: 0; pointer-events: none; opacity: 0.6; }
         .alien-peek { width: 80px; top: -40px; left: 5%; animation: peek 5s ease-in-out infinite alternate; opacity: 0.7; }
-        .rocket-fly { width: 60px; bottom: 10%; left: 5%; animation: fly 15s linear infinite; opacity: 0.5; }
+        
+        /* 修改: 將 rocket-fly 的位置往下移，使其靠近 LINE 按鈕的高度 (bottom: 2%) */
+        .rocket-fly { width: 60px; bottom: 2%; left: 5%; animation: fly 15s linear infinite; opacity: 0.5; }
 
         @keyframes peek { 0% { transform: translateY(0); } 100% { transform: translateY(-15px); } }
         @keyframes fly { 0% { transform: translate(0, 0) rotate(45deg); opacity: 0; } 20% { opacity: 0.6; } 80% { opacity: 0.6; } 100% { transform: translate(100px, -150px) rotate(45deg); opacity: 0; } }
