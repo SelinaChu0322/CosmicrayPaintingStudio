@@ -1,31 +1,59 @@
-# =========================
+# ===================================
 # Global access
-# =========================
+# ===================================
 User-agent: *
 Allow: /
 
-# =========================
+# ===================================
 # Search engines
-# =========================
+# ===================================
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-# =========================
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# ===================================
 # AI crawlers / LLMs
-# =========================
+# ===================================
+
+# OpenAI
 User-agent: GPTBot
 Allow: /
 
+# Anthropic
 User-agent: ClaudeBot
 Allow: /
 
+# Perplexity
 User-agent: PerplexityBot
 Allow: /
 
-# =========================
+# Google AI / Gemini
+User-agent: Google-Extended
+Allow: /
+
+# Amazon AI / Alexa
+User-agent: Amazonbot
+Allow: /
+
+# Common AI crawlers
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# ===================================
 # Sitemap location
-# =========================
+# ===================================
 Sitemap: https://selinachu0322.github.io/CosmicrayPaintingStudio/sitemap.xml
