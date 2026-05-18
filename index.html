@@ -497,6 +497,7 @@
             align-items: center;
             height: 100%;
             letter-spacing: 0.05em;
+            white-space: nowrap;
         }
         nav a::after {
             content: ''; 
@@ -565,8 +566,7 @@
             }
             nav ul.active { display: flex; animation: slideDown 0.3s ease forwards; }
             
-            /* 
-             * 修正重點: 漢堡選單提示位置修正 
+            /* * 修正重點: 漢堡選單提示位置修正 
              * 強制將 position: fixed 的元素定位在「整個網頁視窗」的右下角
              * top: auto 與 left: auto 是關鍵，用來清除預設的靜態定位(這就是為什麼之前會黏在漢堡選單的原因)
              */
@@ -1040,6 +1040,7 @@
                     <li><a href="#about">ABOUT ME</a></li>
                     <li><a href="#starseeds">星際靈魂分析</a></li>
                     <li><a href="#volunteers">星際<svg class="icon-multiply" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>志願者</a></li>
+                    <li><a href="#institute">星際靈魂研究所</a></li>
                     <li><a href="#resources">探索更多</a></li>
                 </ul>
                 <div class="nav-scroll-indicator" id="navScrollIndicator">
@@ -1434,7 +1435,7 @@
                 <div class="info-card">
                     <h3>其他催眠須知</h3>
                     <ul class="notice-list">
-                        <li>催眠的次數並沒有被限制，必要時，還是可以再次進行催眠，只是希望個案能不要過渡依賴，好好的體驗自己的生活。</li>
+                        <li>催眠的次數並沒有被限制，必要時，還是 শারীরিক還是可以再次進行催眠，只是希望個案能不要過渡依賴，好好的體驗自己的生活。</li>
                         <li class="text-highlight"><span class="text-highlight">過程中的訪談、催眠內容等資訊皆為個人隱私，絕對會保密，也絕不容許相關資訊與第三人談論</span></li>
                         <li>此為催眠者最基本的道德操守，請放心並持開放且信任狀態，催眠中才能達到獲取真正的答案與療癒。</li>
                         <li>若催眠師欲利用(分享)個案的前世故事、以及其前世故事背後的課題、影響疫病情緒的關聯性等訊息，<span class="text-highlight">發佈於任何公眾平台，必會針求個案同意，並確認公開的內容範圍。</span></li>
@@ -1710,7 +1711,7 @@
                 </svg>
             </div>
             <h2 class="section-title">
-                <span class="title-segment">星際種子<svg class="icon-multiply" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>三波志願者</span>
+                <span class="title-segment">星際種子<svg class="icon-multiply" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>志願者</span>
             </h2>
             
             <div style="text-align: center; margin-bottom: 3rem; line-height: 2;">
@@ -1791,6 +1792,47 @@
                     <svg class="card-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
                     <div class="starseed-title">其他相關內容</div>
                     <div class="starseed-desc">更多關於星際靈魂的深度探討與分享。</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 星際靈魂研究所 (深色背景) -->
+    <section id="institute" style="background-color: rgba(0, 0, 0, 0.1); padding-bottom: 7rem;">
+        <div class="container">
+            <!-- Network/Connection Icon -->
+            <div class="title-icon-wrapper">
+                <svg class="title-svg" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="30" class="svg-title-fill" />
+                    <circle cx="50" cy="50" r="10" fill="none" stroke="#89DDFF" stroke-width="2" />
+                    <path d="M50 20 L50 40 M50 60 L50 80 M20 50 L40 50 M60 50 L80 50" stroke="#C792EA" stroke-width="2" stroke-linecap="round" />
+                    <circle cx="50" cy="20" r="4" class="svg-title-accent"/>
+                    <circle cx="50" cy="80" r="4" class="svg-title-accent"/>
+                    <circle cx="20" cy="50" r="4" class="svg-title-accent"/>
+                    <circle cx="80" cy="50" r="4" class="svg-title-accent"/>
+                </svg>
+            </div>
+            <h2 class="section-title">
+                <span class="title-segment">星際靈魂研究所</span>
+            </h2>
+            
+            <div style="text-align: center; margin-bottom: 3rem; line-height: 2;">
+                <p>在量子催眠與靈性探索的過程中，許多人開始重新理解自己的感知方式與生命經驗。</p>
+                <p>我透過在量子催眠工作案例、潛意識研究與靈性觀點，特別這個專區統整了關於「星際種子」、「星際靈魂」、「ADHD、高敏感」、「解離傾向與解離性身分障礙」、「外星前世記憶」、「地球任務」與「意識探索」等主題文章，從量子催眠、潛意識、神經多樣性與靈性多維視角，深入探討人類意識與靈魂成長的可能性。</p>
+            </div>
+
+            <div class="starseed-grid">
+                <a href="https://vocus.cc/article/69abe4b1fd89780001d6558b" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6zm0 10a4 4 0 1 1 4-4 4 4 0 0 1-4 4z"/></svg>
+                    <div class="starseed-title" style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">量子催眠中為何有許多「外星前世記憶」的人，同時具有 ADHD、高敏感與解離傾向？</div>
+                </a>
+                <a href="https://vocus.cc/article/69b8038dfd897800013f3d01" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M12 2C6.5 2 3 6.5 3 12s4.5 10 9 10 9-5.5 9-10S17.5 2 12 2z" /><path d="M7 13c0-1.5 1-2.5 2.5-1.5S11 14 10 15c-1 1-3 1-3-2z" /><path d="M17 13c0-1.5-1-2.5-2.5-1.5S13 14 14 15c1 1 3 1 3-2z" /></svg>
+                    <div class="starseed-title" style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">為什麼很多星際種子都有 ADHD？可能只是來自不同文明的操作系統</div>
+                </a>
+                <a href="https://vocus.cc/article/6a09cd79fd89780001b530c5" target="_blank" class="starseed-link">
+                    <svg class="card-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <div class="starseed-title" style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 0;">量子催眠揭露：星際靈魂（非遠古時期）的地球任務、挑戰與適應指南</div>
                 </a>
             </div>
         </div>
@@ -1882,8 +1924,8 @@
                     <img src="vocus.png" alt="Vocus" class="custom-icon-large">
                 </a>
                 
-                <a href="https://www.xiaohongshu.com/user/profile/6570022200000000200362ff" target="_blank" title="小紅書">
-                    <img src="xiaohongshu.png" alt="XiaoHongShu" class="custom-icon-large">
+                <a href="https://b23.tv/ax8RymC" target="_blank" title="Bilibili">
+                    <img src="bilibili.png" alt="Bilibili" class="custom-icon-large">
                 </a>
             </div>
 	   <address>
