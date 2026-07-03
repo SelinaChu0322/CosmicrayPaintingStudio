@@ -1,12 +1,8 @@
-# ===================================
 # Global access
-# ===================================
 User-agent: *
 Allow: /
 
-# ===================================
 # Search engines
-# ===================================
 User-agent: Googlebot
 Allow: /
 
@@ -19,9 +15,7 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
-# ===================================
 # AI crawlers / LLMs
-# ===================================
 
 # OpenAI
 User-agent: GPTBot
@@ -59,7 +53,5 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-# ===================================
 # Sitemap location
-# ===================================
 Sitemap: https://selinachu0322.github.io/CosmicrayPaintingStudio/Sitemap.xml
