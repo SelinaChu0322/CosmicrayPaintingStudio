@@ -53,6 +53,12 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 # ===================================
 # Sitemap location
 # ===================================

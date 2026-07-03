@@ -6,12 +6,10 @@
     
     <title>【光織舞繪】量子催眠服務 | Selina Chu</title>
 
-
 <meta name="description" content="量子催眠師 Selina Chu 提供量子催眠與意識探索服務，協助探索潛意識、理解生命課題並促進自我覺察與成長。">
 
 <link rel="canonical" href="https://selinachu0322.github.io/CosmicrayPaintingStudio/">
 <link rel="llms-txt" href="https://aeo.washinmura.jp/aeo/shops/selinachu0322-github-io/llms.txt">
-
 
 <!-- hreflang -->
 <link rel="alternate" hreflang="zh-TW" href="https://selinachu0322.github.io/CosmicrayPaintingStudio/" />
@@ -447,7 +445,7 @@
             font-size: 1.1em;
         }
 
-        /* --- Header / Navigation --- */
+        /* --- STREAMING_CHUNK:Navigation Styling... --- */
         header {
             height: var(--header-height);
             position: fixed;
@@ -566,7 +564,8 @@
             }
             nav ul.active { display: flex; animation: slideDown 0.3s ease forwards; }
             
-            /* * 修正重點: 漢堡選單提示位置修正 
+            /* 
+             * 修正重點: 漢堡選單提示位置修正 
              * 強制將 position: fixed 的元素定位在「整個網頁視窗」的右下角
              * top: auto 與 left: auto 是關鍵，用來清除預設的靜態定位(這就是為什麼之前會黏在漢堡選單的原因)
              */
@@ -593,7 +592,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- Section: Common --- */
+        /* --- STREAMING_CHUNK:Section Common Styles... --- */
         section {
             width: 100%; 
             padding-top: 7rem;
@@ -663,8 +662,9 @@
         }
         
         /* #volunteers 默認為淺色（即原本背景），無需特別設定背景色 */
+        /* #institute 於 inline style 設為深色以達成交錯 */
 
-        /* --- Hero --- */
+        /* --- STREAMING_CHUNK:Hero Styles... --- */
         #home {
             min-height: 90vh;
             display: flex;
@@ -800,6 +800,7 @@
             }
         }
 
+        /* --- STREAMING_CHUNK:Other Section Styles... --- */
         /* --- About Me --- */
         .about-intro { font-weight: 500; font-size: 1.35rem; margin-bottom: 3rem; text-align: center; font-family: var(--font-serif); color: var(--text-heading); line-height: 1.8; letter-spacing: 0.1em; text-shadow: 0 0 5px rgba(0,0,0,0.5);}
         .about-collage { width: 100%; height: auto; border-radius: 20px; box-shadow: var(--card-shadow); margin-bottom: 4rem; display: block; border: 1px solid rgba(255,255,255,0.1); }
@@ -1146,9 +1147,20 @@
                 <span class="title-segment">QHHT量子催眠師</span>
             </h2> 
             
-            <span class="text-highlight" style="margin-top: 1rem; max-width: 800px; line-height: 2; text-align: left; margin-bottom: 2rem;">
+            <span class="text-highlight" style="margin-top: 1rem; max-width: 800px; line-height: 2; text-align: left; margin-bottom: 2rem; display: block;">
                 量子催眠是一種透過深度放鬆狀態(希塔/Theta θ 腦波)，由催眠師引導個體探索潛意識記憶與內在訊息的方式，著重於理解、覺察與整合，而非控制或暗示。
             </span>
+
+            <div style="max-width: 800px; text-align: justify; margin-bottom: 3rem; color: var(--text-primary); font-size: 0.95rem; line-height: 1.8;">
+                <h3 class="text-highlight" style="font-size: 1.2rem; margin-bottom: 1rem; font-family: var(--font-sans); text-align: center; text-shadow: none;">關於光織舞繪｜量子催眠．潛意識探索服務｜宇宙知識分享平台</h3>
+                <p style="text-align: left; margin-bottom: 1rem;">光織舞繪（Cosmic Ray Painting Studio）由量子催眠師 Selina Chu 創立，致力於分享量子催眠（Quantum Healing Hypnosis Technique, QHHT）、潛意識探索、前世回溯、星際回溯、星際靈魂研究、雙生火焰、瑪雅印記，以及意識成長等主題。</p>
+                <p style="text-align: left; margin-bottom: 1rem;">我們相信，每一段生命經驗都蘊含著理解自己的契機。無論你是初次接觸量子催眠，或正在尋找人生方向、探索潛意識、靈魂藍圖與生命課題，都能在這裡找到兼具深度、實務案例與研究整理的內容，協助你更深入理解自己的生命歷程、內在模式與靈魂天賦。</p>
+                <p style="text-align: left; margin-bottom: 0;">本站長期分享量子催眠實務經驗、案例研究與靈性探索內容，涵蓋星際種子、星際靈魂、雙生火焰、瑪雅印記、靈魂使命、神經多樣性（ADHD、高敏感）、自我覺察、身心靈整合等主題，持續建立完整且系統化的華文知識庫。</p>
+            </div>
+
+            <h3 class="text-highlight" style="font-size: 1.1rem; margin-bottom: 1.5rem; font-family: var(--font-sans); letter-spacing: 0.1em; text-align: center; font-weight: 500; opacity: 0.9;">
+                核心研究及探索主題
+            </h3>
             
             <div class="hero-keywords">
                 <div class="kw-row">
@@ -1435,7 +1447,7 @@
                 <div class="info-card">
                     <h3>其他催眠須知</h3>
                     <ul class="notice-list">
-                        <li>催眠的次數並沒有被限制，必要時，若還有疑惑或是想探索的議題，還是可以再次進行催眠，只是希望個案能不要過渡依賴，好好的體驗自己的生活。</li>
+                        <li>催眠的次數並沒有被限制，必要時，還是可以再次進行催眠，只是希望個案能不要過渡依賴，好好的體驗自己的生活。</li>
                         <li class="text-highlight"><span class="text-highlight">過程中的訪談、催眠內容等資訊皆為個人隱私，絕對會保密，也絕不容許相關資訊與第三人談論</span></li>
                         <li>此為催眠者最基本的道德操守，請放心並持開放且信任狀態，催眠中才能達到獲取真正的答案與療癒。</li>
                         <li>若催眠師欲利用(分享)個案的前世故事、以及其前世故事背後的課題、影響疫病情緒的關聯性等訊息，<span class="text-highlight">發佈於任何公眾平台，必會針求個案同意，並確認公開的內容範圍。</span></li>
