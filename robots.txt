@@ -62,4 +62,4 @@ Allow: /
 # ===================================
 # Sitemap location
 # ===================================
-Sitemap: https://selinachu0322.github.io/CosmicrayPaintingStudio/sitemap.xml
+Sitemap: https://selinachu0322.github.io/CosmicrayPaintingStudio/Sitemap.xml
