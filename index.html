@@ -481,6 +481,35 @@
             transform: scale(1.1);
         }
 
+        /* 針對 PNG 圖片轉換為單色 ICON 的特殊樣式 */
+        .card-icon-dragon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 15px;
+            background-color: var(--accent-cyan);
+            -webkit-mask: url('https://img.icons8.com/external-others-inmotus-design/67/external-Dragon-dragon-others-inmotus-design-2.png') no-repeat center;
+            mask: url('https://img.icons8.com/external-others-inmotus-design/67/external-Dragon-dragon-others-inmotus-design-2.png') no-repeat center;
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            filter: drop-shadow(0 0 5px rgba(137, 221, 255, 0.3));
+            transition: all 0.3s ease;
+        }
+        .starseed-link:hover .card-icon-dragon {
+            background-color: var(--accent-gold);
+            transform: scale(1.1);
+        }
+        .card-icon-img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 15px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(137, 221, 255, 0.3));
+            transition: all 0.3s ease;
+        }
+        .starseed-link:hover .card-icon-img {
+            transform: scale(1.1);
+        }
+
         /* 按鈕 (LINE 官方帳號按鈕優化 - Moderate Height) */
         .btn {
             display: inline-flex;
@@ -808,13 +837,10 @@
         }
 
         /* 深色區塊背景設定 (一淺一深交錯) */
-        #qhht, #process, #pricing, #starseeds, #resources {
+        #qhht, #process, #about, #volunteers, #resources {
             background-color: rgba(0, 0, 0, 0.1); 
             padding-bottom: 7rem; 
         }
-        
-        /* #volunteers 默認為淺色（即原本背景），無需特別設定背景色 */
-        /* #institute 於 inline style 設為深色以達成交錯 */
 
         /* --- STREAMING_CHUNK:Hero Styles... --- */
         #home {
@@ -1185,10 +1211,10 @@
 
             <nav>
                 <ul id="nav-list">
+                    <li><a href="#about-us">關於光織舞繪</a></li>
                     <li><a href="#qhht">何謂量子催眠</a></li>
                     <li><a href="#qa">催眠FQA</a></li>
                     <li><a href="#process">催眠前須知</a></li>
-                    <li><a href="#charity">公益名額預約</a></li>
                     <li><a href="#pricing">收費與預約</a></li>
                     <li><a href="#about">ABOUT ME</a></li>
                     <li><a href="#starseeds">星際靈魂分析</a></li>
@@ -1303,7 +1329,7 @@
                 量子催眠是一種透過深度放鬆狀態(希塔/Theta θ 腦波)，由催眠師引導個體探索潛意識記憶與內在訊息的方式，著重於理解、覺察與整合，而非控制或暗示。
             </span>
 
-            <div style="max-width: 800px; text-align: justify; margin-bottom: 3rem; color: var(--text-primary); font-size: 0.95rem; line-height: 1.8;">
+            <div id="about-us" style="max-width: 800px; text-align: justify; margin-bottom: 3rem; color: var(--text-primary); font-size: 0.95rem; line-height: 1.8; scroll-margin-top: calc(var(--header-height) + 2rem);">
                 <h3 class="text-highlight" style="font-size: 1.2rem; margin-bottom: 1rem; font-family: var(--font-sans); text-align: center; text-shadow: none;">關於光織舞繪｜量子催眠‧潛意識探索服務｜宇宙知識分享平台</h3>
                 <p style="text-align: left; margin-bottom: 1rem;">光織舞繪（Cosmic Ray Painting Studio）由量子催眠師 Selina Chu 創立，致力於分享量子催眠（Quantum Healing Hypnosis Technique, QHHT）、潛意識探索、前世回溯、星際回溯、星際靈魂研究、雙生火焰、瑪雅印記，以及意識成長等主題。</p>
                 <p style="text-align: left; margin-bottom: 1rem;">我們相信，每一段生命經驗都蘊含著理解自己的契機。無論你是初次接觸量子催眠，或正在尋找人生方向、探索潛意識、靈魂藍圖與生命課題，都能在這裡找到兼具深度、實務案例與研究整理的內容，協助你更深入理解自己的生命歷程、內在模式與靈魂天賦。</p>
@@ -1696,44 +1722,7 @@
         </div>
     </section>
 
-    <!-- 公益名額區塊 (淺色背景) -->
-    <section id="charity">
-        <div class="container">
-            <!-- Alien holding Heart -->
-            <div class="title-icon-wrapper">
-                <svg class="title-svg" viewBox="0 0 100 100">
-                    <circle cx="50" cy="40" r="25" class="svg-title-fill" />
-                    <circle cx="40" cy="35" r="3" class="svg-title-accent"/>
-                    <circle cx="60" cy="35" r="3" class="svg-title-accent"/>
-                    <path d="M50 70 L40 60 Q30 50 40 40 Q50 30 60 40 Q70 50 60 60 Z" fill="#FFAB91" />
-                    <path d="M30 55 Q20 50 15 40" class="svg-title-stroke"/>
-                    <path d="M70 55 Q80 50 85 40" class="svg-title-stroke"/>
-                </svg>
-            </div>
-            <h2 class="section-title">限量公益名額<br>(額滿為止)</h2>
-            
-            <div class="charity-card">
-                <h3 class="charity-title">公益名額說明</h3>
-                <div class="charity-text text-center">
-                    無須收費<br> (<span class="text-highlight">僅需負擔承租空間$3,500</span>)<br>
-                    催眠地點：台北飯店客房<br><br>
-                    請直接加入Line官方帳號進行預約<br>
-                    與我確認實際可預約日期<br>
-                    並完成預付訂金$2,500<br>
-                    才算完成預約喔♥<br><br>
-                    完成預約後，請務必詳細閱讀<a href="#process" style="color:var(--accent-cyan);">「催眠前須知」<i class="fas fa-link" style="font-size:0.8em;"></i></a><br>
-                    若有任何問題請直接於Line官方帳號中提問。<br>
-                    現正開放預約中！可隨時以LINE輕鬆預約。
-                </div>
-                
-                <a href="https://lin.ee/8sBm6wX" target="_blank" class="btn">
-                    Line官方帳號<br>預約
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 催眠收費與預約 (標準價格) (深色背景) -->
+    <!-- 催眠收費與預約 (淺色背景) -->
     <section id="pricing">
         <div class="container">
             <!-- Alien with Crystal/Gem -->
@@ -1766,6 +1755,12 @@
                     </div>
                 </div>
 
+                <p style="margin-top: 2rem; text-align: center; color: var(--accent-gold); font-weight: 500; line-height: 1.8; text-shadow: 0 0 5px rgba(255, 224, 130, 0.2);">
+                    完成預約後，請務必詳細閱讀<a href="https://selinachu0322.github.io/CosmicrayPaintingStudio/#process" style="color: var(--accent-cyan); text-decoration: underline;">「催眠前須知」<i class="fas fa-link" style="font-size: 0.85em; margin-left: 2px;"></i></a><br>
+                    若有任何問題請直接於Line官方帳號中提問。<br>
+                    現正開放預約中！可隨時以LINE輕鬆預約。
+                </p>
+
                 <a href="https://lin.ee/8sBm6wX" target="_blank" class="btn">
                     Line官方帳號<br>預約
                 </a>
@@ -1773,7 +1768,7 @@
         </div>
     </section>
 
-    <!-- ABOUT ME 區塊 (淺色背景) -->
+    <!-- ABOUT ME 區塊 (深色背景) -->
     <section id="about">
         <div class="container">
             <!-- Alien Waving -->
@@ -1818,7 +1813,7 @@
         </div>
     </section>
 
-    <!-- 十大星際種子(Starseed)星際靈魂分析 (深色背景) -->
+    <!-- 十大星際種子(Starseed)星際靈魂分析 (淺色背景) -->
     <section id="starseeds">
         <!-- Cute SVG: Alien -->
         <svg class="deco-icon alien-peek" viewBox="0 0 100 100">
@@ -1877,12 +1872,12 @@
                     <div class="starseed-desc">與古老文明、能量科技、水晶意識與集體記憶甦醒有關，常出現在對失落文明有深刻共鳴的靈魂中。</div>
                 </a>
                 <a href="https://vocus.cc/article/6892efeffd89780001bb742c" target="_blank" class="starseed-link">
-                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <img class="card-icon-img" width="96" height="96" src="https://img.icons8.com/pulsar-line/48/crystal.png" alt="crystal" alt="crystal">
                     <div class="starseed-title">🌸 雷姆利亞（Lemuria）</div>
                     <div class="starseed-desc">代表母性能量、地球連結與心的文明，常見於具有溫柔療癒特質與自然共感能力的靈魂。</div>
                 </a>
                 <a href="https://vocus.cc/article/680b832dfd897800011e1c2a" target="_blank" class="starseed-link">
-                    <svg class="card-icon" viewBox="0 0 24 24"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                    <div class="card-icon-dragon"></div>
                     <div class="starseed-title">🐉 天龍座（Draco）／龍族</div>
                     <div class="starseed-desc">與原初力量、守護意識與能量邊界有關，常涉及力量整合、權威課題與深層轉化。</div>
                 </a>
@@ -1942,7 +1937,7 @@
         </div>
     </section>
 
-    <!-- 星際種子✖三波志願者 (淺色背景 - 即無深色疊加) -->
+    <!-- 星際種子✖三波志願者 (深色背景) -->
     <section id="volunteers">
         <div class="container">
             <!-- Alien Sending Signal/Love -->
@@ -2047,8 +2042,8 @@
         </div>
     </section>
 
-    <!-- 星際靈魂研究所 (深色背景) -->
-    <section id="institute" style="background-color: rgba(0, 0, 0, 0.1); padding-bottom: 7rem;">
+    <!-- 星際靈魂研究所 (淺色背景) -->
+    <section id="institute">
         <div class="container">
             <!-- Network/Connection Icon -->
             <div class="title-icon-wrapper">
@@ -2088,7 +2083,7 @@
         </div>
     </section>
 
-    <!-- 更多資源 (深色背景 - 修改為深色以符合交錯) -->
+    <!-- 更多資源 (深色背景) -->
     <section id="resources">
         <div class="container">
             <!-- Octopus Alien -->
