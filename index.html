@@ -498,6 +498,25 @@
             background-color: var(--accent-gold);
             transform: scale(1.1);
         }
+        
+        /* 針對雷姆利亞 PNG 圖片轉換為單色 ICON 的特殊樣式 */
+        .card-icon-crystal {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 15px;
+            background-color: var(--accent-cyan);
+            -webkit-mask: url('https://img.icons8.com/pulsar-line/48/crystal.png') no-repeat center;
+            mask: url('https://img.icons8.com/pulsar-line/48/crystal.png') no-repeat center;
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            filter: drop-shadow(0 0 5px rgba(137, 221, 255, 0.3));
+            transition: all 0.3s ease;
+        }
+        .starseed-link:hover .card-icon-crystal {
+            background-color: var(--accent-gold);
+            transform: scale(1.1);
+        }
+
         .card-icon-img {
             width: 40px;
             height: 40px;
@@ -745,8 +764,7 @@
             }
             nav ul.active { display: flex; animation: slideDown 0.3s ease forwards; }
             
-            /* 
-             * 修正重點: 漢堡選單提示位置修正 
+            /* * 修正重點: 漢堡選單提示位置修正 
              * 強制將 position: fixed 的元素定位在「整個網頁視窗」的右下角
              * top: auto 與 left: auto 是關鍵，用來清除預設的靜態定位(這就是為什麼之前會黏在漢堡選單的原因)
              */
@@ -1615,7 +1633,7 @@
                     <p><strong>Q：高敏感一定是星際種子嗎？</strong><br>
                     A：不一定。<br>
                     高敏感（Highly Sensitive Person, HSP）是一種已被心理學研究描述的人格特質，而星際種子則屬於靈性領域中的概念，兩者並不能直接畫上等號。<br>
-                    有些星際種子可能具有高敏感特質，但高敏感者未必就是星際種子。更重要的是理解自己的特質，學會與自身的敏感度和平共處。</p>
+                    有些星際種子可能具有高敏感特質，隨然高敏感者未必就是星際種子。更重要的是理解自己的特質，學會與自身的敏感度和平共處。</p>
                 </div>
 
                 <div class="qa-item">
@@ -1756,7 +1774,7 @@
                 </div>
 
                 <p style="margin-top: 2rem; text-align: center; color: var(--accent-gold); font-weight: 500; line-height: 1.8; text-shadow: 0 0 5px rgba(255, 224, 130, 0.2);">
-                    完成預約後，請務必詳細閱讀<a href="https://selinachu0322.github.io/CosmicrayPaintingStudio/#process" style="color: var(--accent-cyan); text-decoration: underline;">「催眠前須知」<i class="fas fa-link" style="font-size: 0.85em; margin-left: 2px;"></i></a><br>
+                    完成預約後，請務必詳細閱讀<a href="https://selinachu0322.github.io/CosmicrayPaintingStudio/#process" style="color: var(--accent-cyan); text-decoration: none;">「催眠前須知」<i class="fas fa-link" style="font-size: 0.85em; margin-left: 2px;"></i></a><br>
                     若有任何問題請直接於Line官方帳號中提問。<br>
                     現正開放預約中！可隨時以LINE輕鬆預約。
                 </p>
@@ -1792,7 +1810,7 @@
                     原本身為靈性小白的我，是如何踏上靈性之路；成為量子催眠療法的催眠師的呢？
                 </p>
                 
-                <p>在2021/11/11與我的雙生靈魂(雙生火焰)<a href="#note1" class="sup-note"><sup>[註1]</sup></a>相遇(此時的表層意識並不知道)，我們互相吐露傷痛、彼此吸引、相愛、交往，但卻在2023/06/04我們分離了，我們各自的身心靈、生活(三維世界)都發生了毀滅般的衝擊，我經歷了一個多月的靈魂暗夜(指無法理解自己存在這個世界的意義與價值；以及無法認同這個世界醜陋的部份)，這段期間，我開始接觸了靈性相關的影片，我選擇臣服於當下的狀態，也接受我深愛的他選擇離開，當我臣服時，2023/07/17宇宙讓我發現「高我」<a href="#note2" class="sup-note"><sup>[註2]</sup></a>的存在，以及知道我們是雙生靈魂(祂讓我發現一些共時性的證據)，而我才明白我們的靈魂其實從未分離過。</p>
+                <p>在2021/11/11與我的雙生靈魂(雙生火焰)<a href="#note1" class="sup-note"><sup>[註1]</sup></a>相遇(此時的表層意識並不知道)，我們互相吐露傷痛、彼此吸引、相愛、交往，但卻在2023/06/04我們分離了，我們各自的身心靈、生活(三維世界)都發生了毀滅般的衝擊，我經歷了一個多月的靈魂暗夜(指無法理解自己存在這個世界的意義與價值；以及無法認同這個世界醜陋的部份)，這段期間，我開始接觸了靈性相關影片，我選擇臣服於當下的狀態，也接受我深愛的他選擇離開，當我臣服時，2023/07/17宇宙讓我發現「高我」<a href="#note2" class="sup-note"><sup>[註2]</sup></a>的存在，以及知道我們是雙生靈魂(祂讓我發現一些共時性的證據)，而我才明白我們的靈魂其實從未分離過。</p>
 
                 <p>自從覺醒後(察覺高我與雙生靈魂)，以前的輕微恐慌症、失眠、情執等恐懼、不安，還有原生家庭等業力，都得到了治癒與釋放，在這段期間，我也看見自己因為這些過往的情緒、創傷中，而產生出的病痛(輕微恐慌症、心悸、甲狀腺結節、巧克力囊腫…等)，還有看到家人、朋友及新聞報導，很多人都因為不同的生理和心理的疾病感到痛苦，而這些病痛一直深深困擾著人們，我很希望讓人們遠離這些痛苦。</p>
 
@@ -1872,7 +1890,7 @@
                     <div class="starseed-desc">與古老文明、能量科技、水晶意識與集體記憶甦醒有關，常出現在對失落文明有深刻共鳴的靈魂中。</div>
                 </a>
                 <a href="https://vocus.cc/article/6892efeffd89780001bb742c" target="_blank" class="starseed-link">
-                    <img class="card-icon-img" width="96" height="96" src="https://img.icons8.com/pulsar-line/48/crystal.png" alt="crystal" alt="crystal">
+                    <div class="card-icon-crystal"></div>
                     <div class="starseed-title">🌸 雷姆利亞（Lemuria）</div>
                     <div class="starseed-desc">代表母性能量、地球連結與心的文明，常見於具有溫柔療癒特質與自然共感能力的靈魂。</div>
                 </a>
